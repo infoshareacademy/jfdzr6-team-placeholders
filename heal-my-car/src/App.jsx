@@ -15,6 +15,8 @@ import Wrapper from "../components/Wrapper";
 import { Form1 } from "../components/Form1";
 import { Form2 } from "../components/Form2";
 import { ClientDetails } from "../components/ClientDetails";
+import { Contact } from "../components/Contact";
+
 
 function App() {
   const role = 'user'
@@ -44,12 +46,15 @@ function App() {
         <Route path='register' element={<Register />} />
         <Route path='login' element={<Login />} />
         <Route path='password-reset' element={<PasswordReset />} />
+        <Route path='contact' element={< Contact />} />
+
         {/* Admin Routing */}
         <Route element={<ProtectedRoute isAllowed={role === 'admin'} />}>
           <Route path='admin-panel' element={<AdminPanel />}>
             <Route path='repairs' element={<Repairs />} />
           </Route>
         </Route>
+
         {/* Client Routing */}
         <Route element={<ProtectedRoute isAllowed={role === 'user'} />}>
           <Route path='client-id' element={< ClientPanel />} >
@@ -58,7 +63,6 @@ function App() {
               <Route path='repair-form2' element={< Form2 />} />
             </Route>
             <Route path='details' element={< ClientDetails />} />
-            <Route path='contact' element={< Contact />} />
           </Route>
         </Route>
         <Route path='*' element={<WrongPath />} />
