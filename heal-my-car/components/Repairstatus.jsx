@@ -18,6 +18,11 @@ const Repairstatus = () => {
     getRepairs();
   }, []);
 
+  const repairTasks = async () => {
+    const repairs = await getDocs(collection('repairs'));
+    setRepairs(repairs);
+  }
+
   const getRepairs = () => {
     const repairsCollection = collection(db, "repairs");
     const pendingRepairsQuery = query(repairsCollection, where("isDone", "==", false));
@@ -57,7 +62,11 @@ const Repairstatus = () => {
             </TableRow>
             <TableRow>
               <Collapse in={index === openRowIndex}>
-              {row.clientId}
+              {row.tasks.map((task, price) => (
+                <TableCell>
+                  <i>{task.task}{task.price}</i>
+                </TableCell>
+              ))}
               </Collapse>
             </TableRow>
             </>
