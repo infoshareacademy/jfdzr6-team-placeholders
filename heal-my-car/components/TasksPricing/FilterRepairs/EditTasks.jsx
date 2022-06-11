@@ -7,18 +7,29 @@ const EditTasks = ({ index, task, updateTaskPrice, repair }) => {
     <>
       {!enabledEdits.includes(index) ? (
         <p
-          style={{ display: "inline" }}
+          style={{
+            display: "inline",
+            fontFamily: "Calibri",
+            fontSize: "18px",
+            height: "48px",
+            margin: "0px",
+            marginTop: "27px",
+            padding: "0px",
+          }}
           onDoubleClick={() =>
             setEnabledEdits((current) => [...current, index])
           }
         >
           {task.price == null ? 0 : task.price}
-
           {" zł"}
-          {", "}
         </p>
       ) : (
         <input
+          style={{
+            display: "inline",
+            fontFamily: "Calibri",
+            minHeight: "20px",
+          }}
           onBlur={(e) => {
             if (e.target.value.trim() !== "") {
               updateTaskPrice(e.target.value, repair, index);
