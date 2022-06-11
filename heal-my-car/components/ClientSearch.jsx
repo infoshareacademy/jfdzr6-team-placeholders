@@ -4,14 +4,6 @@ import Autocomplete from '@mui/material/Autocomplete';
 import CircularProgress from '@mui/material/CircularProgress';
 import { rows } from './ClientsList';
 
-// function sleep(delay = 0) {
-//     return new Promise((resolve) => {
-//         setTimeout(resolve, delay);
-//     });
-//}
-
-
-
 export const ClientSearch = () => {
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
@@ -57,10 +49,10 @@ export const ClientSearch = () => {
                     InputProps={{
                         ...params.InputProps,
                         endAdornment: (
-                            <React.Fragment>
+                            <>
                                 {loading ? <CircularProgress color="inherit" size={20} /> : null}
                                 {params.InputProps.endAdornment}
-                            </React.Fragment>
+                            </>
                         ),
                     }}
                 />
