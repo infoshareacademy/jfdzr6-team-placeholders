@@ -7,7 +7,7 @@ import Repairstatus from "../components/Repairstatus";
 export default function ClientPanel() {
     return (<>
         <div>ClientPanel</div>
-        <Repairstatus />;
+        <Repairstatus />
         <Outlet />
     </>
     )

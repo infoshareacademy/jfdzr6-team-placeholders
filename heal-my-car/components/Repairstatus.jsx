@@ -31,7 +31,7 @@ const Repairstatus = () => {
     getDocs(pendingRepairsQuery).then((QuerySnapshot) => {
       setRepairs(QuerySnapshot.docs.map((doc) => doc.data()));
     });
-  };
+  }
 
   return (
     <TableContainer component={Paper}>
