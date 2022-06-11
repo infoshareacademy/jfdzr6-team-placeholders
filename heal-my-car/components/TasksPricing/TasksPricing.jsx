@@ -8,6 +8,9 @@ import {
 import { useState, useEffect } from "react";
 import { db } from "../../src/firebase.js";
 import MapRepairs from "./FilterRepairs/MapRepairs.jsx";
+import * as React from "react";
+import ListSubheader from "@mui/material/ListSubheader";
+import List from "@mui/material/List";
 
 const tasksPricing = () => {
   const [repairs, setRepairs] = useState([]);
@@ -41,7 +44,16 @@ const tasksPricing = () => {
 
   return (
     <>
-      <ul>
+      <List
+      sx={{ width: "100%", maxWidth: "100%", bgcolor: "background.paper" }}
+      component="nav"
+      aria-labelledby="nested-list-subheader"
+      subheader={
+        <ListSubheader component="div" id="nested-list-subheader">
+          Oczekujące zlecenia
+        </ListSubheader>
+      }
+    >
         {repairs
           .filter((obj) => {
             return obj.totalCost === null && !obj.isRejected;
@@ -57,7 +69,7 @@ const tasksPricing = () => {
               />
             );
           })}
-      </ul>
+      </List>
     </>
   );
 };
