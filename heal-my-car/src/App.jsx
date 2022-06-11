@@ -1,5 +1,7 @@
 import { db } from "./firebase";
 import { collection, getDocs } from "firebase/firestore";
+import { useEffect } from "react";
+import TasksPricing from "../components/TasksPricing/TasksPricing";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ProtectedRoute } from "../auth/ProtectedRoute";
@@ -16,6 +18,7 @@ import { Form1 } from "../components/Form1";
 import { Form2 } from "../components/Form2";
 import { ClientDetails } from "../components/ClientDetails";
 import { Contact } from "../components/Contact";
+
 
 
 function App() {
@@ -40,6 +43,14 @@ function App() {
   };
 
   return (
+
+    <>
+      <h1 style={{ textAlign: "center" }}>Firebase configuration test</h1>
+      <TasksPricing />
+    </>
+  );
+}
+
     <BrowserRouter>
       <Routes>
         <Route path='/' index element={role === 'guest' ? < Home /> : (role === 'user' ? <ClientPanel /> : <AdminPanel />)} />
@@ -47,6 +58,7 @@ function App() {
         <Route path='login' element={<Login />} />
         <Route path='password-reset' element={<PasswordReset />} />
         <Route path='contact' element={< Contact />} />
+
 
         {/* Admin Routing */}
         <Route element={<ProtectedRoute isAllowed={role === 'admin'} />}>
