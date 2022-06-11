@@ -1,6 +1,14 @@
+import RejectPricing from "../RejectPricing";
+import SubmitPricing from "../SubmitPricing";
 import MapSingleRepair from "./MapSingleRepair";
 
-const MapRepairs = ({ repair, setEnabledEdits, enabledEdits, updateTaskPrice }) => {
+const MapRepairs = ({
+  getRepairs,
+  repair,
+  setEnabledEdits,
+  enabledEdits,
+  updateTaskPrice,
+}) => {
   return (
     <>
       <li key={repair.id}>
@@ -20,6 +28,8 @@ const MapRepairs = ({ repair, setEnabledEdits, enabledEdits, updateTaskPrice }) 
             />
           ))}
         </ul>
+        <SubmitPricing getRepairs={getRepairs} repair={repair} />
+        <RejectPricing getRepairs={getRepairs} repair={repair} />
       </li>
     </>
   );

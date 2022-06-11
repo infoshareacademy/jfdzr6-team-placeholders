@@ -20,21 +20,22 @@ const EditTasks = ({ index, task, updateTaskPrice, repair }) => {
       ) : (
         <input
           onBlur={(e) => {
-            updateTaskPrice(e.target.value, repair, index);
-            console.log(e.target.value, repair.id);
-            setEnabledEdits((current) => current.filter((el) => el !== index));
-          }}
-          onKeyPress={(e) => {
-            if (e.key === "Enter") {
-              () =>
-                setEnabledEdits((current) =>
-                  current.filter((el) => el !== index)
-                );
+            if (e.target.value.trim() !== "") {
+              updateTaskPrice(e.target.value, repair, index);
+              console.log(e.target.value, repair.id);
+              setEnabledEdits((current) =>
+                current.filter((el) => el !== index)
+              );
             }
           }}
-          onChange={() => {
-            console.log("update");
-            //update stan ??????????????????
+          onKeyPress={(e) => {
+            if (e.key === "Enter" && e.target.value.trim() !== "") {
+              updateTaskPrice(e.target.value, repair, index);
+              setEnabledEdits((current) =>
+                current.filter((el) => el !== index)
+              );
+              console.log("halo");
+            }
           }}
         ></input>
       )}

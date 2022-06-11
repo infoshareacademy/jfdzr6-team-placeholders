@@ -1,4 +1,10 @@
-import { getDocs, collection, doc, updateDoc } from "firebase/firestore";
+import {
+  getDocs,
+  collection,
+  doc,
+  updateDoc,
+  onSnapshot,
+} from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { db } from "../../src/firebase.js";
 import MapRepairs from "./FilterRepairs/MapRepairs.jsx";
@@ -6,24 +12,21 @@ import MapRepairs from "./FilterRepairs/MapRepairs.jsx";
 const tasksPricing = () => {
   const [repairs, setRepairs] = useState([]);
 
-  const handleUpdateKey = (e) => {};
-
   const updateTaskPrice = (value, repair, index) => {
     console.log(repair);
     const tasks = [...repair.tasks];
-    const editedTask = { ...tasks[index], price: value };
+    const editedTask = { ...tasks[index], price: parseInt(value) };
     tasks[index] = editedTask;
 
     const taskRef = doc(db, "repairs", repair.id);
     updateDoc(taskRef, {
       tasks,
-    });
-    getRepairs();
+    }).then(getRepairs(repairs));
   };
 
   const getRepairs = () => {
     const tasksCollection = collection(db, "repairs");
-    getDocs(tasksCollection).then((querySnapshot) => {
+    onSnapshot(tasksCollection, (querySnapshot) => {
       const repairs = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -41,12 +44,13 @@ const tasksPricing = () => {
       <ul>
         {repairs
           .filter((obj) => {
-            return obj.totalCost === null;
+            return obj.totalCost === null && !obj.isRejected;
           })
 
           .map((repair) => {
             return (
               <MapRepairs
+                getRepairs={getRepairs}
                 key={repair.id}
                 repair={repair}
                 updateTaskPrice={updateTaskPrice}
