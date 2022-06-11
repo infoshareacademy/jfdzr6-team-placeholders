@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const WrongPath = () => {
+export default function WrongPath() {
   return (
-    <h2>Ta strona nie istnieje</h2>
+    <h2>Podana strona nie istnieje</h2>
   )
 }
