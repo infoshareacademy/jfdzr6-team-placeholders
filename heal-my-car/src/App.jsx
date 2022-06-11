@@ -19,7 +19,7 @@ import { Contact } from "../components/Contact";
 
 
 function App() {
-  const role = 'user'
+  const role = 'admin'
 
   // const [role, setRole] = useState(null) // 'guest' | 'user' | 'admin'
 
