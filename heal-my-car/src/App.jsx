@@ -1,6 +1,7 @@
 import { db } from "./firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect } from "react";
+import TasksPricing from "../components/TasksPricing/TasksPricing";
 
 function App() {
   useEffect(() => {
@@ -16,7 +17,12 @@ function App() {
     });
   };
 
-  return <h1 style={{ textAlign: "center" }}>Firebase configuration test</h1>;
+  return (
+    <>
+      <h1 style={{ textAlign: "center" }}>Firebase configuration test</h1>
+      <TasksPricing />
+    </>
+  );
 }
 
 export default App;
