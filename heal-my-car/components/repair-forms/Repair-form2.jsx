@@ -1,31 +1,18 @@
-// import { useHistory } from "react-router-dom";
-
+import { Button } from "@mui/material";
 import { useOutletContext } from "react-router-dom";
+import { Body } from "./Repair-parts/Body";
+import { Chassis } from "./Repair-parts/Chassis";
+import { Electronics } from "./Repair-parts/Electronics";
+import { Engine } from "./Repair-parts/Engine";
 
 export const Form2 = () => {
   const { formData } = useOutletContext();
-  // const history = useHistory();
   console.log("Stan z kontekstu", formData);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const { vehicleBrand, vin } = e.target;
-    //const {checkboxes} = e.checkboxes;
-
-    /* fetch("https://heal-my-car.appspot.com", {
-      method: "POST",
-      headers: {},
-      body: JSON.stringify(vehicleBrand, vin,)// checkboxes, opis),
-    }).then(() => {
-      console.log("New object added");
-      // History redirect
-      // history.go(-1)
-      // przekierowanie wstępnie do strony głównej
-      // tutaj utworzona musi zostać nowa strona potwierdzająca wysyłkę 
-      // formularza lub przekierowanie do panelu klienta gdzie zobaczymy umieszczone nowe zapytanie "do wyceny".
-      history.puh("/");
-    }); */
 
     setFormData({
       vehicleBrand: vehicleBrand.value,
@@ -36,20 +23,17 @@ export const Form2 = () => {
 
   return (
     <div>
-      <h1>Formularz 2</h1>
+      <h3>Rodzaj Naprawy</h3>
+      <br />
+      <h4>Zaznacz obszary pojazdu, które wymagają sprawdzenia lub naprawy</h4>
       <form onSubmit={handleSubmit}></form>
-      <div className="nadwozie">
-        <label>Blacharka</label>
-        <input type="checkbox" />
-        Nadwozie
-      </div>
+      <Body />
+      <Chassis />
+      <Engine />
+      <Electronics />
+      <Button variant="contained" type="submit">
+        Dalej
+      </Button>
     </div>
   );
 };
-
-{
-  /* <div className="nadwozie">
-          <input type="checkbox" />Wymiana szyby
-
-        </div> */
-}

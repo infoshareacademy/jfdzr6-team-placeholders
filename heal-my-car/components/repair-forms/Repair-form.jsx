@@ -5,6 +5,8 @@ export const Wrapper = () => {
   const [formData, setFormData] = useState({
     vehicleBrand: "",
     vin: "",
+    tasks: [],
+    //Flagi tutaj wstawic
   });
 
   return (
