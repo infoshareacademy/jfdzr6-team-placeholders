@@ -13,6 +13,7 @@ import { Collapse } from '@mui/material';
 const Repairstatus = () => {
   const [repairs, setRepairs] = useState([]);
   const [openRowIndex, setOpenRowIndex] = useState();
+  const [closeRowIndex, setCloseRowIndex] = useState();
 
   useEffect(() => {
     getRepairs();
@@ -48,6 +49,8 @@ const Repairstatus = () => {
             <TableRow
               key={row.carVin}
               onClick={() => setOpenRowIndex(index)}
+              onDoubleClick={() => setCloseRowIndex(index)}
+              style={{ cursor: 'pointer' }}
               sx={{ '&:last-child td, &:last-child th': { border: 50 } }}
             >
               <TableCell>
@@ -62,7 +65,7 @@ const Repairstatus = () => {
             </TableRow>
             <TableRow>
               <Collapse in={index === openRowIndex}>
-              {row.tasks.map((task, price) => (
+              {row.tasks.map((task) => (
                 <TableCell>
                   <i>{task.task}{task.price}</i>
                 </TableCell>
