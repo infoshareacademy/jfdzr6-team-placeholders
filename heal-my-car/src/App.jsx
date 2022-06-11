@@ -1,6 +1,12 @@
-import { db } from "./firebase";
+import { db } from "./Firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect } from "react";
+import { Wrapper } from "../components/repair-forms/Repair-form";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { Form1 } from "../components/repair-forms/Repair-form1";
+import { Form2 } from "../components/repair-forms/Repair-form2";
+
 
 function App() {
   useEffect(() => {
@@ -16,7 +22,16 @@ function App() {
     });
   };
 
-  return <h1 style={{ textAlign: "center" }}>Firebase configuration test</h1>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="repair-form" element={<Wrapper />}>
+          <Route path="repair-form1" element={<Form1 />} />
+          <Route path="repair-form-2" element={<Form2 />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
