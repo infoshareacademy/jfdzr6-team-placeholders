@@ -1,7 +1,8 @@
 import { db } from "./firebase";
 import { collection, getDocs } from "firebase/firestore";
+import TasksPricing from "../components/TasksPricing/TasksPricing";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ProtectedRoute } from "../auth/ProtectedRoute";
 import Register from "../routes/Register";
 import Login from "../routes/Login";
@@ -17,9 +18,8 @@ import { Form2 } from "../components/Form2";
 import { ClientDetails } from "../components/ClientDetails";
 import { Contact } from "../components/Contact";
 
-
 function App() {
-  const role = 'admin'
+  const role = "admin";
 
   // const [role, setRole] = useState(null) // 'guest' | 'user' | 'admin'
 
@@ -31,43 +31,57 @@ function App() {
     getRepairs();
   });
   const getRepairs = () => {
-    const collection0 = collection(db, 'repairs');
+    const collection0 = collection(db, "repairs");
     getDocs(collection0).then((QuerySnapshot) => {
       QuerySnapshot.docs.forEach((doc) => {
-        console.log('zlecenie naprawy', doc.data());
+        console.log("zlecenie naprawy", doc.data());
       });
     });
   };
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' index element={role === 'guest' ? < Home /> : (role === 'user' ? <ClientPanel /> : <AdminPanel />)} />
-        <Route path='register' element={<Register />} />
-        <Route path='login' element={<Login />} />
-        <Route path='password-reset' element={<PasswordReset />} />
-        <Route path='contact' element={< Contact />} />
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            index
+            element={
+              role === "guest" ? (
+                <Home />
+              ) : role === "user" ? (
+                <ClientPanel />
+              ) : (
+                <AdminPanel />
+              )
+            }
+          />
+          <Route path="register" element={<Register />} />
+          <Route path="login" element={<Login />} />
+          <Route path="password-reset" element={<PasswordReset />} />
+          <Route path="contact" element={<Contact />} />
 
-        {/* Admin Routing */}
-        <Route element={<ProtectedRoute isAllowed={role === 'admin'} />}>
-          <Route path='admin-panel' element={<AdminPanel />}>
-            <Route path='repairs' element={<Repairs />} />
-          </Route>
-        </Route>
-
-        {/* Client Routing */}
-        <Route element={<ProtectedRoute isAllowed={role === 'user'} />}>
-          <Route path='client-id' element={< ClientPanel />} >
-            <Route path='repair-form' element={< Wrapper />} >
-              <Route path='repair-form1' element={< Form1 />} />
-              <Route path='repair-form2' element={< Form2 />} />
+          {/* Admin Routing */}
+          <Route element={<ProtectedRoute isAllowed={role === "admin"} />}>
+            <Route path="admin-panel" element={<AdminPanel />}>
+              <Route path="repairs" element={<Repairs />} />
             </Route>
-            <Route path='details' element={< ClientDetails />} />
           </Route>
-        </Route>
-        <Route path='*' element={<WrongPath />} />
-      </Routes>
-    </BrowserRouter >
-  )
+
+          {/* Client Routing */}
+          <Route element={<ProtectedRoute isAllowed={role === "user"} />}>
+            <Route path="client-id" element={<ClientPanel />}>
+              <Route path="repair-form" element={<Wrapper />}>
+                <Route path="repair-form1" element={<Form1 />} />
+                <Route path="repair-form2" element={<Form2 />} />
+              </Route>
+              <Route path="details" element={<ClientDetails />} />
+            </Route>
+          </Route>
+          <Route path="*" element={<WrongPath />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 export default App;
