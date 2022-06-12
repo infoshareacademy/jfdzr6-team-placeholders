@@ -18,6 +18,7 @@ import { Form2 } from "../components/repair-forms/Repair-form2";
 import { Form3 } from "../components/repair-forms/Repair-form3";
 import { ClientDetails } from "../components/ClientDetails";
 import { Contact } from "../components/Contact";
+import ShowOffer from "../components/AcceptPricing/ShowOffer";
 
 function App() {
   const role = "admin";
