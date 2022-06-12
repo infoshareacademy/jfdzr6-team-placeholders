@@ -1,7 +1,6 @@
 import { db } from "./Firebase";
 import { collection, getDocs } from "firebase/firestore";
-import TasksPricing from "../components/TasksPricing/TasksPricing";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ProtectedRoute } from "../auth/ProtectedRoute";
 import Register from "../routes/Register";
@@ -19,6 +18,7 @@ import { Form3 } from "../components/repair-forms/Repair-form3";
 import { ClientDetails } from "../components/ClientDetails";
 import { Contact } from "../components/Contact";
 import NewTasks from "../routes/NewTasks";
+import ShowOffer from "../components/AcceptPricing/ShowOffer";
 
 function App() {
   const role = "admin";
@@ -43,6 +43,7 @@ function App() {
 
   return (
     <>
+    <ShowOffer />
       <BrowserRouter>
         <Routes>
           <Route
@@ -69,7 +70,7 @@ function App() {
               <Route path="repairs" element={<Repairs />} />
             </Route>
             <Route path="newtasks" element={<NewTasks />} />
-
+          
           </Route>
 
           <Route path="repair-form" element={<Wrapper />}>
