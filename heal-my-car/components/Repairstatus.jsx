@@ -13,7 +13,7 @@ import { Collapse } from "@mui/material";
 
 
 
-const Repairstatus = () => {
+export const Repairstatus = () => {
   const [repairs, setRepairs] = useState([]);
   const [openRowIndex, setOpenRowIndex] = useState(null);
 
