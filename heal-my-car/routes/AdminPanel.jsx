@@ -3,8 +3,8 @@ import { Outlet } from 'react-router-dom'
 import { Navbar } from '../components/Navbar'
 import Divider from '@mui/material/Divider';
 import { AdminSideMenu } from '../components/menu/AdminSideMenu';
-import { ClientsList } from '../components/ClientsList';
 import { Repairstatus } from '../components/Repairstatus';
+import { ClientsAA } from '../components/clients/ClientsAA';
 
 
 export default function AdminPanel(role) {
@@ -32,11 +32,10 @@ export default function AdminPanel(role) {
                     flexItem
                     style={{ margin: '0 20px 0 20px' }} />
                 <div className='content' style={{ width: '100%' }}>
-                    <Repairstatus />
+                    {/* <Repairstatus /> */}
                     <br />
-
+                    <ClientsAA />
                     <br />
-                    <ClientsList />
                 </div>
             </div>
 

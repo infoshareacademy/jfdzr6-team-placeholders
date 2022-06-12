@@ -18,7 +18,7 @@ const RejectPricing = ({ getRepairs, repair }) => {
         handleReject();
       }}
       style={{ marginTop: "10px", marginLeft: "5px" }}
-      color="error"
+      color="primary"
       variant="contained"
       size="small"
     >
