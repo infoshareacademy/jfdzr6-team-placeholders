@@ -52,7 +52,6 @@ function App() {
         <Route element={<ProtectedRoute isAllowed={role === 'admin'} />}>
           <Route path='admin-panel' element={<AdminPanel />}>
             <Route path='repairs' element={<Repairs />} />
-            <Route path='repairs/:id' element={<TasksPricing />} />
           </Route>
         </Route>
 
