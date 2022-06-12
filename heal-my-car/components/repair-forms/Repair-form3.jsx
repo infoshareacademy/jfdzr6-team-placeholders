@@ -6,6 +6,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 
 export const Form3 = () => {
+  const { setFormData, formData } = useOutletContext();
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,6 +19,7 @@ export const Form3 = () => {
     // });
     navigate("/");
   };
+  console.log("HURA UDAŁO SIĘ :)", formData)
   return (
     <div>
       <CssBaseline />
@@ -36,18 +38,6 @@ export const Form3 = () => {
             flexWrap: "wrap",
           }}
         >
-          <h4>Dane pojazdu</h4>
-          <h2>Marka: Audi</h2>
-          <h2>VIN: SDF23I00ODFF</h2>
-          <h4>
-            Naprawy:
-            <ul>
-              <li>Naprawa zawieszenia przedniego</li>
-              <li>Naprawa zawieszenia tylnego</li>
-              <li>Wymiana oleju</li>
-              <li>Serwis klimatyzacji</li>
-            </ul>
-          </h4>
           <Button
             variant="contained"
             type="submit"

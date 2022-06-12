@@ -7,6 +7,7 @@ import * as React from "react";
 // import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 import { FormGroup, FormControlLabel } from "@mui/material";
+import Paper from "@mui/material/Paper";
 
 // const ITEM_HEIGHT = 48;
 // const ITEM_PADDING_TOP = 8;
@@ -71,18 +72,68 @@ import { FormGroup, FormControlLabel } from "@mui/material";
 //   );
 // };
 
-export const Engine = () => {
+export const Engine = (props) => {
   return (
     <div className="engine">
-      <FormGroup>
-        <h3>Silnik</h3>
-        <FormControlLabel control={<Checkbox />} label="Kontrola silnika" />
-        <FormControlLabel control={<Checkbox />} label="Wymiana oleju" />
-        <FormControlLabel control={<Checkbox />} label="Wymiana rozrządu" />
-        <FormControlLabel control={<Checkbox />} label="Diagnoza pracy silnik" />
-        <FormControlLabel control={<Checkbox />} label="Wymiana rozrządu" />
-        <FormControlLabel control={<Checkbox />} label="Mycie silnika" />
-      </FormGroup>
+      <Paper elevation={2} style={{ padding: "10px", marginRight: "15px" }}>
+        <FormGroup>
+          <h3>Silnik</h3>
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Kontrola silnika"
+                onChange={props.handleFormUpdate}
+              />
+            }
+            label="Kontrola silnika"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Wymiana oleju"
+                onChange={props.handleFormUpdate}
+              />
+            }
+            label="Wymiana oleju"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Wymiana rozrządu"
+                onChange={props.handleFormUpdate}
+              />
+            }
+            label="Wymiana rozrządu"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Diagnoza pracy silnik"
+                onChange={props.handleFormUpdate}
+              />
+            }
+            label="Diagnoza pracy silnik"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Wymiana rozrządu"
+                onChange={props.handleFormUpdate}
+              />
+            }
+            label="Wymiana rozrządu"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Mycie silnika"
+                onChange={props.handleFormUpdate}
+              />
+            }
+            label="Mycie silnika"
+          />
+        </FormGroup>
+      </Paper>
     </div>
   );
 };
