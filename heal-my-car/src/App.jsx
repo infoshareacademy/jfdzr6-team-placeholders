@@ -19,6 +19,8 @@ import { ClientDetails } from "../components/ClientDetails";
 import { Contact } from "../components/Contact";
 import NewTasks from "../routes/NewTasks";
 import ShowOffer from "../components/AcceptPricing/ShowOffer";
+import Header from "../components/LandingPage/Header";
+import LandingPage from "../components/LandingPage/LandingPage";
 
 function App() {
   const role = "admin";
@@ -43,7 +45,7 @@ function App() {
 
   return (
     <>
-    <ShowOffer />
+      <LandingPage />
       <BrowserRouter>
         <Routes>
           <Route
@@ -70,7 +72,6 @@ function App() {
               <Route path="repairs" element={<Repairs />} />
             </Route>
             <Route path="newtasks" element={<NewTasks />} />
-          
           </Route>
 
           <Route path="repair-form" element={<Wrapper />}>
