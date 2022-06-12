@@ -10,7 +10,7 @@ import { db } from "../src/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { Collapse } from '@mui/material';
 
-const Repairstatus = () => {
+export const Repairstatus = () => {
   const [repairs, setRepairs] = useState([]);
   const [openRowIndex, setOpenRowIndex] = useState();
   const [closeRowIndex, setCloseRowIndex] = useState();
