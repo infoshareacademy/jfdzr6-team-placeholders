@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ProtectedRoute } from "../auth/ProtectedRoute";
 import Register from "../routes/Register";
-import Login from "../routes/Login";
+import { Login } from "../routes/Login";
 import PasswordReset from "../routes/PasswordReset";
 import Home from "../routes/Home";
 import ClientPanel from "../routes/ClientPanel";
@@ -17,6 +17,7 @@ import { Form1 } from "../components/Form1";
 import { Form2 } from "../components/Form2";
 import { ClientDetails } from "../components/ClientDetails";
 import { Contact } from "../components/Contact";
+import NewTasks from "../routes/NewTasks";
 
 function App() {
   const role = "admin";
@@ -66,6 +67,8 @@ function App() {
             <Route path="admin-panel" element={<AdminPanel />}>
               <Route path="repairs" element={<Repairs />} />
             </Route>
+            <Route path="newtasks" element={<NewTasks />} />
+
           </Route>
 
           {/* Client Routing */}

@@ -1,40 +1,45 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import { Navbar } from '../components/Navbar'
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
-import Repairstatus from '../components/Repairstatus';
-import { StyledAdminPanelWrapper } from '../src/styled/StyledAdminPanelWrapper'
+import { AdminSideMenu } from '../components/menu/AdminSideMenu';
 import { ClientsList } from '../components/ClientsList';
-import { ClientSearch } from '../components/ClientSearch';
 
-export default function AdminPanel() {
+
+
+export default function AdminPanel(role) {
+    const Logout = () => {
+
+
+    }
     return (
         <>
             <Navbar />
-            <div style={{ textAlign: 'center' }}>AdminPanel</div>
+            <div
+                style={{ textAlign: 'center' }}>
+                <h2>Panel Admina</h2>
+            </div>
             <br />
-            <StyledAdminPanelWrapper>
-                <div className='side-menu'>
-                    <Stack direction="column" spacing={1}>
-                        <Button variant="contained" href="#repairstatus">
-                            Naprawy w toku
-                        </Button>
-                        <Button variant="contained" href="#logout">
-                            Wyloguj
-                        </Button>
-                    </Stack>
-                </div>
-                <Divider orientation="vertical" variant="middle" flexItem />
-                <div className='content'>
-                    <Repairstatus />
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'row'
+                }}>
+                <AdminSideMenu />
+                <Divider
+                    orientation="vertical"
+                    variant="middle"
+                    flexItem
+                    style={{ margin: '0 20px 0 20px' }} />
+                <div className='content' style={{ width: '100%' }}>
+                    {/* <Repairstatus /> */}
                     <br />
-                    <ClientSearch />
+
                     <br />
                     <ClientsList />
                 </div>
-            </StyledAdminPanelWrapper>
+            </div>
+
             <Outlet />
         </>
     )
