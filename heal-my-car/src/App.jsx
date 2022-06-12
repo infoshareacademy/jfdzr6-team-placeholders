@@ -1,4 +1,4 @@
-import { db } from "./firebase";
+//import { db } from "./firebase";
 import { collection, getDocs } from "firebase/firestore";
 import TasksPricing from "../components/TasksPricing/TasksPricing";
 import { useEffect, useState } from "react";
