@@ -6,7 +6,7 @@ import * as React from "react";
 import ListSubheader from "@mui/material/ListSubheader";
 import List from "@mui/material/List";
 
-const tasksPricing = () => {
+const TasksPricing = () => {
   const [repairs, setRepairs] = useState([]);
 
   const updateTaskPrice = (value, repair, index) => {
@@ -44,7 +44,11 @@ const tasksPricing = () => {
         aria-labelledby="nested-list-subheader"
         subheader={
           <ListSubheader component="div" id="nested-list-subheader">
+<<<<<<< HEAD
             Oczekujące zlecenia
+=======
+            <h2>Oczekujące zlecenia</h2>
+>>>>>>> 72a8bf9400f6c0ac8ce7796b5add91c26821937b
           </ListSubheader>
         }
       >
@@ -68,4 +72,4 @@ const tasksPricing = () => {
   );
 };
 
-export default tasksPricing;
+export default TasksPricing;
