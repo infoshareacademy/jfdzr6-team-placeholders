@@ -12,7 +12,7 @@ import * as React from "react";
 import ListSubheader from "@mui/material/ListSubheader";
 import List from "@mui/material/List";
 
-const tasksPricing = () => {
+const TasksPricing = () => {
   const [repairs, setRepairs] = useState([]);
 
   const updateTaskPrice = (value, repair, index) => {
@@ -45,15 +45,15 @@ const tasksPricing = () => {
   return (
     <>
       <List
-      sx={{ width: "100%", maxWidth: "100%", bgcolor: "background.paper" }}
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-      subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
-          Oczekujące zlecenia
-        </ListSubheader>
-      }
-    >
+        sx={{ width: "100%", maxWidth: "100%", bgcolor: "background.paper" }}
+        component="nav"
+        aria-labelledby="nested-list-subheader"
+        subheader={
+          <ListSubheader component="div" id="nested-list-subheader">
+            <h2>Oczekujące zlecenia</h2>
+          </ListSubheader>
+        }
+      >
         {repairs
           .filter((obj) => {
             return obj.totalCost === null && !obj.isRejected;
@@ -74,4 +74,4 @@ const tasksPricing = () => {
   );
 };
 
-export default tasksPricing;
+export default TasksPricing;

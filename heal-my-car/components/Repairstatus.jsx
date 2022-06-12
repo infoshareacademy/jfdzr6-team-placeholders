@@ -46,32 +46,32 @@ const Repairstatus = () => {
         <TableBody>
           {repairs.map((row, index) => (
             <>
-            <TableRow
-              key={row.carVin}
-              onClick={() => setOpenRowIndex(index)}
-              onDoubleClick={() => setCloseRowIndex(index)}
-              style={{ cursor: 'pointer' }}
-              sx={{ '&:last-child td, &:last-child th': { border: 50 } }}
-            >
-              <TableCell>
-                {row.carBrand}
-              </TableCell>
-              <TableCell>
-                {row.carVin}
-              </TableCell>
-              <TableCell>
-                {row.isDone ? "Done" : "Pending"}
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <Collapse in={index === openRowIndex}>
-              {row.tasks.map((task) => (
+              <TableRow
+                key={row.carVin}
+                onClick={() => setOpenRowIndex(index)}
+                onDoubleClick={() => setCloseRowIndex(index)}
+                style={{ cursor: 'pointer' }}
+                sx={{ '&:last-child td, &:last-child th': { border: 50 } }}
+              >
                 <TableCell>
-                  <i>{task.task}{task.price}</i>
+                  {row.carBrand}
                 </TableCell>
-              ))}
-              </Collapse>
-            </TableRow>
+                <TableCell>
+                  {row.carVin}
+                </TableCell>
+                <TableCell>
+                  {row.isDone ? "Done" : "Pending"}
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <Collapse in={index === openRowIndex}>
+                  {row.tasks.map((task) => (
+                    <TableCell>
+                      <i>{task.task}{task.price}</i>
+                    </TableCell>
+                  ))}
+                </Collapse>
+              </TableRow>
             </>
           ))}
         </TableBody>
