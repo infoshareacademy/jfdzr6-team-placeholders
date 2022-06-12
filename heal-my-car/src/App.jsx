@@ -1,4 +1,4 @@
-import { db } from "./firebase";
+import { db } from "./Firebase";
 import { collection, getDocs } from "firebase/firestore";
 import TasksPricing from "../components/TasksPricing/TasksPricing";
 import { useEffect, useState } from "react";
@@ -12,9 +12,10 @@ import ClientPanel from "../routes/ClientPanel";
 import AdminPanel from "../routes/AdminPanel";
 import Repairs from "../routes/Repairs";
 import WrongPath from "../routes/WrongPath";
-import Wrapper from "../components/Wrapper";
-import { Form1 } from "../components/Form1";
-import { Form2 } from "../components/Form2";
+import { Wrapper } from "../components/repair-forms/Repair-form";
+import { Form1 } from "../components/repair-forms/Repair-form1";
+import { Form2 } from "../components/repair-forms/Repair-form2";
+import { Form3 } from "../components/repair-forms/Repair-form3";
 import { ClientDetails } from "../components/ClientDetails";
 import { Contact } from "../components/Contact";
 
@@ -68,13 +69,14 @@ function App() {
             </Route>
           </Route>
 
+          <Route path="repair-form" element={<Wrapper />}>
+            <Route path="repair-form1" element={<Form1 />} />
+            <Route path="repair-form2" element={<Form2 />} />
+            <Route path="repair-form3" element={<Form3 />} />
+          </Route>
           {/* Client Routing */}
           <Route element={<ProtectedRoute isAllowed={role === "user"} />}>
             <Route path="client-id" element={<ClientPanel />}>
-              <Route path="repair-form" element={<Wrapper />}>
-                <Route path="repair-form1" element={<Form1 />} />
-                <Route path="repair-form2" element={<Form2 />} />
-              </Route>
               <Route path="details" element={<ClientDetails />} />
             </Route>
           </Route>
