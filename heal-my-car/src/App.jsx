@@ -1,5 +1,6 @@
 import { db } from "./Firebase";
 import { collection, getDocs } from "firebase/firestore";
+import TasksPricing from "../components/TasksPricing/TasksPricing";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ProtectedRoute } from "../auth/ProtectedRoute";
@@ -18,7 +19,7 @@ import { ClientDetails } from "../components/ClientDetails";
 import { Contact } from "../components/Contact";
 
 function App() {
-  const role = "user";
+  const role = "admin";
 
   // const [role, setRole] = useState(null) // 'guest' | 'user' | 'admin'
 
@@ -39,46 +40,48 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          index
-          element={
-            role === "guest" ? (
-              <Home />
-            ) : role === "user" ? (
-              <ClientPanel />
-            ) : (
-              <AdminPanel />
-            )
-          }
-        />
-        <Route path="register" element={<Register />} />
-        <Route path="login" element={<Login />} />
-        <Route path="password-reset" element={<PasswordReset />} />
-        <Route path="contact" element={<Contact />} />
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            index
+            element={
+              role === "guest" ? (
+                <Home />
+              ) : role === "user" ? (
+                <ClientPanel />
+              ) : (
+                <AdminPanel />
+              )
+            }
+          />
+          <Route path="register" element={<Register />} />
+          <Route path="login" element={<Login />} />
+          <Route path="password-reset" element={<PasswordReset />} />
+          <Route path="contact" element={<Contact />} />
 
-        {/* Admin Routing */}
-        <Route element={<ProtectedRoute isAllowed={role === "admin"} />}>
-          <Route path="admin-panel" element={<AdminPanel />}>
-            <Route path="repairs" element={<Repairs />} />
+          {/* Admin Routing */}
+          <Route element={<ProtectedRoute isAllowed={role === "admin"} />}>
+            <Route path="admin-panel" element={<AdminPanel />}>
+              <Route path="repairs" element={<Repairs />} />
+            </Route>
           </Route>
-        </Route>
 
-        {/* Client Routing */}
-        <Route element={<ProtectedRoute isAllowed={role === "user"} />}>
-          <Route path="client-id" element={<ClientPanel />}>
-            <Route path="details" element={<ClientDetails />} />
+          {/* Client Routing */}
+          <Route element={<ProtectedRoute isAllowed={role === "user"} />}>
+            <Route path="client-id" element={<ClientPanel />}>
+              <Route path="repair-form" element={<Wrapper />}>
+                <Route path="repair-form1" element={<Form1 />} />
+                <Route path="repair-form2" element={<Form2 />} />
+              </Route>
+              <Route path="details" element={<ClientDetails />} />
+            </Route>
           </Route>
-          <Route path="repair-form" element={<Wrapper />}>
-            <Route path="repair-form1" element={<Form1 />} />
-            <Route path="repair-form2" element={<Form2 />} />
-          </Route>
-        </Route>
-        <Route path="*" element={<WrongPath />} />
-      </Routes>
-    </BrowserRouter>
+          <Route path="*" element={<WrongPath />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 export default App;
