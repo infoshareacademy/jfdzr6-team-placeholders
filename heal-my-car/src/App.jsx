@@ -18,6 +18,7 @@ import { Form3 } from "../components/repair-forms/Repair-form3";
 import { ClientDetails } from "../components/ClientDetails";
 import { Contact } from "../components/Contact";
 import NewTasks from "../routes/NewTasks";
+import ShowOffer from "../components/AcceptPricing/ShowOffer";
 
 function App() {
   const role = "admin";
@@ -42,6 +43,7 @@ function App() {
 
   return (
     <>
+    <ShowOffer />
       <BrowserRouter>
         <Routes>
           <Route
@@ -68,7 +70,7 @@ function App() {
               <Route path="repairs" element={<Repairs />} />
             </Route>
             <Route path="newtasks" element={<NewTasks />} />
-
+          
           </Route>
 
           <Route path="repair-form" element={<Wrapper />}>
