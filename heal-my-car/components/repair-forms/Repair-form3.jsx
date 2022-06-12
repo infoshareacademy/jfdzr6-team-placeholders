@@ -1,19 +1,12 @@
-import { Button } from "@mui/material";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import { Body } from "./Repair-parts/Body";
-import { Chassis } from "./Repair-parts/Chassis";
-import { Electronics } from "./Repair-parts/Electronics";
-import { Engine } from "./Repair-parts/Engine";
+import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 
-export const Form2 = () => {
-  const { setFormData, formData } = useOutletContext();
+export const Form3 = () => {
   const navigate = useNavigate();
-  console.log("Stan z kontekstu", formData);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -23,43 +16,44 @@ export const Form2 = () => {
     //   carBrand: carBrand.value,
     //   vin: vin.value,
     // });
-    navigate("/repair-form/repair-form3");
+    navigate("/");
   };
-
   return (
     <div>
       <CssBaseline />
       <Container maxWidth="auto">
-        <h2 style={{ textAlign: "center", marginTop: "100px" }}>
-          Rodzaj Naprawy
-        </h2>
+        <h2>Podsumowanie zlecenia naprawy</h2>
         <br />
-        <h4 style={{ textAlign: "center" }}>
-          Zaznacz obszary pojazdu, które wymagają sprawdzenia lub naprawy
-        </h4>
+        <h4></h4>
         <Box
           component="form"
           onSubmit={handleSubmit}
-          noValidate
-          autoComplete="off"
           sx={{
             display: "flex",
-            flexDirection: "row",
+            flexDirection: "column",
             justifyContent: "center",
             width: "auto",
             flexWrap: "wrap",
           }}
         >
-          <Body />
-          <Chassis />
-          <Engine />
-          <Electronics />
+          <h4>Dane pojazdu</h4>
+          <h2>Marka: Audi</h2>
+          <h2>VIN: SDF23I00ODFF</h2>
+          <h4>
+            Naprawy:
+            <ul>
+              <li>Naprawa zawieszenia przedniego</li>
+              <li>Naprawa zawieszenia tylnego</li>
+              <li>Wymiana oleju</li>
+              <li>Serwis klimatyzacji</li>
+            </ul>
+          </h4>
           <Button
             variant="contained"
             type="submit"
             style={{ height: "35px", width: "25ch", alignSelf: "end" }}
           >
-            Dalej
+            Zatwierdź
           </Button>
         </Box>
       </Container>
