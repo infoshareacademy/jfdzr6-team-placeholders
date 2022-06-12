@@ -10,6 +10,9 @@ import { db } from "../src/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { Collapse } from "@mui/material";
 
+
+
+
 const Repairstatus = () => {
   const [repairs, setRepairs] = useState([]);
   const [openRowIndex, setOpenRowIndex] = useState(null);
@@ -18,10 +21,10 @@ const Repairstatus = () => {
     getRepairs();
   }, []);
 
-  // const repairTasks = async () => {
-  //   const repairs = await getDocs(collection('repairs'));
-  //   setRepairs(repairs);
-  // }
+  const repairTasks = async () => {
+    const repairs = await getDocs(collection('repairs'));
+    setRepairs(repairs);
+  }
 
   const getRepairs = () => {
     const repairsCollection = collection(db, "repairs");
@@ -46,17 +49,24 @@ const Repairstatus = () => {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 450 }} aria-label="simple table">
+      <Table sx={{ width: 1 }} aria-label="simple table">
         <TableHead>
-          <TableRow>
-            <TableCell>
-              <b>Brand</b>
-            </TableCell>
+          <TableRow
+          style={{
+            backgroundColor: "#BDC3C7",
+          }}
+          >
             <TableCell>
               <b>VIN</b>
             </TableCell>
             <TableCell>
+              <b>Brand</b>
+            </TableCell>
+            <TableCell>
               <b>Status</b>
+            </TableCell>
+            <TableCell>
+              <b>Data dodania</b>
             </TableCell>
           </TableRow>
         </TableHead>
@@ -66,14 +76,15 @@ const Repairstatus = () => {
               <TableRow
                 onClick={() => handleCollapse(index)}
                 style={{
-                  backgroundColor: openRowIndex === index ? "#f5f5f5" : "#fff",
+                  backgroundColor: openRowIndex === index ? "#7F8C8D" : "#BDC3C7",
                   cursor: "pointer",
                 }}
                 sx={{ "&:last-child td, &:last-child th": { border: 50 } }}
               >
-                <TableCell>{row.carBrand}</TableCell>
                 <TableCell>{row.carVin}</TableCell>
+                <TableCell>{row.carBrand}</TableCell>
                 <TableCell>{row.isDone ? "Done" : "Pending"}</TableCell>
+                <TableCell>{}</TableCell>
               </TableRow>
               <TableRow>
                 {row.tasks.map((task, i) => (
