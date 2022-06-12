@@ -1,6 +1,3 @@
-import RejectPricing from "../RejectPricing";
-import SubmitPricing from "../SubmitPricing";
-import MapSingleRepair from "./MapSingleRepair";
 import * as React from "react";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -8,18 +5,13 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Collapse from "@mui/material/Collapse";
 import CarRepairIcon from "@mui/icons-material/CarRepair";
-import InfoIcon from "@mui/icons-material/Info";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import DirectionsCarFilledIcon from "@mui/icons-material/DirectionsCarFilled";
-
-const MapRepairs = ({
-  getRepairs,
-  repair,
-  setEnabledEdits,
-  enabledEdits,
-  updateTaskPrice,
-}) => {
+import RejectOffer from "./RejectOffer";
+import AcceptOffer from "./AcceptOffer";
+import MapSingleOffer from "./MapSingleOffer";
+const MapOffers = ({ repair, getRepairs }) => {
   const [open, setOpen] = React.useState(false);
 
   const handleClick = () => {
@@ -27,19 +19,15 @@ const MapRepairs = ({
   };
   return (
     <>
+      {" "}
       <ListItemButton>
         <ListItemIcon>
           <DirectionsCarFilledIcon />
         </ListItemIcon>
         <ListItemText
           primary={`Pojazd: ${repair.carBrand} | VIN: ${repair.carVin}`}
+          secondary={`Koszt całkowity zleconej usługi: ${repair.totalCost} zł`}
         />
-      </ListItemButton>
-      <ListItemButton>
-        <ListItemIcon>
-          <InfoIcon />
-        </ListItemIcon>
-        <ListItemText primary={`Klient: ${repair.clientId}`} />
       </ListItemButton>
       <ListItemButton onClick={handleClick}>
         <ListItemIcon>
@@ -51,21 +39,18 @@ const MapRepairs = ({
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           {repair.tasks.map((task, index) => (
-            <MapSingleRepair
+            <MapSingleOffer
               key={index}
-              repair={repair}
               task={task}
+              repair={repair}
               index={index}
-              enabledEdits={enabledEdits}
-              setEnabledEdits={setEnabledEdits}
-              updateTaskPrice={updateTaskPrice}
             />
           ))}
         </List>
       </Collapse>
-      <SubmitPricing getRepairs={getRepairs} repair={repair} />
-      <RejectPricing getRepairs={getRepairs} repair={repair} />
+      <AcceptOffer repair={repair} getRepairs={getRepairs} />
+      <RejectOffer repair={repair} getRepairs={getRepairs} />
     </>
   );
 };
-export default MapRepairs;
+export default MapOffers;

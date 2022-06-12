@@ -1,7 +1,6 @@
 import { db } from "./Firebase";
 import { collection, getDocs } from "firebase/firestore";
-import TasksPricing from "../components/TasksPricing/TasksPricing";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ProtectedRoute } from "../auth/ProtectedRoute";
 import Register from "../routes/Register";
