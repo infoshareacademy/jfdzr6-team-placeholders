@@ -41,7 +41,9 @@ export const Form1 = () => {
             paddingTop: "200px",
           }}
         >
-          <h2 style={{textAlign: "center", marginBottom:"35px"}}>Zleć wycenę</h2>
+          <h2 style={{ textAlign: "center", marginBottom: "35px" }}>
+            Zleć wycenę
+          </h2>
           <TextField
             id="outlined-basic"
             label="Marka pojazdu"

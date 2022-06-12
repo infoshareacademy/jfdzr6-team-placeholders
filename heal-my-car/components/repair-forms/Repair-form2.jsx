@@ -49,7 +49,6 @@ export const Form2 = () => {
     <div>
       <CssBaseline />
       <Container
-        component="form"
         maxWidth="auto"
         style={{
           display: "flex",
@@ -66,6 +65,7 @@ export const Form2 = () => {
           Zaznacz obszary pojazdu, które wymagają sprawdzenia lub naprawy
         </h4>
         <Box
+          component="form"
           noValidate
           autoComplete="off"
           sx={{

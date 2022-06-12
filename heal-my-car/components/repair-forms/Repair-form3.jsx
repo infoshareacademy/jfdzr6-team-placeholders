@@ -19,14 +19,14 @@ export const Form3 = () => {
     // });
     navigate("/");
   };
-  console.log("HURA UDAŁO SIĘ :)", formData)
+  console.log("FORMDATA", formData);
   return (
     <div>
       <CssBaseline />
       <Container maxWidth="auto">
-        <h2>Podsumowanie zlecenia naprawy</h2>
+        <h2 style={{ textAlign: "center" }}>Podsumowanie zlecenia naprawy</h2>
         <br />
-        <h4></h4>
+        <h4>Hello</h4>
         <Box
           component="form"
           onSubmit={handleSubmit}
