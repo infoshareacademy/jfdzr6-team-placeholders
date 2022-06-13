@@ -15,6 +15,7 @@ import { Wrapper } from "../components/Repair-forms/Repair-form";
 import { Form1 } from "../components/Repair-forms/Repair-form1";
 import { Form2 } from "../components/Repair-forms/Repair-form2";
 import { Form3 } from "../components/Repair-forms/Repair-form3";
+import { Form4 } from "../components/Repair-forms/Repair-form4";
 import { ClientDetails } from "../components/ClientDetails";
 import { Contact } from "../components/Contact";
 import NewTasks from "../routes/NewTasks";
@@ -75,6 +76,7 @@ function App() {
             <Route path="repair-form1" element={<Form1 />} />
             <Route path="repair-form2" element={<Form2 />} />
             <Route path="repair-form3" element={<Form3 />} />
+            <Route path="repair-form4" element={<Form4 />} />
           </Route>
           {/* Client Routing */}
           <Route element={<ProtectedRoute isAllowed={role === "user"} />}>

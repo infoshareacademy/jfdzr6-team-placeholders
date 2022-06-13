@@ -78,10 +78,9 @@ export const Form2 = () => {
         >
           <Body handleFormUpdate={handleFormUpdate} />
           <Chassis handleFormUpdate={handleFormUpdate} />
-          <Engine />
-          <Electronics />
+          <Engine handleFormUpdate={handleFormUpdate} />
+          <Electronics handleFormUpdate={handleFormUpdate} />
         </Box>
-        <TextInput />
         <Button
           variant="contained"
           type="submit"
