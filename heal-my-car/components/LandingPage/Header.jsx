@@ -19,7 +19,12 @@ const Header = () => {
     >
       <div className="empty-div" style={{ width: "13%" }}></div>
       <div className="landing-logo">
-        <img src="../utils/logo.png" height="75px" />
+        <img src="../utils/logo_big.png" height="75px" />
+        <img src="../utils/logo_white_red.png" height="75px" />
+        <img src="../utils/logo_white_text.png" height="75px" />
+        <img src="../utils/logo_white.png" height="75px" />
+        <img src="../utils/logo_FN.png" height="75px" />
+        <img src="../utils/logo_Filip.png" height="75px" />
       </div>
 
       <div
