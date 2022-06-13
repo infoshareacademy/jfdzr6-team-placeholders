@@ -4,6 +4,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ShowOffer from '../AcceptPricing/ShowOffer';
 
 export const ClientsAA = () => {
   return (
@@ -14,7 +15,7 @@ export const ClientsAA = () => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Accordion 1</Typography>
+          <Typography>{ShowOffer}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
