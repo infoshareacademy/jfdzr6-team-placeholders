@@ -4,7 +4,7 @@ import { Navbar } from '../components/Navbar'
 import Divider from '@mui/material/Divider';
 import { AdminSideMenu } from '../components/menu/AdminSideMenu';
 import { Repairstatus } from '../components/Repairstatus';
-import { ClientsAA } from '../components/clients/ClientsAA';
+import { ClientsAndRepairs } from '../components/admin-panel/ClientsAndRepairs';
 
 
 export default function AdminPanel(role) {
@@ -34,7 +34,7 @@ export default function AdminPanel(role) {
                 <div className='content' style={{ width: '100%' }}>
                     {/* <Repairstatus /> */}
                     <br />
-                    <ClientsAA />
+                    <ClientsAndRepairs />
                     <br />
                 </div>
             </div>

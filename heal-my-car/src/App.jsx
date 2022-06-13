@@ -34,14 +34,14 @@ function App() {
     const collection0 = collection(db, "repairs");
     getDocs(collection0).then((QuerySnapshot) => {
       QuerySnapshot.docs.forEach((doc) => {
-        console.log("zlecenie naprawy", doc.data());
+        console.log("zlecenie naprawy - forEach - cała kolekcja", doc.data());
       });
     });
   };
 
   return (
     <>
-    <ShowOffer />
+      {/* <ShowOffer /> */}
       <BrowserRouter>
         <Routes>
           <Route
@@ -67,7 +67,7 @@ function App() {
               <Route path="repairs" element={<Repairs />} />
             </Route>
             <Route path="newtasks" element={<NewTasks />} />
-          
+
           </Route>
 
           <Route path="repair-form" element={<Wrapper />}>
