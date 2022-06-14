@@ -9,8 +9,9 @@ export const Wrapper = () => {
     tasks: [],
     isAccepted: null,
     isDone: false,
-    isRejected: false,
+    isRejected: null,
     sumbitDate: serverTimestamp(),
+    totalCost: null,
   });
 
   return (
