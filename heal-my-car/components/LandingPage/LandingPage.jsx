@@ -7,6 +7,7 @@ const LandingPage = () => {
     <>
       <Header />
       <Content />
+      <Footer />
     </>
   );
 };

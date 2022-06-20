@@ -14,16 +14,11 @@ const Header = () => {
         height: "75px",
         backgroundColor: "#1e88e5",
         alignItems: "center",
-        position: "fixed",
+        // position: "fixed",
+        zIndex: "1"
       }}
     >
-      <div className="empty-div" style={{ width: "13%" }}></div>
       <div className="landing-logo">
-        <img src="../utils/logo_big.png" height="75px" />
-        <img src="../utils/logo_white_red.png" height="75px" />
-        <img src="../utils/logo_white_text.png" height="75px" />
-        <img src="../utils/logo_white.png" height="75px" />
-        <img src="../utils/logo_FN.png" height="75px" />
         <img src="../utils/logo_Filip.png" height="75px" />
       </div>
 
