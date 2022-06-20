@@ -39,12 +39,15 @@ export const Form3 = () => {
           autoComplete="off"
           sx={{
             display: "flex",
-            flexDirection: "row",
-            width: "auto",
-            flexWrap: "wrap",
+            flexDirection: "column",
             justifyContent: "center",
+            alignItems: "center",
+            paddingTop: "200px",
           }}
         >
+          <h2 style={{ textAlign: "center", marginBottom: "35px" }}>
+            Przekaż dodatkowe informacje
+          </h2>
           <TextField
             id="outlined-basic"
             label="Dodatkowe informacje"
@@ -52,6 +55,9 @@ export const Form3 = () => {
             placeholder="Dodatkowe informacje"
             type="text"
             name="selfText"
+            multiline
+            rows={6}
+            sx={{ width: "400px" }}
           />
 
           <Button
