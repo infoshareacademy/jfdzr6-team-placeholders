@@ -14,8 +14,7 @@ const Header = () => {
         height: "75px",
         backgroundColor: "#1e88e5",
         alignItems: "center",
-        // position: "fixed",
-        zIndex: "1"
+        zIndex: "1",
       }}
     >
       <div className="landing-logo">
@@ -33,7 +32,7 @@ const Header = () => {
           <Button
             variant="text"
             color="inherit"
-            sx={{ fontSize: "18px", fontFamily: "Helvetica " }}
+            sx={{ fontSize: "25px", fontFamily: "Lato " }}
           >
             Zaloguj
           </Button>
@@ -45,7 +44,7 @@ const Header = () => {
           <Button
             variant="text"
             color="inherit"
-            sx={{ fontSize: "18px", fontFamily: "Helvetica " }}
+            sx={{ fontSize: "25px", fontFamily: "Lato " }}
           >
             Zarejestruj
           </Button>
