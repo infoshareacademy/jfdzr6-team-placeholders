@@ -3,8 +3,8 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+// import FormControlLabel from "@mui/material/FormControlLabel";
+// import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -15,6 +15,10 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../src/firebase";
 import { firebaseErrors } from "../src/utils/firebaseErrors";
+// import { GoogleAuthProvider } from "firebase/auth";
+import { useNavigate  } from "react-router-dom";
+// import GoogleIcon from '@mui/icons-material/Google';
+// import GoogleButton from "react-google-button";
 
 function Copyright(props) {
   return (
@@ -41,13 +45,25 @@ export default function SignUp() {
   const [password, setPassword] = React.useState("");
   const [name, setFirstname] = React.useState("");
   const [surname, setSurname] = React.useState("");
+  const navigate = useNavigate();
+
+  // const SingInWithFirebase = () => {
+  //   const provider = new GoogleAuthProvider();
+  //   firebase.auth().signInWithPopup(provider)
+  //     .then((re) => {
+  //       console.log(re);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   const handleRegister = (e) => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then((jwt) => {
         e.target.reset();
-        console.log(jwt);
+        navigate("/ClientPanel", { replace: true });
       })
       .catch((e) => {
         alert(firebaseErrors[e.code]);
@@ -135,14 +151,14 @@ export default function SignUp() {
                   onChange={(event) => setPassword(event.target.value)}
                 />
               </Grid>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <FormControlLabel
                   control={
                     <Checkbox value="allowExtraEmails" color="primary" />
                   }
                   label="Chcę być na bieżąco z promocjami oraz ważnymi zmianami w serwisie"
                 />
-              </Grid>
+              </Grid> */}
             </Grid>
             <Button
               type="submit"
@@ -152,22 +168,28 @@ export default function SignUp() {
             >
               Zarejestruj się
             </Button>
-            <Button
+            {/* <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={SingInWithFirebase}
             >
               Zarejestruj się z Google{" "}
-            </Button>
+            </Button> */}
+            {/* <GoogleButton
+              type="dark"
+              disabled={false}
+              onClick={(SingInWithFirebase)}
+            /> */}
             <Grid container justifyContent="space-between">
-              <Grid item>
+              {/* <Grid item>
                 <Link href="#" variant="body2">
                   Zarejestruj się z kontem Google
                 </Link>
-              </Grid>
+              </Grid> */}
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/Login" variant="body2">
                   Masz już konto? Zaloguj się
                 </Link>
               </Grid>
