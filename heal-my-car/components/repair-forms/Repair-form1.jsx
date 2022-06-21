@@ -13,12 +13,12 @@ export const Form1 = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { carBrand, vin } = e.target;
+    const { carBrand, carVin } = e.target;
 
     setFormData({
       ...formData,
       carBrand: carBrand.value,
-      vin: vin.value,
+      carVin: carVin.value,
     });
     navigate("/repair-form/repair-form2");
   };
@@ -41,7 +41,9 @@ export const Form1 = () => {
             paddingTop: "200px",
           }}
         >
-          <h2 style={{textAlign: "center", marginBottom:"35px"}}>Zleć wycenę</h2>
+          <h2 style={{ textAlign: "center", marginBottom: "35px" }}>
+            Zleć wycenę
+          </h2>
           <TextField
             id="outlined-basic"
             label="Marka pojazdu"
@@ -56,7 +58,7 @@ export const Form1 = () => {
             variant="outlined"
             placeholder="VIN pojazdu"
             type="text"
-            name="vin"
+            name="carVin"
           />
           <Button variant="contained" type="submit">
             Dalej

@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { serverTimestamp } from "firebase/firestore";
 
 export const Wrapper = () => {
   const [formData, setFormData] = useState({
-    vehicleBrand: "",
-    vin: "",
+    carBrand: "",
+    carVin: "",
     tasks: [],
-    //Flagi tutaj wstawic
+    isAccepted: null,
+    isDone: false,
+    isRejected: null,
+    sumbitDate: serverTimestamp(),
+    totalCost: null,
   });
 
   return (
