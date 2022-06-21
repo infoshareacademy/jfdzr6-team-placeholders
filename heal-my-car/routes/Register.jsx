@@ -70,14 +70,14 @@ export default function SignUp() {
       });
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const data = new FormData(e.currentTarget);
+  //   console.log({
+  //     email: data.get("email"),
+  //     password: data.get("password"),
+  //   });
+  // };
 
   return (
     <ThemeProvider theme={theme}>
@@ -188,7 +188,7 @@ export default function SignUp() {
                   Zarejestruj się z kontem Google
                 </Link>
               </Grid> */}
-              <Grid item>
+              <Grid container justifyContent="center">
                 <Link href="/Login" variant="body2">
                   Masz już konto? Zaloguj się
                 </Link>
