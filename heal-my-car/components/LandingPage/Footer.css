@@ -1,0 +1,16 @@
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 65px;
+    height: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Arial;
+    text-align: center;
+    background: #9011E4;
+    color: black;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+}

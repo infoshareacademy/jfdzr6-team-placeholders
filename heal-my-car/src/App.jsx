@@ -20,7 +20,7 @@ import { Contact } from "../components/Contact";
 import NewTasks from "../routes/NewTasks";
 
 function App() {
-  const role = "admin";
+  const role = "guest";
 
   // const [role, setRole] = useState(null) // 'guest' | 'user' | 'admin'
 

@@ -1,20 +1,44 @@
-import * as React from "react";
+import { useEffect, useState } from "react";
+import "./Footer.css";
 const Footer = () => {
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 100) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    });
+  }, []);
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // for smoothly scrolling
+    });
+  };
   return (
-    <section className="footer">
+    <section
+      className="footer"
+      style={{
+        maxHeight: "100%",
+      }}
+    >
       <div
         style={{
           position: "relative",
           fontFamily: "lato",
           letterSpacing: "3px",
           textAlign: "center",
+          position: "relative",
         }}
       >
         <div
           className="footer-overlay"
           style={{
             borderRadius: "30px",
-            width: "1000px",
+            width: "38%",
             height: "100px",
             backgroundColor: "#9011E4",
             zIndex: "1",
@@ -106,7 +130,7 @@ const Footer = () => {
                   E-mail: serwis@healmycar.com
                 </li>
                 <li style={{ marginBottom: "50px" }}>Tel: +48 500-600-700</li>
-                <li style={{ marginBottom: "50px" }}>Fax: +48-212-9876543</li>
+                <li>Fax: +48-212-9876543</li>
               </ul>
             </div>
           </div>
@@ -128,7 +152,7 @@ const Footer = () => {
                   <img
                     src="../utils/bosch.png"
                     style={{
-                      height: "50px",
+                      height: "40px",
                       width: "auto",
                       display: "inline-block",
                     }}
@@ -139,7 +163,7 @@ const Footer = () => {
                     src="../utils/lambo.png"
                     style={{
                       width: "auto",
-                      height: "170px",
+                      height: "130px",
                       display: "inline-block",
                     }}
                   ></img>
@@ -148,6 +172,11 @@ const Footer = () => {
             </div>
           </div>
         </div>
+        {showButton && (
+          <button onClick={scrollToTop} className="back-to-top">
+            TOP
+          </button>
+        )}
       </div>
     </section>
   );

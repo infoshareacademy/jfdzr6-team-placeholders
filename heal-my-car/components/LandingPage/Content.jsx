@@ -106,8 +106,8 @@ const Content = () => {
             position: "absolute",
             width: "100px",
             height: "100px",
-            borderBottom: "10px #9011E4 solid",
-            borderRight: "10px #9011E4 solid",
+            borderBottom: "10px #000000 solid",
+            borderRight: "10px #000000 solid",
             bottom: "-50px",
             right: "35%",
           }}
@@ -118,8 +118,8 @@ const Content = () => {
             position: "absolute",
             width: "100px",
             height: "100px",
-            borderBottom: "10px #9011E4 solid",
-            borderLeft: "10px #9011E4 solid",
+            borderBottom: "10px black solid",
+            borderLeft: "10px black solid",
             bottom: "-50px",
             left: "35%",
           }}
