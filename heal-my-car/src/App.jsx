@@ -19,10 +19,9 @@ import { Form4 } from "../components/Repair-forms/Repair-form4";
 import { ClientDetails } from "../components/ClientDetails";
 import { Contact } from "../components/Contact";
 import NewTasks from "../routes/NewTasks";
-import ShowOffer from "../components/AcceptPricing/ShowOffer";
 
 function App() {
-  const role = "admin";
+  const role = "guest";
 
   // const [role, setRole] = useState(null) // 'guest' | 'user' | 'admin'
 
