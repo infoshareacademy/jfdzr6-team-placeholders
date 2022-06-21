@@ -168,27 +168,14 @@ export default function SignUp() {
             >
               Zarejestruj się
             </Button>
-            {/* <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              onClick={SingInWithFirebase}
-            >
-              Zarejestruj się z Google{" "}
-            </Button> */}
-            {/* <GoogleButton
-              type="dark"
-              disabled={false}
-              onClick={(SingInWithFirebase)}
-            /> */}
+            
             <Grid container justifyContent="space-between">
-              {/* <Grid item>
+              <Grid item>
                 <Link href="#" variant="body2">
                   Zarejestruj się z kontem Google
                 </Link>
-              </Grid> */}
-              <Grid container justifyContent="center">
+              </Grid>
+              <Grid item>
                 <Link href="/Login" variant="body2">
                   Masz już konto? Zaloguj się
                 </Link>
