@@ -19,7 +19,7 @@ const Header = () => {
       }}
     >
       <div className="landing-logo">
-        <img src="../utils/logo_Filip.png" height="75px" />
+        <img src="../utils/logoGrad.png" height="75px" />
       </div>
 
       <div
