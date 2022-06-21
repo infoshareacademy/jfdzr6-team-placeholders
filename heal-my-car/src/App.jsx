@@ -19,6 +19,9 @@ import { Form3 } from "../components/repair-forms/Repair-form3";
 import { ClientDetails } from "../components/ClientDetails";
 import { Contact } from "../components/Contact";
 import NewTasks from "../routes/NewTasks";
+// import { Auth } from "../components/auth/Auth";
+// import { auth } from "./firebase";
+// import { onAuthStateChange } from "@firebase/auth"
 
 function App() {
   const role = "admin";
