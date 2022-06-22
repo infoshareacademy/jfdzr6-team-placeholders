@@ -5,21 +5,50 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { RepairsInProgress } from './clientsData/RepairsInProgress';
-import Repairstatus from '../Repairstatus';
 import { Fragment } from 'react';
+import { Repairstatus } from '../Repairstatus';
+import { useEffect, useState } from 'react';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../src/Firebase';
+
+
+
 
 export const ClientsAndRepairs = () => {
+  const [repairs, setRepairs] = useState([]);
+  const clientId = 666; //tutaj przypisać wartość JWT z informacją o id clienta
+
+  useEffect(() => {
+    getRepairs();
+  }, []);
+  const getRepairs = () => {
+    const repairsCollection = collection(db, 'repairs');
+    const pendingRepairsQuery = query(
+      repairsCollection,
+      // where('clientId', '==', clientId),
+      where('isAccepted', '==', true),
+      where('isDone', '==', false)
+    );
+
+    getDocs(pendingRepairsQuery).then((QuerySnapshot) => {
+      setRepairs(QuerySnapshot.docs.map((doc) => doc.data()));
+    });
+  };
   return (
     <>
       <div>
         <Accordion>
           <RepairsInProgress />
           <AccordionDetails>
-            <Typography>
-              Polerowanie 500 zł <br />
-              Wymiana ogumienia 250 zł <br />
-              Koszt całkowity zleconej usługi: 750 zł
-            </Typography>
+            {repairs.map((row, index) => (
+              <Fragment >
+                < Typography key={index}>
+                  Komentarz: {row.selfText}</Typography>
+                < Typography key={row}>Naprawy: {row.tasks.map((tasks, index) => (`
+                  ${index + 1} ${tasks.task}: ${tasks.price} PLN`))}</Typography>
+              </Fragment>
+            ))}
+
           </AccordionDetails>
         </Accordion>
         <Accordion>

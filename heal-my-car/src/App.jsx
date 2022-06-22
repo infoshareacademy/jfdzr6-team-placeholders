@@ -16,10 +16,7 @@ import { Form1 } from "../components/Repair-forms/Repair-form1";
 import { Form2 } from "../components/Repair-forms/Repair-form2";
 import { Form3 } from "../components/Repair-forms/Repair-form3";
 import { Form4 } from "../components/Repair-forms/Repair-form4";
-import { ClientDetails } from "../components/ClientDetails";
-import { Contact } from "../components/Contact";
 import NewTasks from "../routes/NewTasks";
-import ShowOffer from "../components/AcceptPricing/ShowOffer";
 
 function App() {
   const role = "admin";

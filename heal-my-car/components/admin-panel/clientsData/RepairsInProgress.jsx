@@ -1,58 +1,67 @@
-import { async } from '@firebase/util';
-import { Accordion, AccordionSummary, Collapse, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
-import { collection, onSnapshot, doc, getDocs, where, DocumentReference, query, CollectionReference } from 'firebase/firestore';
-import React, { useEffect, useState } from 'react'
+import { Accordion, AccordionDetails, AccordionSummary, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material';
+import { collection, getDocs, where, query } from 'firebase/firestore';
+import React, { Fragment, useEffect, useState } from 'react'
 import { db } from '../../../src/firebase';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import DirectionsCarFilledIcon from "@mui/icons-material/DirectionsCarFilled";
+
 
 
 export const RepairsInProgress = () => {
+
     const [repairs, setRepairs] = useState([]);
-    const [openRowIndex, setOpenRowIndex] = useState(null);
-    const clientId = 1; //tutaj przypisać wartość JWT z informacją o id clienta
-
-    useEffect(() => {
-        getRepairs();
-    }, []);
-
+    console.log('repairs po useState');
+    console.log(repairs);
     const getRepairs = () => {
         const repairsCollection = collection(db, 'repairs');
         const pendingRepairsQuery = query(
             repairsCollection,
-            where('clientId', '==', clientId)
+            // where('clientId', '==', clientId),
+            where('isAccepted', '==', true),
+            where('isDone', '==', false)
         );
 
         getDocs(pendingRepairsQuery).then((QuerySnapshot) => {
-            setRepairs(QuerySnapshot.docs.map((doc) => doc.data()));
+            setRepairs(QuerySnapshot.docs.map((doc) => ({ ...doc.data() }))
+            )
         });
     };
+    useEffect(() => {
+        getRepairs();
+    }, []);
+    const getSingleRepair =
+        repairs.map(repair => {
+            console.log(repair);
+            return (
+                <Accordion>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                    >
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <DirectionsCarFilledIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={`Marka: ${repair.carBrand} | VIN: ${repair.carVin}`} />
+                        </ListItemButton>
+                    </AccordionSummary>
+                    {/* <AccordionDetails>
+                        {`cos ${repair.tasks.task}`}
+                    </AccordionDetails> */}
+                </Accordion>
+            )
+        })
 
-    const handleCollapse = (index) => {
-        if (openRowIndex === index) {
-            setOpenRowIndex(null);
-            return;
-        }
 
-        setOpenRowIndex(index);
-    };
+    const getRepairDetails = () => {
+
+    }
 
     return (
         <>
-
-            <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-            >
-
-                {repairs.map((row, index) => (
-                    < Typography > Marka: {row.carBrand} Numer VIN: {row.carVin}</Typography>
-                ))}
-
-            </AccordionSummary>
-
-
-
+            {getSingleRepair}
+            <getRepairDetails />
         </>
     )
-};
+}
