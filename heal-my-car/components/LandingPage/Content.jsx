@@ -1,6 +1,10 @@
 import Button from "@mui/material/Button";
 
 const Content = () => {
+  const imgStyle = {
+    width: "auto",
+    height: "850px",
+  };
   return (
     <>
       <div
@@ -145,10 +149,7 @@ const Content = () => {
             userSelect: "none",
           }}
         >
-          <img
-            style={{ width: "700px", height: "auto" }}
-            src="../utils/flow.jpg"
-          />
+          <img style={imgStyle} src="../utils/flow.jpg" />
         </div>
       </div>
       <div
