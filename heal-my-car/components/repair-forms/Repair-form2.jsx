@@ -9,6 +9,7 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import { useState } from "react";
+import Header from "../LandingPage/Header";
 
 export const Form2 = () => {
   const { setFormData, formData } = useOutletContext();
@@ -47,6 +48,7 @@ export const Form2 = () => {
   console.log(formState);
   return (
     <div>
+      <Header />
       <CssBaseline />
       <Container
         maxWidth="auto"
@@ -86,6 +88,7 @@ export const Form2 = () => {
           type="submit"
           onClick={handleSubmit}
           style={{ height: "35px", width: "25ch", marginTop: "20px" }}
+          color="secondary"
         >
           Dalej
         </Button>

@@ -59,6 +59,8 @@ const Content = () => {
             borderRadius: "15px",
             fontFamily: "lato",
           }}
+          href="/repair-form/repair-form1"
+          color="secondary"
         >
           Zleć naprawę
         </Button>
