@@ -6,7 +6,8 @@ export const MapClients = () => {
     const [clients, setClients] = useState([]);
     const getClients = () => {
         const clientsCollection = collection(db, 'clients');
-        const clientsQuery = query(clientsCollection, where('clientId', '==', 666));
+        const repairsCollection = collection(db, 'repairs');
+        const clientsQuery = query(clientsCollection);
 
         getDocs(clientsQuery).then((QuerySnapshot) => {
             setClients(QuerySnapshot.docs.map((doc) => ({ ...doc.data() }))
@@ -16,7 +17,7 @@ export const MapClients = () => {
     useEffect(() => {
         getClients();
     }, []);
-
+    console.log(clients);
     const clientData = clients.map((client, index) => {
         return (
             <p>{client.name} {client.lastName}</p>)
