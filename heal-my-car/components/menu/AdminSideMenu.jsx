@@ -18,9 +18,9 @@ export const AdminSideMenu = () => {
                             Naprawy w toku
                         </Button>
                     </Link>
-                    <Link to='/admin-panel' style={{ textDecoration: 'none' }}>
+                    <Link to='/repairsdone' style={{ textDecoration: 'none' }}>
                         <Button variant="contained">
-                            Naprawy historyczne
+                            Naprawy wykonane
                         </Button>
                     </Link>
                 </Stack>
