@@ -6,6 +6,7 @@ import { AdminSideMenu } from "../components/Menu/AdminSideMenu";
 import { RepairsInProgress } from "../components/admin-panel/clientsData/RepairsInProgress";
 import { MapClients } from "../components/admin-panel/clientsData/MapClients";
 
+
 export default function AdminPanel(role) {
   const Logout = () => { };
   return (

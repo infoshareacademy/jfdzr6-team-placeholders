@@ -11,7 +11,8 @@ import { MapClients } from './MapClients';
 export const RepairsInProgress = () => {
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     const [repairs, setRepairs] = useState([]);
-    const getRepairs = () => {
+
+  const getRepairs = () => {
         const repairsCollection = collection(db, 'repairs');
         const pendingRepairsQuery = query(
             repairsCollection,
@@ -59,9 +60,7 @@ export const RepairsInProgress = () => {
                 </Accordion >
             )
         })
-
     return (
-
         getSingleRepair
     )
 }
