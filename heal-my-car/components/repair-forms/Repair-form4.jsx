@@ -3,6 +3,7 @@ import { Button } from "@mui/material";
 import { db } from "../../src/firebase.js";
 import { collection, addDoc } from "firebase/firestore";
 import Box from "@mui/material/Box";
+import Header from "../LandingPage/Header";
 
 import TextField from "@mui/material/TextField";
 
@@ -28,12 +29,11 @@ export const Form4 = () => {
 
   return (
     <div>
+      <Header />
       <CssBaseline />
       <Container maxWidth="auto">
         <h2 style={{ textAlign: "center" }}>Podsumowanie zlecenia naprawy</h2>
         <br />
-        <h4>Hello</h4>
-
         <p>Marka pojazdu: {formData.carBrand}</p>
         <p>VIN pojazdu: {formData.carVin}</p>
         <ul>
@@ -58,6 +58,7 @@ export const Form4 = () => {
             variant="contained"
             type="submit"
             style={{ height: "35px", width: "25ch", alignSelf: "end" }}
+            color="secondary"
           >
             Zatwierdź
           </Button>

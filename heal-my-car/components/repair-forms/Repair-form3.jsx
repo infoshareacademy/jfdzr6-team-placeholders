@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
+import Header from "../LandingPage/Header";
 
 export const Form3 = () => {
   const { setFormData, formData } = useOutletContext();
@@ -22,6 +23,7 @@ export const Form3 = () => {
   };
   return (
     <div>
+      <Header />
       <CssBaseline />
       <Container
         maxWidth="auto"
@@ -58,12 +60,14 @@ export const Form3 = () => {
             multiline
             rows={6}
             sx={{ width: "400px" }}
+            color="secondary"
           />
 
           <Button
             variant="contained"
             type="submit"
             style={{ height: "35px", width: "25ch", marginTop: "20px" }}
+            color="secondary"
           >
             Dalej
           </Button>
