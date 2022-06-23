@@ -1,18 +1,17 @@
-import { Accordion, AccordionSummary, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { Accordion, AccordionSummary, Divider, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import { collection, getDocs, where, query } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
 import { db } from '../../../src/firebase';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import DirectionsCarFilledIcon from "@mui/icons-material/DirectionsCarFilled";
-import Checkbox from '@mui/material/Checkbox';
 import MapSingleOffer from '../../../components/AcceptPricing/FilterOffer/MapSingleOffer';
-import { MapClients } from './MapClients';
+import { Navbar } from '../../Navbar';
+import { Outlet } from 'react-router-dom';
+import { AdminSideMenu } from '../../Menu/AdminSideMenu';
 
-export const RepairsInProgress = () => {
-    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+export const RepairsDone = () => {
     const [repairs, setRepairs] = useState([]);
-
-  const getRepairs = () => {
+    const getRepairs = () => {
         const repairsCollection = collection(db, 'repairs');
         const pendingRepairsQuery = query(
             repairsCollection,
@@ -28,6 +27,8 @@ export const RepairsInProgress = () => {
     useEffect(() => {
         getRepairs();
     }, []);
+
+    
     const getSingleRepair =
         repairs.map((repair, index) => {
             return (
@@ -42,25 +43,47 @@ export const RepairsInProgress = () => {
                             <ListItemIcon>
                                 <DirectionsCarFilledIcon />
                             </ListItemIcon>
-                            <ListItemText key={index} primary={<MapClients />} secondary={`Marka: ${repair.carBrand} - nr VIN: ${repair.carVin}`} />
+                            <ListItemText key={index} primary={`Marka: ${repair.carBrand} | VIN: ${repair.carVin}`} />
                         </ListItemButton>
                     </AccordionSummary>
-                    {repair.tasks.map((task, index, price) => (
-                        <div key={index} style={{ display: 'flex' }}>
-                            <MapSingleOffer
-                                task={task}
-                                repair={repair}
-                                price={price}
-                                index={index}
-                            />
-                            <Checkbox {...label} />
-                        </div>
+                    {repair.tasks.map((task, index) => (
+                        <MapSingleOffer
+                            task={task}
+                            repair={repair}
+                            index={index}
+                        />
                     ))
                     }
                 </Accordion >
             )
         })
+
     return (
-        getSingleRepair
+        <>
+            <Navbar />
+            <div style={{ textAlign: "center" }}>
+                <h2>Panel Admina</h2>
+            </div>
+            <br />
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "row",
+                }}
+            >
+                <AdminSideMenu />
+                <Divider
+                    orientation="vertical"
+                    variant="middle"
+                    flexItem
+                    style={{ margin: "0 20px 0 20px" }}
+                />
+                <div className="content">
+                    {getSingleRepair}
+                </div>
+            </div>
+
+            <Outlet />
+        </>
     )
 }

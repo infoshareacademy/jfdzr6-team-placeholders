@@ -9,7 +9,6 @@ import PasswordReset from "../routes/PasswordReset";
 import Home from "../routes/Home";
 import ClientPanel from "../routes/ClientPanel";
 import AdminPanel from "../routes/AdminPanel";
-import Repairs from "../routes/Repairs";
 import WrongPath from "../routes/WrongPath";
 import { Wrapper } from "../components/Repair-forms/Repair-form";
 import { Form1 } from "../components/Repair-forms/Repair-form1";
@@ -17,6 +16,8 @@ import { Form2 } from "../components/Repair-forms/Repair-form2";
 import { Form3 } from "../components/Repair-forms/Repair-form3";
 import { Form4 } from "../components/Repair-forms/Repair-form4";
 import NewTasks from "../routes/NewTasks";
+import { RepairsInProgress } from "../components/admin-panel/clientsData/RepairsInProgress";
+import { RepairsDone } from "../components/admin-panel/clientsData/RepairsDone";
 
 function App() {
   const role = "guest";
@@ -62,9 +63,8 @@ function App() {
 
           {/* Admin Routing */}
           <Route element={<ProtectedRoute isAllowed={role === "admin"} />}>
-            <Route path="admin-panel" element={<AdminPanel />}>
-              <Route path="repairs" element={<Repairs />} />
-            </Route>
+            <Route path="admin-panel" element={<AdminPanel />} />
+            <Route path="repairsdone" element={<RepairsDone />} />
             <Route path="newtasks" element={<NewTasks />} />
           </Route>
 
