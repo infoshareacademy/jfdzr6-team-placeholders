@@ -23,7 +23,7 @@ const SubmitPricing = ({ getRepairs, repair }) => {
         handleCalc();
       }}
       style={{ marginTop: "10px", marginLeft: "5px" }}
-      color="success"
+      color="primary"
       variant="contained"
       size="small"
     >

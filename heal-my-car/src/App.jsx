@@ -16,8 +16,6 @@ import { Form1 } from "../components/Repair-forms/Repair-form1";
 import { Form2 } from "../components/Repair-forms/Repair-form2";
 import { Form3 } from "../components/Repair-forms/Repair-form3";
 import { Form4 } from "../components/Repair-forms/Repair-form4";
-import { ClientDetails } from "../components/ClientDetails";
-import { Contact } from "../components/Contact";
 import NewTasks from "../routes/NewTasks";
 
 function App() {
@@ -36,7 +34,7 @@ function App() {
     const collection0 = collection(db, "repairs");
     getDocs(collection0).then((QuerySnapshot) => {
       QuerySnapshot.docs.forEach((doc) => {
-        console.log("zlecenie naprawy", doc.data());
+        console.log("zlecenie naprawy - forEach - cała kolekcja", doc.data());
       });
     });
   }; */
@@ -61,7 +59,6 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
           <Route path="password-reset" element={<PasswordReset />} />
-          <Route path="contact" element={<Contact />} />
 
           {/* Admin Routing */}
           <Route element={<ProtectedRoute isAllowed={role === "admin"} />}>
@@ -80,7 +77,6 @@ function App() {
           {/* Client Routing */}
           <Route element={<ProtectedRoute isAllowed={role === "user"} />}>
             <Route path="client-id" element={<ClientPanel />}>
-              <Route path="details" element={<ClientDetails />} />
             </Route>
           </Route>
           <Route path="*" element={<WrongPath />} />
