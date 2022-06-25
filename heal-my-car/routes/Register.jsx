@@ -170,11 +170,11 @@ export default function SignUp() {
             </Button>
             
             <Grid container justifyContent="space-between">
-              <Grid item>
+              {/* <Grid item>
                 <Link href="#" variant="body2">
                   Zarejestruj się z kontem Google
                 </Link>
-              </Grid>
+              </Grid> */}
               <Grid item>
                 <Link href="/Login" variant="body2">
                   Masz już konto? Zaloguj się
