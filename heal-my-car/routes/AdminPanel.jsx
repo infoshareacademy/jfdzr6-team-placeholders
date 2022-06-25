@@ -3,8 +3,7 @@ import { Outlet } from "react-router-dom";
 import Header from "../components/LandingPage/Header";
 import Divider from "@mui/material/Divider";
 import { AdminSideMenu } from "../components/Menu/AdminSideMenu";
-import { RepairsInProgress } from "../components/admin-panel/clientsData/RepairsInProgress";
-import { MapClients } from "../components/admin-panel/clientsData/MapClients";
+import { RepairsInProgress } from "../components/admin-panel/RepairsInProgress";
 export default function AdminPanel(role) {
   const Logout = () => {};
   return (

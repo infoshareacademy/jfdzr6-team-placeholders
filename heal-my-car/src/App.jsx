@@ -16,8 +16,7 @@ import { Form2 } from "../components/Repair-forms/Repair-form2";
 import { Form3 } from "../components/Repair-forms/Repair-form3";
 import { Form4 } from "../components/Repair-forms/Repair-form4";
 import NewTasks from "../routes/NewTasks";
-import { RepairsInProgress } from "../components/admin-panel/clientsData/RepairsInProgress";
-import { RepairsDone } from "../components/admin-panel/clientsData/RepairsDone";
+import DoneTasks from "../routes/DoneTasks";
 
 function App() {
   const role = "admin";
@@ -64,7 +63,7 @@ function App() {
           {/* Admin Routing */}
           <Route element={<ProtectedRoute isAllowed={role === "admin"} />}>
             <Route path="admin-panel" element={<AdminPanel />} />
-            <Route path="repairsdone" element={<RepairsDone />} />
+            <Route path="repairsdone" element={<DoneTasks />} />
             <Route path="newtasks" element={<NewTasks />} />
           </Route>
 
@@ -76,8 +75,7 @@ function App() {
           </Route>
           {/* Client Routing */}
           <Route element={<ProtectedRoute isAllowed={role === "user"} />}>
-            <Route path="client-id" element={<ClientPanel />}>
-            </Route>
+            <Route path="client-id" element={<ClientPanel />}></Route>
           </Route>
           <Route path="*" element={<WrongPath />} />
         </Routes>

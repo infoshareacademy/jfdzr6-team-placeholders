@@ -1,9 +1,13 @@
+import { Divider } from "@mui/material";
 import { collection, getDocs, where, query, getDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import { db } from "../../../src/firebase";
-import { MapRepairsInProgress } from "./MapRepairsInProgress";
+import { Outlet } from "react-router-dom";
+import { db } from "../../src/firebase";
+import { MapRepairsDone } from "./MapRepairsDone";
+import Header from "../LandingPage/Header";
+import { AdminSideMenu } from "../Menu/AdminSideMenu";
 
-export const RepairsInProgress = () => {
+export const RepairsDone = () => {
   const [clients, setClients] = useState([]);
   console.log("usestate", clients);
 
@@ -11,7 +15,7 @@ export const RepairsInProgress = () => {
     const clientsCollection = collection(db, "clients");
     const pendingClientsQuery = query(
       clientsCollection,
-      where("isDone", "==", false)
+      where("isDone", "==", true)
     );
 
     const clientsQuerySnapshot = await getDocs(pendingClientsQuery);
@@ -36,7 +40,7 @@ export const RepairsInProgress = () => {
 
   return (
     <>
-      <MapRepairsInProgress clients={clients} />
+      <MapRepairsDone clients={clients} />
     </>
   );
 };
