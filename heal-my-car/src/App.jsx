@@ -20,7 +20,7 @@ import { RepairsInProgress } from "../components/admin-panel/clientsData/Repairs
 import { RepairsDone } from "../components/admin-panel/clientsData/RepairsDone";
 
 function App() {
-  const role = "guest";
+  const role = "admin";
 
   // const [role, setRole] = useState(null) // 'guest' | 'user' | 'admin'
 

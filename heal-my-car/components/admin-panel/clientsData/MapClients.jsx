@@ -1,28 +1,18 @@
-import { collection, getDocs, query, where } from 'firebase/firestore';
-import React, { useEffect, useState } from 'react'
-import { db } from '../../../src/firebase';
+import { ListItemText } from "@mui/material"
 
-export const MapClients = () => {
-    const [clients, setClients] = useState([]);
-    const getClients = () => {
-        const clientsCollection = collection(db, 'clients');
-        const repairsCollection = collection(db, 'repairs');
-        const clientsQuery = query(clientsCollection);
-
-        getDocs(clientsQuery).then((QuerySnapshot) => {
-            setClients(QuerySnapshot.docs.map((doc) => ({ ...doc.data() }))
+export const MapClients = ({ clients }) => {
+    console.log('map', clients);
+    {
+        clients.map((client, clientId, index) => {
+            console.log(client.lastName);
+            return (
+                <li key={clientId}>'ss'</li>
             )
-        });
-    };
-    useEffect(() => {
-        getClients();
-    }, []);
-    console.log(clients);
-    const clientData = clients.map((client, index) => {
-        return (
-            <p>{client.name} {client.lastName}</p>)
-    });
-    return (
-        clientData
-    )
+
+            // <ul key={index}>
+            //     <li key={clientId}>`Imię ${client.name}`</li>
+            // </ul>
+
+        })
+    }
 }

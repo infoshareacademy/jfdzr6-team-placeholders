@@ -4,10 +4,11 @@ import React, { useEffect, useState } from 'react'
 import { db } from '../../../src/firebase';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import DirectionsCarFilledIcon from "@mui/icons-material/DirectionsCarFilled";
-import MapSingleOffer from '../../../components/AcceptPricing/FilterOffer/MapSingleOffer';
+import BuildIcon from "@mui/icons-material/Build";
 import { Navbar } from '../../Navbar';
 import { Outlet } from 'react-router-dom';
 import { AdminSideMenu } from '../../Menu/AdminSideMenu';
+import { MapClients } from './MapClients';
 
 export const RepairsDone = () => {
     const [repairs, setRepairs] = useState([]);
@@ -28,11 +29,11 @@ export const RepairsDone = () => {
         getRepairs();
     }, []);
 
-    
+
     const getSingleRepair =
         repairs.map((repair, index) => {
             return (
-                <Accordion>
+                <Accordion >
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel1a-content"
@@ -43,15 +44,19 @@ export const RepairsDone = () => {
                             <ListItemIcon>
                                 <DirectionsCarFilledIcon />
                             </ListItemIcon>
-                            <ListItemText key={index} primary={`Marka: ${repair.carBrand} | VIN: ${repair.carVin}`} />
+                            <ListItemText primary={`<MapClients clients={clients} /> ${<MapClients />}`} />
+                            <ListItemText key={clientId} secondary={`Marka: ${repair.carBrand} | VIN: ${repair.carVin}`} />
                         </ListItemButton>
                     </AccordionSummary>
                     {repair.tasks.map((task, index) => (
-                        <MapSingleOffer
-                            task={task}
-                            repair={repair}
-                            index={index}
-                        />
+                        <div key={index} style={{ display: 'flex' }}>
+                            <ListItemButton sx={{ pl: 10, maxHeight: "48px" }}>
+                                <ListItemIcon>
+                                    <BuildIcon />
+                                </ListItemIcon>
+                                <ListItemText primary={task.task} secondary={`${task.price} zł`} />
+                            </ListItemButton>
+                        </div>
                     ))
                     }
                 </Accordion >
