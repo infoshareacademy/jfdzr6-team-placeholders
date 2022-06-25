@@ -1,17 +1,15 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { Navbar } from "../components/Navbar";
+import Header from "../components/LandingPage/Header";
 import Divider from "@mui/material/Divider";
 import { AdminSideMenu } from "../components/Menu/AdminSideMenu";
 import { RepairsInProgress } from "../components/admin-panel/clientsData/RepairsInProgress";
 import { MapClients } from "../components/admin-panel/clientsData/MapClients";
-
-
 export default function AdminPanel(role) {
-  const Logout = () => { };
+  const Logout = () => {};
   return (
     <>
-      <Navbar />
+      <Header />
       <div style={{ textAlign: "center" }}>
         <h2>Panel Admina</h2>
       </div>

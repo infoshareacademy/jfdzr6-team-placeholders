@@ -1,30 +1,18 @@
 import { collection, getDocs, where, query, getDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../../../src/firebase";
-import { MapClients } from "./MapClients";
 import { MapRepairsInProgress } from "./MapRepairsInProgress";
 
 export const RepairsInProgress = () => {
-  const [repairs, setRepairs] = useState([]);
   const [clients, setClients] = useState([]);
   console.log("usestate", clients);
 
-  const getRepairs = () => {
-    const repairsCollection = collection(db, "repairs");
-    const pendingRepairsQuery = query(
-      repairsCollection,
-      where("isAccepted", "==", true),
-      where("isDone", "==", false)
-    );
-
-    getDocs(pendingRepairsQuery).then((QuerySnapshot) => {
-      setRepairs(QuerySnapshot.docs.map((doc) => ({ ...doc.data() })));
-    });
-  };
-
   const getClients = async () => {
     const clientsCollection = collection(db, "clients");
-    const pendingClientsQuery = query(clientsCollection);
+    const pendingClientsQuery = query(
+      clientsCollection,
+      where("isDone", "==", false)
+    );
 
     const clientsQuerySnapshot = await getDocs(pendingClientsQuery);
     const clientsDataPromises = clientsQuerySnapshot.docs.map(async (doc) => {
@@ -39,16 +27,16 @@ export const RepairsInProgress = () => {
     });
     const clientsData = await Promise.all(clientsDataPromises);
     setClients(clientsData);
-    console.log(clientsData);
+    console.log("clientdata", clientsData);
+    return clientsData;
   };
   useEffect(() => {
-    getRepairs();
     getClients();
   }, []);
 
   return (
     <>
-      <MapRepairsInProgress repairs={repairs} clients={clients} />
+      <MapRepairsInProgress clients={clients} />
     </>
   );
 };
