@@ -1,13 +1,13 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
-import { db } from "../../src/firebase.js";
+import { db } from "../../../src/firebase.js";
 import { updateDoc, doc } from "firebase/firestore";
 
-const RejectPricing = ({ getRepairs, repair }) => {
-  const handleReject = () => {
+const AcceptOffer = ({ getRepairs, repair }) => {
+  const handleAccept = () => {
     const taskRef = doc(db, "repairs", repair.id);
     updateDoc(taskRef, {
-      isRejected: true,
+      isAccepted: true,
     });
     getRepairs(repair);
   };
@@ -15,15 +15,15 @@ const RejectPricing = ({ getRepairs, repair }) => {
     <Button
       key={repair.carVin}
       onClick={() => {
-        handleReject();
+        handleAccept();
       }}
       style={{ marginTop: "10px", marginLeft: "5px" }}
       color="primary"
       variant="contained"
       size="small"
     >
-      Odrzuć
+      Zaakceptuj
     </Button>
   );
 };
-export default RejectPricing;
+export default AcceptOffer;

@@ -1,13 +1,13 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
-import { db } from "../../src/firebase.js";
+import { db } from "../../../src/firebase.js";
 import { updateDoc, doc } from "firebase/firestore";
 
-const RejectPricing = ({ getRepairs, repair }) => {
+const RejectOffer = ({ getRepairs, repair }) => {
   const handleReject = () => {
     const taskRef = doc(db, "repairs", repair.id);
     updateDoc(taskRef, {
-      isRejected: true,
+      isAccepted: false,
     });
     getRepairs(repair);
   };
@@ -26,4 +26,4 @@ const RejectPricing = ({ getRepairs, repair }) => {
     </Button>
   );
 };
-export default RejectPricing;
+export default RejectOffer;

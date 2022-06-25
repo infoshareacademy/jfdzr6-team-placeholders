@@ -66,7 +66,6 @@ export const Login = () => {
                     flexDirection: 'column',
                     gap: '20px',
                     height: '100vh',
-                    // fontFamily: 'inherit',
                     backgroundColor: '#f8f9fd'
                 }}>
                 <div

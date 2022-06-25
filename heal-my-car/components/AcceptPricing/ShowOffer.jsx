@@ -1,25 +1,14 @@
-import { collection, doc, updateDoc, onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { db } from "../../src/firebase.js";
-import MapRepairs from "./FilterRepairs/MapRepairs.jsx";
 import * as React from "react";
 import ListSubheader from "@mui/material/ListSubheader";
 import List from "@mui/material/List";
-
-const TasksPricing = () => {
+import MapOffers from "./FilterOffer/MapOffers.jsx";
+const ShowOffer = () => {
   const [repairs, setRepairs] = useState([]);
 
-  const updateTaskPrice = (value, repair, index) => {
-    console.log(repair);
-    const tasks = [...repair.tasks];
-    const editedTask = { ...tasks[index], price: parseInt(value) };
-    tasks[index] = editedTask;
-
-    const taskRef = doc(db, "repairs", repair.id);
-    updateDoc(taskRef, {
-      tasks,
-    }).then(getRepairs(repairs));
-  };
+  const clientId = 1; //tutaj przypisać wartość JWT z informacją o id clienta
 
   const getRepairs = () => {
     const tasksCollection = collection(db, "repairs");
@@ -31,35 +20,35 @@ const TasksPricing = () => {
       setRepairs(repairs);
     });
   };
-
   useEffect(() => {
     getRepairs();
   }, []);
-
   return (
     <>
       <List
-        sx={{ maxWidth: "100%", bgcolor: "background.paper" }}
+        sx={{ width: "100%", maxWidth: "100%", bgcolor: "background.paper" }}
         component="nav"
         aria-labelledby="nested-list-subheader"
         subheader={
           <ListSubheader component="div" id="nested-list-subheader">
-            <h2>Oczekujące zlecenia</h2>
+            Propozycja wyceny
           </ListSubheader>
         }
       >
         {repairs
           .filter((obj) => {
-            return obj.totalCost === null && !obj.isRejected;
+            return (
+              obj.totalCost !== null &&
+              obj.isAccepted === null &&
+              obj.clientId === clientId
+            );
           })
-
           .map((repair) => {
             return (
-              <MapRepairs
+              <MapOffers
                 getRepairs={getRepairs}
                 key={repair.id}
                 repair={repair}
-                updateTaskPrice={updateTaskPrice}
               />
             );
           })}
@@ -67,5 +56,4 @@ const TasksPricing = () => {
     </>
   );
 };
-
-export default TasksPricing;
+export default ShowOffer;

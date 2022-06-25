@@ -52,9 +52,9 @@ export const Repairstatus = () => {
       <Table sx={{ width: 1 }} aria-label="simple table">
         <TableHead>
           <TableRow
-          style={{
-            backgroundColor: "#BDC3C7",
-          }}
+            style={{
+              backgroundColor: "#BDC3C7",
+            }}
           >
             <TableCell>
               <b>VIN</b>
@@ -84,7 +84,7 @@ export const Repairstatus = () => {
                 <TableCell>{row.carVin}</TableCell>
                 <TableCell>{row.carBrand}</TableCell>
                 <TableCell>{row.isDone ? "Done" : "Pending"}</TableCell>
-                <TableCell>{}</TableCell>
+                <TableCell>{ }</TableCell>
               </TableRow>
               <TableRow>
                 {row.tasks.map((task, i) => (
@@ -105,5 +105,3 @@ export const Repairstatus = () => {
     </TableContainer>
   );
 };
-
-export default Repairstatus;
