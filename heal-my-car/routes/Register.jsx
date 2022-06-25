@@ -16,7 +16,8 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../src/firebase";
 import { firebaseErrors } from "../src/utils/firebaseErrors";
 // import { GoogleAuthProvider } from "firebase/auth";
-import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Header from "../components/LandingPage/Header";
 // import GoogleIcon from '@mui/icons-material/Google';
 // import GoogleButton from "react-google-button";
 
@@ -80,78 +81,80 @@ export default function SignUp() {
   // };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Zarejestruj swoje konto
-          </Typography>
+    <>
+      <Header />
+      <ThemeProvider theme={theme}>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
           <Box
-            component="form"
-            noValidate
-            onSubmit={handleRegister}
-            sx={{ mt: 3 }}
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
           >
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  label="Twje imię"
-                  autoFocus
-                  value={name}
-                  onChange={(event) => setFirstname(event.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  label="Twoje nazwisko"
-                  name="lastName"
-                  autoComplete="family-name"
-                  value={surname}
-                  onChange={(event) => setSurname(event.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  type="email"
-                  label="Twój email"
-                  name="email"
-                  autoComplete="email"
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Twoje hasło"
-                  type="password"
-                  autoComplete="new-password"
-                  value={password}
-                  onChange={(event) => setPassword(event.target.value)}
-                />
-              </Grid>
-              {/* <Grid item xs={12}>
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Zarejestruj swoje konto
+            </Typography>
+            <Box
+              component="form"
+              noValidate
+              onSubmit={handleRegister}
+              sx={{ mt: 3 }}
+            >
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    autoComplete="given-name"
+                    name="firstName"
+                    required
+                    fullWidth
+                    label="Twje imię"
+                    autoFocus
+                    value={name}
+                    onChange={(event) => setFirstname(event.target.value)}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    label="Twoje nazwisko"
+                    name="lastName"
+                    autoComplete="family-name"
+                    value={surname}
+                    onChange={(event) => setSurname(event.target.value)}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    type="email"
+                    label="Twój email"
+                    name="email"
+                    autoComplete="email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    name="password"
+                    label="Twoje hasło"
+                    type="password"
+                    autoComplete="new-password"
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
+                  />
+                </Grid>
+                {/* <Grid item xs={12}>
                 <FormControlLabel
                   control={
                     <Checkbox value="allowExtraEmails" color="primary" />
@@ -159,32 +162,33 @@ export default function SignUp() {
                   label="Chcę być na bieżąco z promocjami oraz ważnymi zmianami w serwisie"
                 />
               </Grid> */}
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Zarejestruj się
-            </Button>
-            
-            <Grid container justifyContent="space-between">
-              {/* <Grid item>
+              </Grid>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Zarejestruj się
+              </Button>
+
+              <Grid container justifyContent="space-between">
+                {/* <Grid item>
                 <Link href="#" variant="body2">
                   Zarejestruj się z kontem Google
                 </Link>
               </Grid> */}
-              <Grid item>
-                <Link href="/Login" variant="body2">
-                  Masz już konto? Zaloguj się
-                </Link>
+                <Grid item>
+                  <Link href="/Login" variant="body2">
+                    Masz już konto? Zaloguj się
+                  </Link>
+                </Grid>
               </Grid>
-            </Grid>
+            </Box>
           </Box>
-        </Box>
-        <Copyright sx={{ mt: 5 }} />
-      </Container>
-    </ThemeProvider>
+          <Copyright sx={{ mt: 5 }} />
+        </Container>
+      </ThemeProvider>
+    </>
   );
 }
