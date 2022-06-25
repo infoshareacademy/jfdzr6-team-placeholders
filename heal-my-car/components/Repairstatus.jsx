@@ -21,10 +21,10 @@ export const Repairstatus = () => {
     getRepairs();
   }, []);
 
-  const repairTasks = async () => {
-    const repairs = await getDocs(collection('repairs'));
-    setRepairs(repairs);
-  }
+  // const repairTasks = async () => {
+  //   const repairs = await getDocs(collection('repairs'));
+  //   setRepairs(repairs);
+  // }
 
   const getRepairs = () => {
     const repairsCollection = collection(db, "repairs");
