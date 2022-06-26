@@ -10,7 +10,7 @@ export const RepairsInProgress = () => {
     const clientsCollection = collection(db, "clients");
     const pendingClientsQuery = query(
       clientsCollection,
-      where("isDone", "==", false)
+      where("clientRepairs", "!=", [])
     );
 
     const clientsQuerySnapshot = await getDocs(pendingClientsQuery);
