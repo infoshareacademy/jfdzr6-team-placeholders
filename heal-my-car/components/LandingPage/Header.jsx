@@ -1,5 +1,6 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -30,6 +31,7 @@ const Header = () => {
           style={{ marginLeft: "5px", marginRight: "5px" }}
         >
           <Button
+            href="/login"
             variant="text"
             color="inherit"
             sx={{ fontSize: "25px", fontFamily: "Lato " }}
@@ -42,6 +44,7 @@ const Header = () => {
           style={{ marginLeft: "5px", marginRight: "5px" }}
         >
           <Button
+            href="/register"
             variant="text"
             color="inherit"
             sx={{ fontSize: "25px", fontFamily: "Lato " }}
