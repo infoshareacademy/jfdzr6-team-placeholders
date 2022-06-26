@@ -12,20 +12,74 @@ export const Chassis = (props) => {
           <FormControlLabel
             control={
               <Checkbox
-                name="Naprawa zawieszenia przedniego"
+                name="Wymiana zawieszenia przedniego"
                 onChange={props.handleFormUpdate}
               />
             }
-            label="Naprawa zawieszenia przedniego"
+            label="Wymiana zawieszenia przedniego"
           />
           <FormControlLabel
             control={
               <Checkbox
-                name="Naprawa zawieszenia tylnego"
+                name="Wymiana zawieszenia tylnego"
                 onChange={props.handleFormUpdate}
               />
             }
-            label="Naprawa zawieszenia tylnego"
+            label="Wymiana zawieszenia tylnego"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Wymiana tłumika tylnego"
+                onChange={props.handleFormUpdate}
+              />
+            }
+            label="Wymiana tłumika tylnego"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Wymiana tłumika środkowego"
+                onChange={props.handleFormUpdate}
+              />
+            }
+            label="Wymiana tłumika środkowego"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Wymiana tarcz i klocków"
+                onChange={props.handleFormUpdate}
+              />
+            }
+            label="Wymiana tarcz i klocków"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Wymiana przednie tarcze i klocki"
+                onChange={props.handleFormUpdate}
+              />
+            }
+            label="Wymiana przednie tarcze i klocki"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Wymiana tylne tarcze i klocki"
+                onChange={props.handleFormUpdate}
+              />
+            }
+            label="Wymiana tylne tarcze i klocki"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Wymiana wymiana płynu hamulcowego"
+                onChange={props.handleFormUpdate}
+              />
+            }
+            label="Wymiana wymiana płynu hamulcowego"
           />
           <FormControlLabel
             control={
@@ -39,11 +93,29 @@ export const Chassis = (props) => {
           <FormControlLabel
             control={
               <Checkbox
-                name="Naprawa tłumika"
+                name="Naprawa hamuca ręcznego"
                 onChange={props.handleFormUpdate}
               />
             }
-            label="Naprawa tłumika"
+            label="Naprawa hamulca ręcznego"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Naprawa zacisków hamulcowych"
+                onChange={props.handleFormUpdate}
+              />
+            }
+            label="Naprawa zacisków hamulcowych"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Naprawa systemu ABS"
+                onChange={props.handleFormUpdate}
+              />
+            }
+            label="Naprawa systemu ABS"
           />
         </FormGroup>
       </Paper>

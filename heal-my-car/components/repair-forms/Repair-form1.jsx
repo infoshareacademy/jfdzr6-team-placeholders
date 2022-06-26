@@ -76,6 +76,7 @@ export const Form1 = () => {
             type="text"
             name="carBrand"
             color="secondary"
+            style={{width: "400px"}}
           />
           <TextField
             id="outlined-basic"
@@ -85,9 +86,13 @@ export const Form1 = () => {
             type="text"
             name="carVin"
             color="secondary"
+            style={{width: "400px", marginBottom: "55px"}}
           />
           <Button variant="contained" type="submit" color="secondary">
             Dalej
+          </Button>
+          <Button variant="contained" type="submit" color="secondary">
+            Wstecz
           </Button>
         </Box>
         <div

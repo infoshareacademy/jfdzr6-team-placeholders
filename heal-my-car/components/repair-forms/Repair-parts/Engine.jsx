@@ -12,15 +12,6 @@ export const Engine = (props) => {
           <FormControlLabel
             control={
               <Checkbox
-                name="Kontrola silnika"
-                onChange={props.handleFormUpdate}
-              />
-            }
-            label="Kontrola silnika"
-          />
-          <FormControlLabel
-            control={
-              <Checkbox
                 name="Wymiana oleju"
                 onChange={props.handleFormUpdate}
               />
@@ -53,6 +44,33 @@ export const Engine = (props) => {
               />
             }
             label="Wymiana rozrządu"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Wymiana rozrusznika"
+                onChange={props.handleFormUpdate}
+              />
+            }
+            label="Wymiana rozrusznika"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Akumulator/bateria"
+                onChange={props.handleFormUpdate}
+              />
+            }
+            label="Akumulator/bateria"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Sprzęgło"
+                onChange={props.handleFormUpdate}
+              />
+            }
+            label="Sprzęgło"
           />
           <FormControlLabel
             control={
