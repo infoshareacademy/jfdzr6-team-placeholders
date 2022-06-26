@@ -19,7 +19,7 @@ export const RepairsInProgress = () => {
       const clientRepairsData = await Promise.all(
         clientRepairs.map(async (repair) => {
           const repairData = await getDoc(repair);
-          return repairData.data();
+          return { ...repairData.data(), id: repairData.id };
         })
       );
       return { ...clientData, clientRepairs: clientRepairsData, id: doc.id };

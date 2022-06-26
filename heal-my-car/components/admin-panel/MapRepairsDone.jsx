@@ -8,7 +8,6 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DirectionsCarFilledIcon from "@mui/icons-material/DirectionsCarFilled";
 
 export const MapRepairsDone = ({ clients }) => {
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
   return (
     <>
       {clients.map((client, index) => {
