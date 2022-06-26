@@ -19,7 +19,7 @@ import NewTasks from "../routes/NewTasks";
 import DoneTasks from "../routes/DoneTasks";
 
 function App() {
-  const role = "admin";
+  const role = "guest";
 
   // const [role, setRole] = useState(null) // 'guest' | 'user' | 'admin'
 

@@ -6,6 +6,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import Header from "../LandingPage/Header";
+import { HorizontalLabelPositionBelowStepper } from "./Form-status";
 
 export const Form1 = () => {
   const { setFormData, formData } = useOutletContext();
@@ -27,30 +28,7 @@ export const Form1 = () => {
     <div>
       <Header />
       <CssBaseline />
-      <Container maxWidth="sm">
-        <div
-          className="leftTop"
-          style={{
-            position: "absolute",
-            width: "100px",
-            height: "100px",
-            borderTop: "10px #9011E4 solid",
-            borderLeft: "10px #9011E4 solid",
-            marginTop: "50px",
-          }}
-        ></div>
-        <div
-          className="rightTop"
-          style={{
-            position: "absolute",
-            width: "100px",
-            height: "100px",
-            borderTop: "10px #9011E4 solid",
-            borderRight: "10px #9011E4 solid",
-            marginTop: "50px",
-            right: "36%",
-          }}
-        ></div>
+      <Container maxWidth="100%" style={{ padding: "0", margin: "0", color: "primary" }}>
         <Box
           component="form"
           onSubmit={handleSubmit}
@@ -62,9 +40,10 @@ export const Form1 = () => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            paddingTop: "200px",
+            paddingTop: "150px",
           }}
         >
+          <HorizontalLabelPositionBelowStepper activeStep={1} />
           <h2 style={{ textAlign: "center", marginBottom: "35px" }}>
             Zleć wycenę
           </h2>
@@ -72,11 +51,11 @@ export const Form1 = () => {
             id="outlined-basic"
             label="Marka pojazdu"
             variant="outlined"
-            placeholder="Marka pojazdu"
             type="text"
             name="carBrand"
-            color="secondary"
-            style={{width: "400px"}}
+            color="primary"
+            style={{ width: "400px" }}
+            sx={{ color: "black" }}
           />
           <TextField
             id="outlined-basic"
@@ -85,8 +64,8 @@ export const Form1 = () => {
             placeholder="VIN pojazdu"
             type="text"
             name="carVin"
-            color="secondary"
-            style={{width: "400px", marginBottom: "55px"}}
+            color="primary"
+            style={{ width: "400px", marginBottom: "55px" }}
           />
           <Button variant="contained" type="submit" color="secondary">
             Dalej
@@ -95,29 +74,6 @@ export const Form1 = () => {
             Wstecz
           </Button>
         </Box>
-        <div
-          className="leftBottom"
-          style={{
-            position: "absolute",
-            width: "100px",
-            height: "100px",
-            borderBottom: "10px #9011E4 solid",
-            borderLeft: "10px #9011E4 solid",
-            marginTop: "50px",
-          }}
-        ></div>
-        <div
-          className="rightBottom"
-          style={{
-            position: "absolute",
-            width: "100px",
-            height: "100px",
-            borderBottom: "10px #9011E4 solid",
-            borderRight: "10px #9011E4 solid",
-            marginTop: "50px",
-            right: "36%",
-          }}
-        ></div>
       </Container>
     </div>
   );
