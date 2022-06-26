@@ -6,10 +6,9 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DirectionsCarFilledIcon from "@mui/icons-material/DirectionsCarFilled";
-import Checkbox from "@mui/material/Checkbox";
+import { SendRepairDone } from "./SendRepairDone";
 
-export const MapRepairsInProgress = ({ clients }) => {
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
+export const MapRepairsInProgress = ({ clients, getClients }) => {
   return (
     <>
       {clients.map((client, index) => {
@@ -43,21 +42,31 @@ export const MapRepairsInProgress = ({ clients }) => {
                           variant="body2"
                           sx={{ width: "60vw", fontWeight: "bold" }}
                         >
-                          {`Pojazd: ${repair.carBrand} VIN: ${repair.carVin}`}
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                            }}
+                          >
+                            {`Pojazd: ${repair.carBrand} VIN: ${repair.carVin}`}
+                            <SendRepairDone
+                              clients={clients}
+                              repair={repair}
+                              getClients={getClients}
+                            />
+                          </div>
                           {repair.tasks.map((task, index) => {
                             return (
                               <>
-                                <div
+                                <p
                                   style={{
                                     display: "flex",
                                     justifyContent: "space-between",
                                     alignItems: "center",
                                     fontWeight: "normal",
                                   }}
-                                >
-                                  <p>{`${task.task}`}</p>
-                                  <Checkbox {...label} />
-                                </div>
+                                >{`${task.task}`}</p>
                               </>
                             );
                           })}

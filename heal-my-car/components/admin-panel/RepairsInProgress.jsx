@@ -5,7 +5,6 @@ import { MapRepairsInProgress } from "./MapRepairsInProgress";
 
 export const RepairsInProgress = () => {
   const [clients, setClients] = useState([]);
-  console.log("usestate", clients);
 
   const getClients = async () => {
     const clientsCollection = collection(db, "clients");
@@ -27,7 +26,6 @@ export const RepairsInProgress = () => {
     });
     const clientsData = await Promise.all(clientsDataPromises);
     setClients(clientsData);
-    console.log("clientdata", clientsData);
     return clientsData;
   };
   useEffect(() => {
@@ -36,7 +34,7 @@ export const RepairsInProgress = () => {
 
   return (
     <>
-      <MapRepairsInProgress clients={clients} />
+      <MapRepairsInProgress clients={clients} getClients={getClients} />
     </>
   );
 };
