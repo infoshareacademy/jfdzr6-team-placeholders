@@ -1,11 +1,11 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Divider from "@mui/material/Divider";
-import TasksPricing from "../components/TasksPricing/TasksPricing";
 import { AdminSideMenu } from "../components/menu/AdminSideMenu";
 import Header from "../components/LandingPage/Header";
+import { RepairsDone } from "../components/admin-panel/RepairsDone";
 
-const NewTasks = () => {
+const DoneTasks = () => {
   return (
     <>
       <Header />
@@ -27,7 +27,7 @@ const NewTasks = () => {
           style={{ margin: "0 20px 0 20px" }}
         />
         <div className="content">
-          <TasksPricing />
+          <RepairsDone />
         </div>
       </div>
       <Outlet />
@@ -35,4 +35,4 @@ const NewTasks = () => {
   );
 };
 
-export default NewTasks;
+export default DoneTasks;
