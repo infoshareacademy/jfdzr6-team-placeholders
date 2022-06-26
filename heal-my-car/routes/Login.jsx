@@ -14,6 +14,11 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Header from "../components/LandingPage/Header";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { firebaseErrors } from "../src/utils/firebaseErrors";
+import { auth } from "../src/firebase";
+import { Navigate, useNavigate } from "react-router-dom";
+import { getFormData } from "../src/utils/getFormData";
 
 // export const Login = () => {
 //   const [errorMessages, setErrorMessages] = useState({});
@@ -143,13 +148,22 @@ function Copyright(props) {
 const theme = createTheme();
 
 export function Login() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { email, password } = getFormData(e);
+    signInWithEmailAndPassword(auth, email, password)
+      .then((jwt) => {
+        e.target.reset();
+        console.log(jwt);
+        alert("Zalogowano");
+        navigate("/client-id");
+      })
+      .catch((e) => {
+        console.log(e.code);
+        alert(firebaseErrors[e.code]);
+      });
   };
 
   return (
@@ -195,7 +209,6 @@ export function Login() {
                 name="password"
                 label="Podaj hasło"
                 type="password"
-                id="password"
                 autoComplete="current-password"
               />
               <FormControlLabel
@@ -212,12 +225,12 @@ export function Login() {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
+                  <Link href="/PasswordReset" variant="body2">
                     Przypomnij hasło
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="/Register" variant="body2">
                     {"Nie masz konta? Zarejestruj się"}
                   </Link>
                 </Grid>
