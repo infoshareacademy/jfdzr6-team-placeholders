@@ -1,4 +1,5 @@
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 const Content = () => {
   const imgStyle = {
@@ -53,21 +54,22 @@ const Content = () => {
             miliony zadowolonych klientów w całej Polsce
           </p>
         </div>
-        <Button
-          variant="contained"
-          size="large"
-          sx={{
-            width: "300px",
-            height: "70px",
-            fontSize: "35px",
-            borderRadius: "15px",
-            fontFamily: "lato",
-          }}
-          href="/repair-form/repair-form1"
-          color="secondary"
-        >
-          Zleć naprawę
-        </Button>
+        <Link to="/repair-form/repair-form1">
+          <Button
+            variant="contained"
+            size="large"
+            sx={{
+              width: "300px",
+              height: "70px",
+              fontSize: "35px",
+              borderRadius: "15px",
+              fontFamily: "lato",
+            }}
+            color="secondary"
+          >
+            Zleć naprawę
+          </Button>
+        </Link>
       </div>
       <div
         className="content-hero1"

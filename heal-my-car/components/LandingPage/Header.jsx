@@ -19,7 +19,9 @@ const Header = () => {
       }}
     >
       <div className="landing-logo">
-        <img src="../utils/logoGrad.png" height="75px" />
+        <Link to="/">
+          <img src="../utils/logoGrad.png" height="75px" />
+        </Link>
       </div>
 
       <div
@@ -30,27 +32,29 @@ const Header = () => {
           className="landing-buttons-style"
           style={{ marginLeft: "5px", marginRight: "5px" }}
         >
-          <Button
-            href="/login"
-            variant="text"
-            color="inherit"
-            sx={{ fontSize: "25px", fontFamily: "Lato " }}
-          >
-            Zaloguj
-          </Button>
+          <Link to="/login">
+            <Button
+              variant="text"
+              color="inherit"
+              sx={{ fontSize: "25px", fontFamily: "Lato " }}
+            >
+              Zaloguj
+            </Button>
+          </Link>
         </div>
         <div
           className="landing-buttons-style"
           style={{ marginLeft: "5px", marginRight: "5px" }}
         >
-          <Button
-            href="/register"
-            variant="text"
-            color="inherit"
-            sx={{ fontSize: "25px", fontFamily: "Lato " }}
-          >
-            Zarejestruj
-          </Button>
+          <Link to="/register">
+            <Button
+              variant="text"
+              color="inherit"
+              sx={{ fontSize: "25px", fontFamily: "Lato " }}
+            >
+              Zarejestruj
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
