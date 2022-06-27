@@ -57,7 +57,7 @@ function App() {
               role === "guest" ? (
                 <Home />
               ) : role === "user" ? (
-                <ClientPanel />
+                <Home />
               ) : (
                 <AdminPanel />
               )
@@ -84,7 +84,8 @@ function App() {
           </Route>
           {/* Client Routing */}
           <Route element={<ProtectedRoute isAllowed={role === "user"} />}>
-            <Route path="client-id" element={<ClientPanel />}></Route>
+            <Route path="/" element={<Home />} />
+            <Route path="client-id" element={<ClientPanel />} />
           </Route>
           <Route path="*" element={<WrongPath />} />
         </Routes>

@@ -6,7 +6,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -17,7 +16,7 @@ import Header from "../components/LandingPage/Header";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { firebaseErrors } from "../src/utils/firebaseErrors";
 import { auth } from "../src/firebase";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, Link } from "react-router-dom";
 import { getFormData } from "../src/utils/getFormData";
 
 // export const Login = () => {
@@ -136,9 +135,9 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      <a color="inherit" href="https://healmycar.pl/">
         Heal My Car
-      </Link>{" "}
+      </a>
       {new Date().getFullYear()}
       {"."}
     </Typography>
@@ -158,7 +157,7 @@ export function Login() {
         e.target.reset();
         console.log(jwt);
         alert("Zalogowano");
-        navigate("/client-id");
+        navigate("/");
       })
       .catch((e) => {
         console.log(e.code);
@@ -225,12 +224,12 @@ export function Login() {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="/PasswordReset" variant="body2">
+                  <Link to="/password-reset" variant="body2">
                     Przypomnij hasło
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="/Register" variant="body2">
+                  <Link to="/register" variant="body2">
                     {"Nie masz konta? Zarejestruj się"}
                   </Link>
                 </Grid>

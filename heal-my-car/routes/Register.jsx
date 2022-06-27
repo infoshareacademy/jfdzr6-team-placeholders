@@ -5,7 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 // import FormControlLabel from "@mui/material/FormControlLabel";
 // import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
+// import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -19,6 +19,7 @@ import { firebaseErrors } from "../src/utils/firebaseErrors";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/LandingPage/Header";
 import { setDoc, doc } from "firebase/firestore";
+import { Link } from "react-router-dom";
 // import GoogleIcon from '@mui/icons-material/Google';
 // import GoogleButton from "react-google-button";
 
@@ -31,9 +32,7 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="healmycar.pl">
-        Heal My Car Team
-      </Link>{" "}
+      <a href="http://healmycar.pl">Heal My Car Team</a>
       {new Date().getFullYear()}
       {"."}
     </Typography>
@@ -172,17 +171,14 @@ export default function SignUp() {
                 />
               </Grid> */}
               </Grid>
-              <Link href="/ClientPanel">
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                >
-                  Zarejestruj się
-                </Button>
-              </Link>
-
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Zarejestruj się
+              </Button>
               <Grid container justifyContent="space-between">
                 {/* <Grid item>
                 <Link href="#" variant="body2">
@@ -190,7 +186,7 @@ export default function SignUp() {
                 </Link>
               </Grid> */}
                 <Grid item>
-                  <Link href="/Login" variant="body2">
+                  <Link to="/login" variant="body2">
                     Masz już konto? Zaloguj się
                   </Link>
                 </Grid>
