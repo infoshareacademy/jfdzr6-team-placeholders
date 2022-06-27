@@ -32,7 +32,9 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <a href="http://healmycar.pl">Heal My Car Team</a>
+      <a className="footerLink" href="http://healmycar.pl">
+        Heal My Car Team
+      </a>
       {new Date().getFullYear()}
       {"."}
     </Typography>

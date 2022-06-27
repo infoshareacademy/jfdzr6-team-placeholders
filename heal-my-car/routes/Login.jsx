@@ -135,7 +135,7 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <a color="inherit" href="https://healmycar.pl/">
+      <a className="footerLink" color="inherit" href="https://healmycar.pl/">
         Heal My Car
       </a>
       {new Date().getFullYear()}
