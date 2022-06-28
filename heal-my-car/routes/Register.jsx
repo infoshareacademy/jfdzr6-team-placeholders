@@ -5,19 +5,21 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 // import FormControlLabel from "@mui/material/FormControlLabel";
 // import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
+// import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../src/firebase";
+import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { auth, db } from "../src/firebase";
 import { firebaseErrors } from "../src/utils/firebaseErrors";
 // import { GoogleAuthProvider } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/LandingPage/Header";
+import { setDoc, doc } from "firebase/firestore";
+import { Link } from "react-router-dom";
 // import GoogleIcon from '@mui/icons-material/Google';
 // import GoogleButton from "react-google-button";
 
@@ -30,9 +32,9 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="healmycar.pl">
+      <a className="footerLink" href="http://healmycar.pl">
         Heal My Car Team
-      </Link>{" "}
+      </a>
       {new Date().getFullYear()}
       {"."}
     </Typography>
@@ -46,7 +48,6 @@ export default function SignUp() {
   const [password, setPassword] = React.useState("");
   const [name, setFirstname] = React.useState("");
   const [surname, setSurname] = React.useState("");
-  const navigate = useNavigate();
 
   // const SingInWithFirebase = () => {
   //   const provider = new GoogleAuthProvider();
@@ -64,7 +65,16 @@ export default function SignUp() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((jwt) => {
         e.target.reset();
-        navigate("/ClientPanel", { replace: true });
+        console.log(jwt);
+        const ref = doc(db, "clients", jwt.user.uid);
+        // navigate("/ClientPanel", { replace: true });
+        setDoc(ref, { name, lastName: surname, email, clientRepairs: [] })
+          .then(() => {
+            alert("Zarejestrowano pomyślnie");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
       .catch((e) => {
         alert(firebaseErrors[e.code]);
@@ -171,7 +181,6 @@ export default function SignUp() {
               >
                 Zarejestruj się
               </Button>
-
               <Grid container justifyContent="space-between">
                 {/* <Grid item>
                 <Link href="#" variant="body2">
@@ -179,7 +188,7 @@ export default function SignUp() {
                 </Link>
               </Grid> */}
                 <Grid item>
-                  <Link href="/Login" variant="body2">
+                  <Link to="/login" variant="body2">
                     Masz już konto? Zaloguj się
                   </Link>
                 </Grid>

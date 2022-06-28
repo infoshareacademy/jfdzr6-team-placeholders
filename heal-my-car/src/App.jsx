@@ -1,6 +1,6 @@
-import { db } from "./Firebase";
-import { collection, getDocs } from "firebase/firestore";
-import { useEffect } from "react";
+import { auth, db } from "./Firebase";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ProtectedRoute } from "../auth/ProtectedRoute";
 import Register from "../routes/Register";
@@ -16,28 +16,39 @@ import { Form2 } from "../components/Repair-forms/Repair-form2";
 import { Form3 } from "../components/Repair-forms/Repair-form3";
 import { Form4 } from "../components/Repair-forms/Repair-form4";
 import NewTasks from "../routes/NewTasks";
+import { onAuthStateChanged } from "firebase/auth";
 import DoneTasks from "../routes/DoneTasks";
 
 function App() {
+<<<<<<< HEAD
   const role = "guest";
+=======
+  const [role, setRole] = useState(null);
+>>>>>>> main
 
-  // const [role, setRole] = useState(null) // 'guest' | 'user' | 'admin'
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      console.log("auth status changed", user);
+      if (user) {
+        const userData = doc(db, "clients", user.uid);
 
-  // useEffect(() => {
-  //   setRole('admin')
-  // }, [])
+        getDoc(userData).then((docData) => {
+          const data = docData.data();
+          if (!data) {
+            return;
+          }
 
-  /* useEffect(() => {
-    getRepairs();
-  });
-  const getRepairs = () => {
-    const collection0 = collection(db, "repairs");
-    getDocs(collection0).then((QuerySnapshot) => {
-      QuerySnapshot.docs.forEach((doc) => {
-        console.log("zlecenie naprawy - forEach - cała kolekcja", doc.data());
-      });
+          data.isAdmin ? setRole("admin") : setRole("user");
+        });
+      } else {
+        setRole("guest");
+      }
     });
-  }; */
+  }, []);
+
+  if (!role) {
+    return <p>Trwa ładowanie strony...</p>;
+  }
 
   return (
     <>
@@ -50,15 +61,17 @@ function App() {
               role === "guest" ? (
                 <Home />
               ) : role === "user" ? (
-                <ClientPanel />
+                <Home />
               ) : (
                 <AdminPanel />
               )
             }
           />
-          <Route path="register" element={<Register />} />
-          <Route path="login" element={<Login />} />
-          <Route path="password-reset" element={<PasswordReset />} />
+          <Route element={<ProtectedRoute isAllowed={role === "guest"} />}>
+            <Route path="register" element={<Register />} />
+            <Route path="login" element={<Login />} />
+            <Route path="password-reset" element={<PasswordReset />} />
+          </Route>
 
           {/* Admin Routing */}
           <Route element={<ProtectedRoute isAllowed={role === "admin"} />}>
@@ -75,7 +88,8 @@ function App() {
           </Route>
           {/* Client Routing */}
           <Route element={<ProtectedRoute isAllowed={role === "user"} />}>
-            <Route path="client-id" element={<ClientPanel />}></Route>
+            <Route path="/" element={<Home />} />
+            <Route path="client-id" element={<ClientPanel />} />
           </Route>
           <Route path="*" element={<WrongPath />} />
         </Routes>
