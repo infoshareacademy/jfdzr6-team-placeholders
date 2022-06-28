@@ -44,7 +44,7 @@ const TasksPricing = () => {
         aria-labelledby="nested-list-subheader"
         subheader={
           <ListSubheader component="div" id="nested-list-subheader">
-            <h2>Oczekujące zlecenia</h2>
+            <h2 style={{ color: "#000000" }}>Oczekujące zlecenia</h2>
           </ListSubheader>
         }
       >

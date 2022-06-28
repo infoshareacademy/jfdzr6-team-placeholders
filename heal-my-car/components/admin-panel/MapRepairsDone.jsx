@@ -41,7 +41,7 @@ export const MapRepairsDone = ({ clients }) => {
                         return (
                           <AccordionSummary sx={{ width: "60vw" }}>
                             <DirectionsCarFilledIcon
-                              sx={{ color: "#d90000", paddingLeft: "20px" }}
+                              sx={{ color: "#d90000" }}
                             />
                             <Typography
                               component={"div"}

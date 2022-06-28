@@ -10,7 +10,7 @@ const NewTasks = () => {
     <>
       <Header />
       <div style={{ textAlign: "center" }}>
-        <h2>Panel Admina</h2>
+        <h2>Witaj Adminie</h2>
       </div>
       <br />
       <div

@@ -12,7 +12,7 @@ const GetClientName = ({ clients, repair }) => {
     <p
       style={{
         fontFamily: "arial",
-        color: "#161616",
+        // color: "#161616",
       }}
     >
       {filteredClients?.name} {filteredClients?.lastName}

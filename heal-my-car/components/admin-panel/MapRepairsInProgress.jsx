@@ -54,14 +54,13 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
                           return (
                             <AccordionSummary sx={{ width: "60vw" }}>
                               <DirectionsCarFilledIcon
-                                sx={{ color: "#d90000", paddingLeft: "20px" }}
+                                sx={{ color: "#d90000" }}
                               />
                               <Typography
                                 component={"div"}
                                 display="block"
                                 sx={{
                                   width: "60vw",
-                                  fontWeight: "bold",
                                   paddingLeft: "10px",
                                 }}
                               >

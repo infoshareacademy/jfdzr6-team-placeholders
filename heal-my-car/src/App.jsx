@@ -20,46 +20,45 @@ import { onAuthStateChanged } from "firebase/auth";
 import DoneTasks from "../routes/DoneTasks";
 
 function App() {
-  //const [role, setRole] = useState(null);
-  const [userData, setUserData] = useState({clientRepairs: ["Nie dla psa kiełbasa"]});
+  const [role, setRole] = useState(null);
+  const [userData, setUserData] = useState({ clientRepairs: [] });
 
-  const role = "guest";
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (user) => {
-  //     console.log("auth status changed", user);
-  //     if (user) {
-  //       const userData = doc(db, "clients", user.uid);
-
-  //       getDoc(userData).then((docData) => {
-  //         const data = docData.data();
-  //         if (!data) {
-  //           return;
-  //         }
-  //         setUserData({id: docData.id, ...data})
-
-  //         data.isAdmin ? setRole("admin") : setRole("user");
-  //       });
-  //     } else {
-  //       setRole("guest");
-  //     }
-  //   });
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
+      console.log("auth status changed", user);
       if (user) {
-        const userRef = doc(db, "users", user.uid);
-        onSnapshot(userRef, (userSnapshot) => {
-          const data = userSnapshot.data();
+        const userData = doc(db, "clients", user.uid);
+
+        getDoc(userData).then((docData) => {
+          const data = docData.data();
           if (!data) {
             return;
           }
-          setUser(user);
-          setUserData({ id: userSnapshot.id, ...data });
+          setUserData({ id: docData.id, ...data });
+
           data.isAdmin ? setRole("admin") : setRole("user");
         });
       } else {
         setRole("guest");
       }
     });
+    // useEffect(() => {
+    //   onAuthStateChanged(auth, (user) => {
+    //     if (user) {
+    //       const userRef = doc(db, "users", user.uid);
+    //       onSnapshot(userRef, (userSnapshot) => {
+    //         const data = userSnapshot.data();
+    //         if (!data) {
+    //           return;
+    //         }
+    //         setUser(user);
+    //         setUserData({ id: userSnapshot.id, ...data });
+    //         data.isAdmin ? setRole("admin") : setRole("user");
+    //       });
+    //     } else {
+    //       setRole("guest");
+    //     }
+    //   });
   }, []);
 
   if (!role) {

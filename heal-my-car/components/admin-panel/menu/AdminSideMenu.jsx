@@ -23,6 +23,7 @@ import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 import CarRepairIcon from "@mui/icons-material/CarRepair";
 import ManageHistoryIcon from "@mui/icons-material/ManageHistory";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { Button, Stack } from "@mui/material";
 
 const drawerWidth = 240;
 
@@ -46,7 +47,7 @@ const closedMixin = (theme) => ({
 
   width: `calc(${theme.spacing(7)} + 1px)`,
   [theme.breakpoints.up("sm")]: {
-    width: `calc(${theme.spacing(8)} + 1px)`,
+    width: `calc(${theme.spacing(8)} + 20px)`,
   },
 });
 
@@ -106,14 +107,14 @@ export function AdminSideMenu() {
   };
 
   return (
-    <Box sx={{ display: "flex" }} className="box">
-      {/* <CssBaseline /> */}
-      <Drawer variant="permanent" open={open} className="box1">
+    <Box sx={{ display: "flex" }}>
+      <CssBaseline />
+      <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton
             onClick={open == false ? handleDrawerOpen : handleDrawerClose}
           >
-            <MenuIcon />
+            <Button sx={{ color: "#9c27b0" }}>MENU</Button>
           </IconButton>
         </DrawerHeader>
         <Divider />
@@ -160,7 +161,7 @@ export function AdminSideMenu() {
                   }}
                 />
                 <ListItemText
-                  primary={"Wycena zleceń"}
+                  primary={"Naprawy w toku"}
                   sx={{ opacity: open ? 1 : 0 }}
                 />
               </ListItemButton>
@@ -194,7 +195,7 @@ export function AdminSideMenu() {
         <Divider />
         <List>
           <ListItem disablePadding sx={{ display: "block" }} className="link">
-            <Link to="/login" className="adminMenuLink">
+            <Link to="/" className="adminMenuLink">
               <ListItemButton
                 sx={{
                   minHeight: 48,

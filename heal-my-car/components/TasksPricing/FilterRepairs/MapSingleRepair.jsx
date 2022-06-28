@@ -8,9 +8,9 @@ import BuildIcon from "@mui/icons-material/Build";
 const MapSingleRepair = ({ task, index, updateTaskPrice, repair }) => {
   return (
     <>
-      <ListItemButton sx={{ pl: 10, maxHeight: '48px' }}>
+      <ListItemButton sx={{ pl: 10, maxHeight: "48px" }}>
         <ListItemIcon>
-          <BuildIcon />
+          <BuildIcon sx={{ color: "#d90000" }} />
         </ListItemIcon>
         <ListItemText primary={task.task} />
         <EditTasks
