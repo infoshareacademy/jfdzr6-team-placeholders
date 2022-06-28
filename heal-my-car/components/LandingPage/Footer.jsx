@@ -52,15 +52,15 @@ const Footer = () => {
         >
           <h2
             style={{
-              marginLeft: "20px",
+              marginLeft: "25px",
               marginTop: "3%",
               fontFamily: "lato, sans-serif",
               userSelect: "none",
               wordWrap: "break-word",
-              letterSpacing: "3px",
+              letterSpacing: "4px",
             }}
           >
-            Godziny pracy serwisów: pon.-pt. 7:00-19:00, sob.-ndz. 10:00-15:00
+            Godziny pracy serwisów: pon.-pt. 7:00-19:00, soboty 10:00-15:00
           </h2>
         </div>
         <div

@@ -45,7 +45,6 @@ const EditTasks = ({ index, task, updateTaskPrice, repair }) => {
               setEnabledEdits((current) =>
                 current.filter((el) => el !== index)
               );
-              console.log("halo");
             }
           }}
         ></input>
