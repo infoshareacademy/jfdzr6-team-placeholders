@@ -3,15 +3,17 @@ import { collection, doc, query, updateDoc } from "firebase/firestore";
 import React from "react";
 import { db } from "../../src/Firebase";
 
-export const SendRepairDone = ({ clients, repair, getClients }) => {
+export const SendRepairDone = ({ clients, repair, getClients, id }) => {
   console.log("clients", clients);
-  const handleAccept = (id, isDone) => {
-    const taskRef = doc(db, "clients");
-    updateDoc(taskRef, {
-      isDone: true,
-    });
+  const repairRef = doc(db, `repairs`, id);
+  const handleAccept = () => {
+    console.log("id", id);
 
-    getClients(clients);
+    updateDoc(repairRef, {
+      isDone: true,
+    }).then(() => {
+      getClients();
+    });
   };
 
   return (
@@ -19,7 +21,7 @@ export const SendRepairDone = ({ clients, repair, getClients }) => {
       onClick={() => {
         handleAccept();
       }}
-      style={{ marginTop: "10px", marginLeft: "5px" }}
+      style={{ marginTop: "10px", marginLeft: "20px", marginRight: "20px" }}
       color="primary"
       variant="contained"
       size="small"

@@ -10,7 +10,7 @@ export const RepairsInProgress = () => {
     const clientsCollection = collection(db, "clients");
     const pendingClientsQuery = query(
       clientsCollection,
-      where("isDone", "==", false)
+      where("clientRepairs", "!=", [])
     );
 
     const clientsQuerySnapshot = await getDocs(pendingClientsQuery);
@@ -19,7 +19,7 @@ export const RepairsInProgress = () => {
       const clientRepairsData = await Promise.all(
         clientRepairs.map(async (repair) => {
           const repairData = await getDoc(repair);
-          return repairData.data();
+          return { ...repairData.data(), id: repairData.id };
         })
       );
       return { ...clientData, clientRepairs: clientRepairsData, id: doc.id };

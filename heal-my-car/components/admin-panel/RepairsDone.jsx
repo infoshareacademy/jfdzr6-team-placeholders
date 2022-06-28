@@ -5,7 +5,6 @@ import { Outlet } from "react-router-dom";
 import { db } from "../../src/firebase";
 import { MapRepairsDone } from "./MapRepairsDone";
 import Header from "../LandingPage/Header";
-import { AdminSideMenu } from "../Menu/AdminSideMenu";
 
 export const RepairsDone = () => {
   const [clients, setClients] = useState([]);
@@ -13,10 +12,7 @@ export const RepairsDone = () => {
 
   const getClients = async () => {
     const clientsCollection = collection(db, "clients");
-    const pendingClientsQuery = query(
-      clientsCollection,
-      where("isDone", "==", true)
-    );
+    const pendingClientsQuery = query(clientsCollection);
 
     const clientsQuerySnapshot = await getDocs(pendingClientsQuery);
     const clientsDataPromises = clientsQuerySnapshot.docs.map(async (doc) => {
@@ -31,7 +27,7 @@ export const RepairsDone = () => {
     });
     const clientsData = await Promise.all(clientsDataPromises);
     setClients(clientsData);
-    console.log("clientdata", clientsData);
+    console.log("clientdata", clients);
     return clientsData;
   };
   useEffect(() => {

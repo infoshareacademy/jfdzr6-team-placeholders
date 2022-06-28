@@ -135,9 +135,10 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <a className="footerLink" color="inherit" href="https://healmycar.pl/">
+      <a className="linkBlue" color="inherit" href="https://healmycar.pl/">
         Heal My Car
       </a>
+      {` `}
       {new Date().getFullYear()}
       {"."}
     </Typography>
@@ -224,12 +225,16 @@ export function Login() {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link to="/password-reset" variant="body2">
+                  <Link
+                    to="/password-reset"
+                    variant="body2"
+                    className="linkBlue"
+                  >
                     Przypomnij hasło
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link to="/register" variant="body2">
+                  <Link to="/register" variant="body2" className="linkBlue">
                     {"Nie masz konta? Zarejestruj się"}
                   </Link>
                 </Grid>

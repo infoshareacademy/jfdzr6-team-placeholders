@@ -1,8 +1,21 @@
-a{
+.link{
     text-decoration: none;
     color: white
 }
-.footerLink{
+.linkBlue{
     text-decoration: none;
-    color: blue
+    color: #1d89e4
+}
+.linkBlue:hover{
+    text-decoration: underline;
+    color: #1d89e4
+}
+.clientsData{
+    background-color: #001e3c;
+    border-radius: 10px;
+    color: white
+}
+.adminMenuLink{
+    text-decoration: none;
+    color: black
 }
