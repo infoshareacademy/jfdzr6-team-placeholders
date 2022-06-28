@@ -1,7 +1,7 @@
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { Button } from "@mui/material";
 import { db } from "../../src/firebase.js";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
 import Box from "@mui/material/Box";
 import Header from "../LandingPage/Header";
 
@@ -10,7 +10,7 @@ import TextField from "@mui/material/TextField";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 
-export const Form4 = () => {
+export const Form4 = ({userData}) => {
   const { setFormData, formData } = useOutletContext();
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
@@ -22,8 +22,14 @@ export const Form4 = () => {
 
   function addTask() {
     const repairsCollection = collection(db, "repairs");
+
     return addDoc(repairsCollection, formData)
-      .then((data) => console.log(data))
+      .then((data) => {
+        const repairRef = doc(db, "repairs", data.id);
+        const clientRef = doc(db, "clients", "7oq1Pf2OqLMjN9uOhgSaecSa6Tv1"); //Tutaj przekazujemy ID zalogowanego użytkownika (stan) // userData.id
+        updateDoc(clientRef, { clientRepairs: [...userData.clientRepairs, repairRef] });
+        console.log(data)
+      })
       .catch((err) => console.log(err));
   }
 

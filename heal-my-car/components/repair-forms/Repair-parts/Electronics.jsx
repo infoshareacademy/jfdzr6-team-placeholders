@@ -6,7 +6,7 @@ import Paper from "@mui/material/Paper";
 export const Electronics = (props) => {
   return (
     <div className="electronics">
-      <Paper elevation={2} style={{ padding: "10px" }}>
+      <Paper elevation={2} style={{ padding: "35px" }}>
         <FormGroup>
           <h3>Elektryka i elektronika</h3>
           <FormControlLabel
@@ -14,6 +14,7 @@ export const Electronics = (props) => {
               <Checkbox
                 name="Kontrola czujników"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Kontrola czujników"
@@ -23,6 +24,7 @@ export const Electronics = (props) => {
               <Checkbox
                 name="Kontrola bezpieczników"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Kontrola bezpieczników"
@@ -32,6 +34,7 @@ export const Electronics = (props) => {
               <Checkbox
                 name="Kasowanie błędów"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Kasowanie błędów"
@@ -41,6 +44,7 @@ export const Electronics = (props) => {
               <Checkbox
                 name="Serwis klimatyzacji"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Serwis klimatyzacji"

@@ -6,14 +6,75 @@ import Paper from "@mui/material/Paper";
 export const Body = (props) => {
   return (
     <div className="body">
-      <Paper elevation={2} style={{ padding: "10px", marginRight: "15px" }}>
+      <Paper elevation={2} style={{ padding: "35px", marginRight: "35px" }}>
         <FormGroup>
-          <h3>Nadwozie</h3>
+          <h3>Ogólne</h3>
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Wiosenny przegląd auta"
+                onChange={props.handleFormUpdate}
+                color="secondary"
+              />
+            }
+            label="Wiosenny przegląd auta"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Zimowy przegląd auta"
+                onChange={props.handleFormUpdate}
+                color="secondary"
+              />
+            }
+            label="Zimowy przegląd auta"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Inspekcja auta przed zakupem"
+                onChange={props.handleFormUpdate}
+                color="secondary"
+              />
+            }
+            label="Inspekcja auta przed zakupem"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Kontrola silnika"
+                onChange={props.handleFormUpdate}
+                color="secondary"
+              />
+            }
+            label="Kontrola silnika"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Samochód nie odpala"
+                onChange={props.handleFormUpdate}
+                color="secondary"
+              />
+            }
+            label="Samochód nie odpala"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Inne usługi"
+                onChange={props.handleFormUpdate}
+                color="secondary"
+              />
+            }
+            label="Inne usługi"
+          />
           <FormControlLabel
             control={
               <Checkbox
                 name="Lakierowanie, poprawki, rysy"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Lakierowanie, poprawki, rysy"
@@ -23,6 +84,7 @@ export const Body = (props) => {
               <Checkbox
                 name="Wymiana reflektorów"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Wymiana reflektorów"
@@ -32,9 +94,20 @@ export const Body = (props) => {
               <Checkbox
                 name="Wymiana szyby"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Wymiana szyby"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="Renowacja felg aluminiowych"
+                onChange={props.handleFormUpdate}
+                color="secondary"
+              />
+            }
+            label="Renowacja felg aluminiowych"
           />
         </FormGroup>
       </Paper>
