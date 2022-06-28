@@ -59,9 +59,9 @@ const Content = () => {
             variant="contained"
             size="large"
             sx={{
-              width: "300px",
+              width: "15.0vw",
               height: "70px",
-              fontSize: "35px",
+              fontSize: "clamp(1.8rem, 0.6vw, 2.8rem)",
               borderRadius: "15px",
               fontFamily: "lato",
             }}
@@ -75,10 +75,13 @@ const Content = () => {
         className="content-hero1"
         style={{
           display: "flex",
+          margin: "0 auto",
+          padding: "0",
+          scrollBehavior: "smooth",
           flexDirection: "column",
           justifyContent: "space-evenly",
           alignItems: "center",
-          width: "100%",
+          maxWidth: "1200px",
           height: "80%",
           backgroundColor: "white",
           position: "relative",
@@ -93,7 +96,7 @@ const Content = () => {
             borderTop: "10px #9011E4 solid",
             borderLeft: "10px #9011E4 solid",
             top: "-50px",
-            left: "35%",
+            left: "20%",
           }}
         ></div>
         <div
@@ -105,7 +108,7 @@ const Content = () => {
             borderTop: "10px #9011E4 solid",
             borderRight: "10px #9011E4 solid",
             top: "-50px",
-            right: "35%",
+            right: "20%",
           }}
         ></div>
         <div
@@ -117,7 +120,7 @@ const Content = () => {
             borderBottom: "10px #000000 solid",
             borderRight: "10px #000000 solid",
             bottom: "-50px",
-            right: "35%",
+            right: "20%",
           }}
         ></div>
         <div
@@ -129,7 +132,7 @@ const Content = () => {
             borderBottom: "10px black solid",
             borderLeft: "10px black solid",
             bottom: "-50px",
-            left: "35%",
+            left: "20%",
           }}
         ></div>
         <div
@@ -188,13 +191,13 @@ const Content = () => {
             <div
               className="content-hero2-column1-list"
               style={{
-                width: "100%",
-                padding: "20px",
+                width: "600px",
+                padding: "30px",
                 fontFamily: "Arial",
                 letterSpacing: "3px",
                 color: "white",
                 textAlign: "left",
-                fontSize: "30px",
+                fontSize: "clamp(1.0rem, 1.5rem, 3.0rem)",
               }}
             >
               <ul style={{ listStyleType: "none", width: "auto" }}>
@@ -271,7 +274,7 @@ const Content = () => {
           }}
         >
           <img
-            style={{ width: "40%", height: "100%", marginRight: "150px" }}
+            style={{ width: "auto", height: "100%", marginRight: "10%" }}
             src="../utils/mechanic2.png"
           />
         </div>
