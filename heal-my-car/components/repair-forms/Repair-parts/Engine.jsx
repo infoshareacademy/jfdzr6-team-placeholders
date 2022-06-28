@@ -6,7 +6,7 @@ import Paper from "@mui/material/Paper";
 export const Engine = (props) => {
   return (
     <div className="engine">
-      <Paper elevation={2} style={{ padding: "10px", marginRight: "15px" }}>
+      <Paper elevation={2} style={{ padding: "35px", marginRight: "35px" }}>
         <FormGroup>
           <h3>Silnik</h3>
           <FormControlLabel
@@ -14,6 +14,7 @@ export const Engine = (props) => {
               <Checkbox
                 name="Wymiana oleju"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Wymiana oleju"
@@ -23,6 +24,7 @@ export const Engine = (props) => {
               <Checkbox
                 name="Wymiana rozrządu"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Wymiana rozrządu"
@@ -32,6 +34,7 @@ export const Engine = (props) => {
               <Checkbox
                 name="Diagnoza pracy silnik"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Diagnoza pracy silnik"
@@ -41,6 +44,7 @@ export const Engine = (props) => {
               <Checkbox
                 name="Wymiana rozrządu"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Wymiana rozrządu"
@@ -50,6 +54,7 @@ export const Engine = (props) => {
               <Checkbox
                 name="Wymiana rozrusznika"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Wymiana rozrusznika"
@@ -59,6 +64,7 @@ export const Engine = (props) => {
               <Checkbox
                 name="Akumulator/bateria"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Akumulator/bateria"
@@ -68,6 +74,7 @@ export const Engine = (props) => {
               <Checkbox
                 name="Sprzęgło"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Sprzęgło"
@@ -77,6 +84,7 @@ export const Engine = (props) => {
               <Checkbox
                 name="Mycie silnika"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Mycie silnika"

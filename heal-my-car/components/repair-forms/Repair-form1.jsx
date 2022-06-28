@@ -6,7 +6,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import Header from "../LandingPage/Header";
-import { HorizontalLabelPositionBelowStepper } from "./Form-status";
+import { HorizontalLabelPositionBelowStepper } from "../Repair-forms/Form-status";
 
 export const Form1 = () => {
   const { setFormData, formData } = useOutletContext();
@@ -28,7 +28,11 @@ export const Form1 = () => {
     <div>
       <Header />
       <CssBaseline />
-      <Container maxWidth="100%" style={{ padding: "0", margin: "0", color: "primary" }}>
+      <Container
+        maxWidth="100%"
+        style={{ padding: "0", color: "primary", marginTop: "35px" }}
+      >
+        <HorizontalLabelPositionBelowStepper />
         <Box
           component="form"
           onSubmit={handleSubmit}
@@ -40,10 +44,9 @@ export const Form1 = () => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            paddingTop: "150px",
+            paddingTop: "120px",
           }}
         >
-          <HorizontalLabelPositionBelowStepper activeStep={1} />
           <h2 style={{ textAlign: "center", marginBottom: "35px" }}>
             Zleć wycenę
           </h2>
@@ -53,8 +56,8 @@ export const Form1 = () => {
             variant="outlined"
             type="text"
             name="carBrand"
-            color="primary"
-            style={{ width: "400px" }}
+            color="secondary"
+            style={{ width: "400px", textAlign: "center" }}
             sx={{ color: "black" }}
           />
           <TextField
@@ -64,7 +67,7 @@ export const Form1 = () => {
             placeholder="VIN pojazdu"
             type="text"
             name="carVin"
-            color="primary"
+            color="secondary"
             style={{ width: "400px", marginBottom: "55px" }}
           />
           <Button variant="contained" type="submit" color="secondary">

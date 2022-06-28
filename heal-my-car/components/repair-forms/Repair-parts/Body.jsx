@@ -6,7 +6,7 @@ import Paper from "@mui/material/Paper";
 export const Body = (props) => {
   return (
     <div className="body">
-      <Paper elevation={2} style={{ padding: "10px", marginRight: "15px" }}>
+      <Paper elevation={2} style={{ padding: "35px", marginRight: "35px" }}>
         <FormGroup>
           <h3>Ogólne</h3>
           <FormControlLabel
@@ -14,6 +14,7 @@ export const Body = (props) => {
               <Checkbox
                 name="Wiosenny przegląd auta"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Wiosenny przegląd auta"
@@ -23,6 +24,7 @@ export const Body = (props) => {
               <Checkbox
                 name="Zimowy przegląd auta"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Zimowy przegląd auta"
@@ -32,6 +34,7 @@ export const Body = (props) => {
               <Checkbox
                 name="Inspekcja auta przed zakupem"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Inspekcja auta przed zakupem"
@@ -41,6 +44,7 @@ export const Body = (props) => {
               <Checkbox
                 name="Kontrola silnika"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Kontrola silnika"
@@ -50,6 +54,7 @@ export const Body = (props) => {
               <Checkbox
                 name="Samochód nie odpala"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Samochód nie odpala"
@@ -59,6 +64,7 @@ export const Body = (props) => {
               <Checkbox
                 name="Inne usługi"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Inne usługi"
@@ -68,6 +74,7 @@ export const Body = (props) => {
               <Checkbox
                 name="Lakierowanie, poprawki, rysy"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Lakierowanie, poprawki, rysy"
@@ -77,6 +84,7 @@ export const Body = (props) => {
               <Checkbox
                 name="Wymiana reflektorów"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Wymiana reflektorów"
@@ -86,6 +94,7 @@ export const Body = (props) => {
               <Checkbox
                 name="Wymiana szyby"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Wymiana szyby"
@@ -95,6 +104,7 @@ export const Body = (props) => {
               <Checkbox
                 name="Renowacja felg aluminiowych"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Renowacja felg aluminiowych"

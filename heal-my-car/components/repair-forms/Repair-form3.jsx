@@ -60,6 +60,7 @@ export const Form3 = () => {
             multiline
             rows={6}
             sx={{ width: "400px" }}
+            color="secondary"
           />
 
           <Button

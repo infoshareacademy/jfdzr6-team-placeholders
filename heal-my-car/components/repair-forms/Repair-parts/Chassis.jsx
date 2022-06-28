@@ -6,7 +6,7 @@ import Paper from "@mui/material/Paper";
 export const Chassis = (props) => {
   return (
     <div className="chassis">
-      <Paper elevation={2} style={{ padding: "10px", marginRight: "15px" }}>
+      <Paper elevation={2} style={{ padding: "35px", marginRight: "35px" }}>
         <FormGroup>
           <h3>Podwozie</h3>
           <FormControlLabel
@@ -14,6 +14,7 @@ export const Chassis = (props) => {
               <Checkbox
                 name="Wymiana zawieszenia przedniego"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Wymiana zawieszenia przedniego"
@@ -23,6 +24,7 @@ export const Chassis = (props) => {
               <Checkbox
                 name="Wymiana zawieszenia tylnego"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Wymiana zawieszenia tylnego"
@@ -32,6 +34,7 @@ export const Chassis = (props) => {
               <Checkbox
                 name="Wymiana tłumika tylnego"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Wymiana tłumika tylnego"
@@ -41,6 +44,7 @@ export const Chassis = (props) => {
               <Checkbox
                 name="Wymiana tłumika środkowego"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Wymiana tłumika środkowego"
@@ -50,6 +54,7 @@ export const Chassis = (props) => {
               <Checkbox
                 name="Wymiana tarcz i klocków"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Wymiana tarcz i klocków"
@@ -59,6 +64,7 @@ export const Chassis = (props) => {
               <Checkbox
                 name="Wymiana przednie tarcze i klocki"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Wymiana przednie tarcze i klocki"
@@ -68,6 +74,7 @@ export const Chassis = (props) => {
               <Checkbox
                 name="Wymiana tylne tarcze i klocki"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Wymiana tylne tarcze i klocki"
@@ -77,6 +84,7 @@ export const Chassis = (props) => {
               <Checkbox
                 name="Wymiana wymiana płynu hamulcowego"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Wymiana wymiana płynu hamulcowego"
@@ -86,6 +94,7 @@ export const Chassis = (props) => {
               <Checkbox
                 name="Naprawa hamulców"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Naprawa hamulców"
@@ -95,6 +104,7 @@ export const Chassis = (props) => {
               <Checkbox
                 name="Naprawa hamuca ręcznego"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Naprawa hamulca ręcznego"
@@ -104,6 +114,7 @@ export const Chassis = (props) => {
               <Checkbox
                 name="Naprawa zacisków hamulcowych"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Naprawa zacisków hamulcowych"
@@ -113,6 +124,7 @@ export const Chassis = (props) => {
               <Checkbox
                 name="Naprawa systemu ABS"
                 onChange={props.handleFormUpdate}
+                color="secondary"
               />
             }
             label="Naprawa systemu ABS"

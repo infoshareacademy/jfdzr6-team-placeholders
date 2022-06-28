@@ -20,24 +20,40 @@ import { onAuthStateChanged } from "firebase/auth";
 import DoneTasks from "../routes/DoneTasks";
 
 function App() {
-<<<<<<< HEAD
-  const role = "guest";
-=======
-  const [role, setRole] = useState(null);
->>>>>>> main
+  //const [role, setRole] = useState(null);
+  const [userData, setUserData] = useState({clientRepairs: ["Nie dla psa kiełbasa"]});
 
+  const role = "guest";
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, (user) => {
+  //     console.log("auth status changed", user);
+  //     if (user) {
+  //       const userData = doc(db, "clients", user.uid);
+
+  //       getDoc(userData).then((docData) => {
+  //         const data = docData.data();
+  //         if (!data) {
+  //           return;
+  //         }
+  //         setUserData({id: docData.id, ...data})
+
+  //         data.isAdmin ? setRole("admin") : setRole("user");
+  //       });
+  //     } else {
+  //       setRole("guest");
+  //     }
+  //   });
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      console.log("auth status changed", user);
       if (user) {
-        const userData = doc(db, "clients", user.uid);
-
-        getDoc(userData).then((docData) => {
-          const data = docData.data();
+        const userRef = doc(db, "users", user.uid);
+        onSnapshot(userRef, (userSnapshot) => {
+          const data = userSnapshot.data();
           if (!data) {
             return;
           }
-
+          setUser(user);
+          setUserData({ id: userSnapshot.id, ...data });
           data.isAdmin ? setRole("admin") : setRole("user");
         });
       } else {
@@ -84,7 +100,10 @@ function App() {
             <Route path="repair-form1" element={<Form1 />} />
             <Route path="repair-form2" element={<Form2 />} />
             <Route path="repair-form3" element={<Form3 />} />
-            <Route path="repair-form4" element={<Form4 />} />
+            <Route
+              path="repair-form4"
+              element={<Form4 userData={userData} />}
+            />
           </Route>
           {/* Client Routing */}
           <Route element={<ProtectedRoute isAllowed={role === "user"} />}>
