@@ -11,6 +11,7 @@ const Header = () => {
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
+        padding: "0px 0px",
         width: "100%",
         height: "75px",
         backgroundColor: "#1e88e5",

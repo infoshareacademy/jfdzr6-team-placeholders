@@ -1,6 +1,9 @@
 import RejectPricing from "../RejectPricing";
+import { collection, doc, onSnapshot } from "firebase/firestore";
+import { db } from "../../../src/firebase.js";
 import SubmitPricing from "../SubmitPricing";
 import MapSingleRepair from "./MapSingleRepair";
+import { useState, useEffect } from "react";
 import * as React from "react";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -12,6 +15,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import DirectionsCarFilledIcon from "@mui/icons-material/DirectionsCarFilled";
+import GetClientName from "./GetClientName";
 
 const MapRepairs = ({
   getRepairs,
@@ -21,10 +25,25 @@ const MapRepairs = ({
   updateTaskPrice,
 }) => {
   const [open, setOpen] = React.useState(false);
+  const [clients, setClients] = useState([]);
 
+  const getClients = () => {
+    const clientsCollection = collection(db, "clients");
+    onSnapshot(clientsCollection, (querySnapshot) => {
+      const clients = querySnapshot.docs.map((client) => ({
+        id: client.id,
+        ...client.data(),
+      }));
+      setClients(clients);
+    });
+  };
   const handleClick = () => {
     setOpen(!open);
   };
+
+  useEffect(() => {
+    getClients();
+  }, []);
   return (
     <>
       <ListItemButton>
@@ -39,7 +58,8 @@ const MapRepairs = ({
         <ListItemIcon>
           <InfoIcon />
         </ListItemIcon>
-        <ListItemText primary={`Klient: ${repair.clientId}`} />
+        <ListItemText primary={`Klient: `} />
+        <GetClientName clients={clients} repair={repair} />
       </ListItemButton>
       <ListItemButton onClick={handleClick}>
         <ListItemIcon>

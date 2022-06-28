@@ -10,6 +10,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import { useState } from "react";
 import Header from "../LandingPage/Header";
+import { HorizontalLabelPositionBelowStepper } from "../Repair-forms/Form-status";
 
 export const Form2 = () => {
   const { setFormData, formData } = useOutletContext();
@@ -57,13 +58,16 @@ export const Form2 = () => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "space-between",
+          padding: "0",
+          marginTop: "35px",
         }}
       >
-        <h2 style={{ textAlign: "center", marginTop: "100px" }}>
+        <HorizontalLabelPositionBelowStepper />
+        <h2 style={{ textAlign: "center", marginTop: "60px" }}>
           Rodzaj Naprawy
         </h2>
         <br />
-        <h4 style={{ textAlign: "center" }}>
+        <h4 style={{ textAlign: "center", marginBottom: "35px" }}>
           Zaznacz obszary pojazdu, które wymagają sprawdzenia lub naprawy
         </h4>
         <Box
@@ -87,7 +91,7 @@ export const Form2 = () => {
           variant="contained"
           type="submit"
           onClick={handleSubmit}
-          style={{ height: "35px", width: "25ch", marginTop: "20px" }}
+          style={{ height: "35px", width: "25ch", margin: "35px" }}
           color="secondary"
         >
           Dalej
