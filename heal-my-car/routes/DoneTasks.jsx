@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Divider from "@mui/material/Divider";
-import { AdminSideMenu } from "../components/menu/AdminSideMenu";
+import { AdminSideMenu } from "../components//admin-panel/menu/AdminSideMenu";
 import Header from "../components/LandingPage/Header";
 import { RepairsDone } from "../components/admin-panel/RepairsDone";
 

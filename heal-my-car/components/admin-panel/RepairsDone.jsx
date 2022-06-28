@@ -5,7 +5,6 @@ import { Outlet } from "react-router-dom";
 import { db } from "../../src/firebase";
 import { MapRepairsDone } from "./MapRepairsDone";
 import Header from "../LandingPage/Header";
-import { AdminSideMenu } from "../Menu/AdminSideMenu";
 
 export const RepairsDone = () => {
   const [clients, setClients] = useState([]);

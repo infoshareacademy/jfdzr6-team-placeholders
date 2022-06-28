@@ -25,16 +25,15 @@ export const MapRepairsDone = ({ clients }) => {
                 >
                   <ListItemButton>
                     <Typography
-                      variant="body1"
                       sx={{ fontWeight: "bold" }}
                     >{`Klient: ${client.name} ${client.lastName}`}</Typography>
                   </ListItemButton>
                 </AccordionSummary>
-                <div>
+                <div className="clientsData">
                   <Typography
                     component={"div"}
-                    variant="body1"
-                    sx={{ margin: "20px" }}
+                    display="flex"
+                    sx={{ paddingLeft: "15px", justifyContent: "start" }}
                   >
                     {client.clientRepairs
                       .filter(({ isDone }) => isDone)
@@ -42,14 +41,20 @@ export const MapRepairsDone = ({ clients }) => {
                         return (
                           <AccordionSummary sx={{ width: "60vw" }}>
                             <DirectionsCarFilledIcon
-                              sx={{ color: "#d90000" }}
+                              sx={{ color: "#d90000", paddingLeft: "20px" }}
                             />
                             <Typography
                               component={"div"}
-                              variant="body2"
-                              sx={{ width: "60vw", fontWeight: "bold" }}
+                              display="block"
+                              sx={{
+                                width: "60vw",
+                                fontWeight: "bold",
+                                paddingLeft: "10px",
+                              }}
                             >
-                              {`Pojazd: ${repair.carBrand} VIN: ${repair.carVin}`}
+                              {`${repair.carBrand}`}
+                              {<br />}
+                              {` VIN: ${repair.carVin}`}
                               {repair.tasks.map((task, index) => {
                                 return (
                                   <>
@@ -61,7 +66,7 @@ export const MapRepairsDone = ({ clients }) => {
                                         fontWeight: "normal",
                                       }}
                                     >
-                                      <p>{`${task.task}`}</p>
+                                      <p>{`${index + 1}. ${task.task}`}</p>
                                     </div>
                                   </>
                                 );

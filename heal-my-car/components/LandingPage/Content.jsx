@@ -54,7 +54,7 @@ const Content = () => {
             miliony zadowolonych klientów w całej Polsce
           </p>
         </div>
-        <Link to="/repair-form/repair-form1">
+        <Link to="/repair-form/repair-form1" className="link">
           <Button
             variant="contained"
             size="large"

@@ -32,9 +32,10 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <a className="footerLink" href="http://healmycar.pl">
-        Heal My Car Team
+      <a className="linkBlue" href="http://healmycar.pl">
+        Heal My Car
       </a>
+      {` `}
       {new Date().getFullYear()}
       {"."}
     </Typography>
@@ -68,7 +69,13 @@ export default function SignUp() {
         console.log(jwt);
         const ref = doc(db, "clients", jwt.user.uid);
         // navigate("/ClientPanel", { replace: true });
-        setDoc(ref, { name, lastName: surname, email, clientRepairs: [] })
+        setDoc(ref, {
+          name,
+          lastName: surname,
+          email,
+          isAdmin: false,
+          clientRepairs: [],
+        })
           .then(() => {
             alert("Zarejestrowano pomyślnie");
           })
@@ -188,7 +195,7 @@ export default function SignUp() {
                 </Link>
               </Grid> */}
                 <Grid item>
-                  <Link to="/login" variant="body2">
+                  <Link to="/login" variant="body2" className="linkBlue">
                     Masz już konto? Zaloguj się
                   </Link>
                 </Grid>

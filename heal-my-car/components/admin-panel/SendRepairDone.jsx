@@ -21,7 +21,7 @@ export const SendRepairDone = ({ clients, repair, getClients, id }) => {
       onClick={() => {
         handleAccept();
       }}
-      style={{ marginTop: "10px", marginLeft: "5px" }}
+      style={{ marginTop: "10px", marginLeft: "20px", marginRight: "20px" }}
       color="primary"
       variant="contained"
       size="small"

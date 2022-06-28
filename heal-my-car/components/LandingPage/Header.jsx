@@ -19,7 +19,7 @@ const Header = () => {
       }}
     >
       <div className="landing-logo">
-        <Link to="/">
+        <Link to="/" className="link">
           <img src="../utils/logoGrad.png" height="75px" />
         </Link>
       </div>
@@ -32,7 +32,7 @@ const Header = () => {
           className="landing-buttons-style"
           style={{ marginLeft: "5px", marginRight: "5px" }}
         >
-          <Link to="/login">
+          <Link to="/login" className="link">
             <Button
               variant="text"
               color="inherit"
@@ -46,7 +46,7 @@ const Header = () => {
           className="landing-buttons-style"
           style={{ marginLeft: "5px", marginRight: "5px" }}
         >
-          <Link to="/register">
+          <Link className="link" to="/register">
             <Button
               variant="text"
               color="inherit"
