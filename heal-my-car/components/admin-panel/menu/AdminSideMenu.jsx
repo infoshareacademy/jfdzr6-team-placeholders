@@ -24,6 +24,8 @@ import CarRepairIcon from "@mui/icons-material/CarRepair";
 import ManageHistoryIcon from "@mui/icons-material/ManageHistory";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Button, Stack } from "@mui/material";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const drawerWidth = 240;
 
@@ -107,23 +109,32 @@ export function AdminSideMenu() {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", height: "calc(100vh - 75px)" }}>
       <CssBaseline />
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <IconButton
-            onClick={open == false ? handleDrawerOpen : handleDrawerClose}
-          >
-            <Button sx={{ color: "#9c27b0" }}>MENU</Button>
-          </IconButton>
+          {!open ? (
+            <IconButton
+              sx={{ marginRight: "20px" }}
+              onClick={open == false ? handleDrawerOpen : handleDrawerClose}
+            >
+              <ArrowForwardIcon />
+            </IconButton>
+          ) : (
+            <IconButton
+              onClick={open == false ? handleDrawerOpen : handleDrawerClose}
+            >
+              <ArrowBackIcon />
+            </IconButton>
+          )}
         </DrawerHeader>
         <Divider />
-        <List>
+        <List disablePadding>
           <ListItem disablePadding sx={{ display: "block" }} className="link">
             <Link to="/newtasks" className="adminMenuLink">
               <ListItemButton
                 sx={{
-                  minHeight: 48,
+                  minHeight: 62,
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
@@ -143,11 +154,12 @@ export function AdminSideMenu() {
               </ListItemButton>
             </Link>
           </ListItem>
+          <Divider />
           <ListItem disablePadding sx={{ display: "block" }} className="link">
             <Link to="/admin-panel" className="adminMenuLink">
               <ListItemButton
                 sx={{
-                  minHeight: 48,
+                  minHeight: 64,
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
@@ -167,11 +179,12 @@ export function AdminSideMenu() {
               </ListItemButton>
             </Link>
           </ListItem>
+          <Divider />
           <ListItem disablePadding sx={{ display: "block" }} className="link">
             <Link to="/repairsdone" className="adminMenuLink">
               <ListItemButton
                 sx={{
-                  minHeight: 48,
+                  minHeight: 62,
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
@@ -192,13 +205,13 @@ export function AdminSideMenu() {
             </Link>
           </ListItem>
         </List>
-        <Divider />
+        <Divider sx={{ marginBottom: "550px" }} />
         <List>
           <ListItem disablePadding sx={{ display: "block" }} className="link">
             <Link to="/" className="adminMenuLink">
               <ListItemButton
                 sx={{
-                  minHeight: 48,
+                  minHeight: 62,
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}

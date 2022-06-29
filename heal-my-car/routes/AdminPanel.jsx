@@ -4,11 +4,13 @@ import Header from "../components/LandingPage/Header";
 import Divider from "@mui/material/Divider";
 import { RepairsInProgress } from "../components/admin-panel/RepairsInProgress";
 import { AdminSideMenu } from "../components/admin-panel/menu/AdminSideMenu";
+import AdminHeader from "../components/LandingPage/AdminHeader";
+import Mechanic from "../components/admin-panel/Mechanic";
 export default function AdminPanel(role) {
   const Logout = () => {};
   return (
     <>
-      <Header />
+      <AdminHeader />
 
       <div
         style={{
@@ -26,6 +28,7 @@ export default function AdminPanel(role) {
         <div className="content">
           <RepairsInProgress />
         </div>
+        <Mechanic />
       </div>
       <Outlet />
     </>
