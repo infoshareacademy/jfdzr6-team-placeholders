@@ -1,34 +1,78 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../../src/firebase";
 
 const Header = () => {
-  return (
-    <div
-      className="landing-top"
-      style={{
-        color: "white",
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        padding: "0px 0px",
-        width: "100%",
-        height: "75px",
-        backgroundColor: "#1e88e5",
-        alignItems: "center",
-        zIndex: "1",
-      }}
-    >
-      <div className="landing-logo">
-        <Link to="/" className="link">
-          <img src="../utils/logoGrad.png" height="75px" />
-        </Link>
-      </div>
-
-      <div
-        className="landing-buttons"
-        style={{ display: "flex", flexDirection: "row" }}
-      >
+  const isLoggedIn = !!auth.currentUser;
+  console.log(isLoggedIn);
+  const LoggedButtons = () => {
+    return (
+      <>
+        <div
+          className="landing-buttons-style"
+          style={{ marginLeft: "5px", marginRight: "5px" }}
+        >
+          <Link className="link" to="/">
+            <Button
+              variant="text"
+              color="inherit"
+              sx={{ fontSize: "25px", fontFamily: "Lato " }}
+            >
+              O nas
+            </Button>
+          </Link>
+        </div>
+        <div
+          className="landing-buttons-style"
+          style={{ marginLeft: "5px", marginRight: "5px" }}
+        >
+          <Link className="link" to="/client-id">
+            <Button
+              variant="text"
+              color="inherit"
+              sx={{ fontSize: "25px", fontFamily: "Lato " }}
+            >
+              Menu
+            </Button>
+          </Link>
+        </div>
+        <div
+          className="landing-buttons-style"
+          style={{ marginLeft: "5px", marginRight: "5px" }}
+        >
+          <Link className="link" to="/repair-form/repair-form1">
+            <Button
+              variant="text"
+              color="inherit"
+              sx={{ fontSize: "25px", fontFamily: "Lato " }}
+            >
+              Zleć naprawę
+            </Button>
+          </Link>
+        </div>
+        <div
+          className="landing-buttons-style"
+          style={{ marginLeft: "5px", marginRight: "5px" }}
+        >
+          <Link className="link" to="/">
+            <Button
+              variant="text"
+              color="inherit"
+              sx={{ fontSize: "25px", fontFamily: "Lato " }}
+              onClick={() => signOut(auth)}
+            >
+              Wyloguj
+            </Button>
+          </Link>
+        </div>
+      </>
+    );
+  };
+  const LogOutButtons = () => {
+    return (
+      <>
         <div
           className="landing-buttons-style"
           style={{ marginLeft: "5px", marginRight: "5px" }}
@@ -57,8 +101,41 @@ const Header = () => {
             </Button>
           </Link>
         </div>
+      </>
+    );
+  };
+
+  return (
+    <>
+      <div
+        className="landing-top"
+        style={{
+          color: "white",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          padding: "0px 0px",
+          width: "100%",
+          height: "75px",
+          backgroundColor: "#1e88e5",
+          alignItems: "center",
+          zIndex: "1",
+        }}
+      >
+        <div className="landing-logo">
+          <Link to="/" className="link">
+            <img src="../utils/logoGrad.png" height="75px" />
+          </Link>
+        </div>
+
+        <div
+          className="landing-buttons"
+          style={{ display: "flex", flexDirection: "row" }}
+        >
+          {isLoggedIn ? <LoggedButtons /> : <LogOutButtons />}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 export default Header;

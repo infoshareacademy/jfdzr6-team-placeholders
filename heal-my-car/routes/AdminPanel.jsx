@@ -9,10 +9,7 @@ export default function AdminPanel(role) {
   return (
     <>
       <Header />
-      <div style={{ textAlign: "center" }}>
-        <h2>Witaj Adminie</h2>
-      </div>
-      <br />
+
       <div
         style={{
           display: "flex",
