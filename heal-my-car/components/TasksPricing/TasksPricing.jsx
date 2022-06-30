@@ -38,15 +38,16 @@ const TasksPricing = () => {
 
   return (
     <>
+      <div style={{ height: "36px" }}></div>
       <List
         sx={{ maxWidth: "100%", bgcolor: "background.paper" }}
         component="nav"
         aria-labelledby="nested-list-subheader"
-        subheader={
-          <ListSubheader component="div" id="nested-list-subheader">
-            <h2 style={{ color: "#000000" }}>Oczekujące zlecenia</h2>
-          </ListSubheader>
-        }
+        // subheader={
+        //   <ListSubheader component="div" id="nested-list-subheader">
+        //     <h2 style={{ color: "#000000" }}>Oczekujące zlecenia</h2>
+        //   </ListSubheader>
+        // }
       >
         {repairs
           .filter((obj) => {

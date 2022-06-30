@@ -10,6 +10,7 @@ import DirectionsCarFilledIcon from "@mui/icons-material/DirectionsCarFilled";
 export const MapRepairsDone = ({ clients }) => {
   return (
     <>
+      <div style={{ height: "64px" }}></div>
       {clients
         .filter(({ clientRepairs }) => {
           return clientRepairs.some(({ isDone }) => isDone);
@@ -17,7 +18,7 @@ export const MapRepairsDone = ({ clients }) => {
         .map((client, index) => {
           return (
             <>
-              <Accordion key={index}>
+              <Accordion sx={{ width: "21vw" }} key={index}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1a-content"

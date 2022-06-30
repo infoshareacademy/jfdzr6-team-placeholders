@@ -4,15 +4,13 @@ import Divider from "@mui/material/Divider";
 import TasksPricing from "../components/TasksPricing/TasksPricing";
 import { AdminSideMenu } from "../components//admin-panel/menu/AdminSideMenu";
 import Header from "../components/LandingPage/Header";
+import AdminHeader from "../components/LandingPage/AdminHeader";
+import Mechanic from "../components/admin-panel/Mechanic";
 
 const NewTasks = () => {
   return (
     <>
-      <Header />
-      <div style={{ textAlign: "center" }}>
-        <h2>Witaj Adminie</h2>
-      </div>
-      <br />
+      <AdminHeader />
       <div
         style={{
           display: "flex",
@@ -29,6 +27,7 @@ const NewTasks = () => {
         <div className="content">
           <TasksPricing />
         </div>
+        <Mechanic />
       </div>
       <Outlet />
     </>
