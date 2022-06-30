@@ -61,25 +61,14 @@ export const Repairstatus = () => {
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
-          sx={{  bgcolor: "primary.main", color: "info.contrastText" }}
+          sx={{ bgcolor: "primary.main", color: "info.contrastText" }}
         >
           <Typography>
             <h4>Status zlecenia dla:</h4>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
-              <TableBody>
-                <TableHead>
-                  <TableRow>
-                    <h4>Marka</h4>
-                  </TableRow>
-                </TableHead>
-              </TableBody>
-            </Table>
           </Typography>
         </AccordionSummary>
 
-        <AccordionDetails
-          sx={{  }}
-        >
+        <AccordionDetails sx={{}}>
           <TableContainer component={Paper}>
             <Table aria-label="simple table">
               <TableBody>
@@ -87,20 +76,28 @@ export const Repairstatus = () => {
                   <Fragment key={row.carVin}>
                     <TableRow
                       onClick={() => handleCollapse(index)}
-                      style={{ cursor: "pointer", '&:last-child td, &:last-child th': { border: 0 } }}
+                      style={{
+                        cursor: "pointer",
+                        "&:last-child td, &:last-child th": { border: 0 },
+                      }}
                     >
-                      <TableCell component="th" scope="row" >{row.carVin}</TableCell>
-                      <TableCell component="th" scope="row" >{row.carBrand}</TableCell>
-                      <TableCell component="th" scope="row" >{row.isDone ? "Done" : "Pending"}</TableCell>
+                      <TableCell>
+                        {row.carVin}
+                      </TableCell>
+                      <TableCell>
+                        {row.carBrand}
+                      </TableCell>
+                      <TableCell>
+                        {row.isDone ? "Done" : "Pending"}
+                      </TableCell>
                     </TableRow>
                     <TableRow>
                       {row.tasks.map((task, i) => (
                         <TableCell key={`${row.clientId}-${row.carVin}-${i}`}>
                           <Collapse in={openRowIndex === index}>
-                            <ul>
-                              <li>{task.task}</li>
-                              <li>{task.price}</li>
-                            </ul>
+                            {task.task}
+                            {task.price}
+                            
                           </Collapse>
                         </TableCell>
                       ))}

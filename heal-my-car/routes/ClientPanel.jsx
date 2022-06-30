@@ -1,16 +1,19 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import ShowOffer from "../components/AcceptPricing/ShowOffer";
-import { Repairstatus } from "../components/Repairstatus";
 import ClientPanelHeader from "./ClientPanelHeader";
+import { MapClientRepairs } from "../components/RapairClientStatus/MapClientRepairs";
 
 export default function ClientPanel() {
   return (
     <>
       <ClientPanelHeader />
-      <ShowOffer />
-      <Repairstatus />
+      
+      <MapClientRepairs />
       <Outlet />
     </>
   );
 }
+
+
+//<ShowOffer />
