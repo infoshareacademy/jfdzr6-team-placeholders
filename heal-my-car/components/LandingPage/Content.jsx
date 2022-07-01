@@ -16,7 +16,7 @@ const Content = () => {
           justifyContent: "space-evenly",
           alignItems: "center",
           width: "100%",
-          height: "50vh",
+          height: "90vh",
           backgroundImage: "url(../../utils/car-fix.jpg)",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "left",

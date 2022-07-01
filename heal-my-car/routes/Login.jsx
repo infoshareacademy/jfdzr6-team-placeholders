@@ -201,6 +201,7 @@ export function Login() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                color="secondary"
               />
               <TextField
                 margin="normal"
@@ -210,9 +211,10 @@ export function Login() {
                 label="Podaj hasło"
                 type="password"
                 autoComplete="current-password"
+                color="secondary"
               />
               <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
+                control={<Checkbox value="remember" color="secondary" />}
                 label="Zapamiętaj mnie"
               />
               <Button
@@ -220,6 +222,7 @@ export function Login() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                color="secondary"
               >
                 ZALOGUJ
               </Button>
