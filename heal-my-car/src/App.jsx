@@ -23,21 +23,25 @@ function App() {
   const [role, setRole] = useState(null);
   const [userData, setUserData] = useState({ clientRepairs: [] });
 
+  const getClientData = (id) => {
+    const userData = doc(db, "clients", id);
+
+    getDoc(userData).then((docData) => {
+      const data = docData.data();
+      if (!data) {
+        return;
+      }
+      setUserData({ id: docData.id, ...data });
+
+      data.isAdmin ? setRole("admin") : setRole("user");
+    });
+  };
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       console.log("auth status changed", user);
       if (user) {
-        const userData = doc(db, "clients", user.uid);
-
-        getDoc(userData).then((docData) => {
-          const data = docData.data();
-          if (!data) {
-            return;
-          }
-          setUserData({ id: docData.id, ...data });
-
-          data.isAdmin ? setRole("admin") : setRole("user");
-        });
+        getClientData(user.uid);
       } else {
         setRole("guest");
       }
@@ -101,7 +105,7 @@ function App() {
             <Route path="repair-form3" element={<Form3 />} />
             <Route
               path="repair-form4"
-              element={<Form4 userData={userData} />}
+              element={<Form4 userData={userData} refreshData={getClientData} />}
             />
           </Route>
           {/* Client Routing */}
