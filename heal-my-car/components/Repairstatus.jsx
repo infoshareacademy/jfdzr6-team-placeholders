@@ -1,6 +1,13 @@
 import { useState, useEffect, Fragment } from "react";
 import { db } from "../src/firebase";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { Collapse } from "@mui/material";
 import {
   Accordion,
@@ -20,7 +27,7 @@ import {
 
 import Paper from "@mui/material/Paper";
 
-export const Repairstatus = () => {
+export const Repairstatus = (props) => {
   const [repairs, setRepairs] = useState([]);
   const [openRowIndex, setOpenRowIndex] = useState(null);
 
@@ -33,17 +40,40 @@ export const Repairstatus = () => {
   //   setRepairs(repairs);
   // }
 
-  const getRepairs = () => {
-    const repairsCollection = collection(db, "repairs");
-    const pendingRepairsQuery = query(
-      repairsCollection,
-      where("isDone", "==", false)
-    );
+  const getRepairs = async () => {
+    const clientDocRef = doc(db, "clients", props.userId);
 
-    getDocs(pendingRepairsQuery).then((QuerySnapshot) => {
-      setRepairs(QuerySnapshot.docs.map((doc) => doc.data()));
+    const clientData = await getDoc(clientDocRef);
+
+    const promises = clientData.data().clientRepairs.map((repair) => {
+      return getDoc(repair);
     });
+
+    const repairsDocs = await Promise.all(promises);
+
+    const repairs = repairsDocs.map((repair) => {
+      return { ...repair.data(), id: repair.id };
+    });
+
+    // .filter((repair) => {
+    //   return !repair.isDone;
+    // });
+
+    setRepairs(repairs);
+
+    // setRepairs(repairs.map((repair) => {
+    //   return { ...repair.data(), id: repair.id };
+    // }));
   };
+
+  // const pendingRepairsQuery = query(
+  //   repairsCollection,
+  //   where("isDone", "==", false)
+  // );
+
+  // getDocs(pendingRepairsQuery).then((QuerySnapshot) => {
+  //   setRepairs(QuerySnapshot.docs.map((doc) => doc.data()));
+  // });
 
   const handleCollapse = (index) => {
     if (openRowIndex === index) {
@@ -68,35 +98,54 @@ export const Repairstatus = () => {
           </Typography>
         </AccordionSummary>
 
-        <AccordionDetails sx={{}}>
+        <AccordionDetails>
           <TableContainer component={Paper}>
-            <Table aria-label="simple table">
+            <Table sx={{ minWidth: 750 }} aria-label="simple table">
+              <TableHead
+                sx={{ bgcolor: "primary.main", color: "info.contrastText" }}
+              >
+                <TableRow>
+                  <TableCell>
+                    <b>Nr VIN</b>
+                  </TableCell>
+                  <TableCell>
+                    <b>Marka</b>
+                  </TableCell>
+                  <TableCell>
+                    <b>Opis</b>
+                  </TableCell>
+                  <TableCell>
+                    <b>Status</b>
+                  </TableCell>
+                </TableRow>
+              </TableHead>
               <TableBody>
                 {repairs.map((row, index) => (
                   <Fragment key={row.carVin}>
                     <TableRow
+                      component="th"
+                      scope="row"
                       onClick={() => handleCollapse(index)}
                       style={{
                         cursor: "pointer",
                         "&:last-child td, &:last-child th": { border: 0 },
                       }}
                     >
+                      <TableCell>{row.carVin}</TableCell>
+                      <TableCell>{row.carBrand}</TableCell>
+
+                      <TableCell>{row.selfText}</TableCell>
                       <TableCell>
-                        {row.carVin}
-                      </TableCell>
-                      <TableCell>
-                        {row.carBrand}
-                      </TableCell>
-                      <TableCell>
-                        {row.isDone ? "Done" : "Pending"}
+                        {row.isDone ? "Ukończony" : "W trakcie"}
                       </TableCell>
                     </TableRow>
                     <TableRow>
                       {row.tasks.map((task, i) => (
                         <TableCell key={`${row.clientId}-${row.carVin}-${i}`}>
                           <Collapse in={openRowIndex === index}>
-                            {task.task}
-                            {task.price}
+                            
+                              <li>{task.task}</li>
+                              <li>{task.price}</li>
                             
                           </Collapse>
                         </TableCell>
@@ -109,6 +158,53 @@ export const Repairstatus = () => {
           </TableContainer>
         </AccordionDetails>
       </Accordion>
+      {/* <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 750 }} aria-label="simple table">
+          <TableHead
+          sx={{ bgcolor: "primary.main", color: "info.contrastText" }}
+          >
+            <TableRow>
+              <TableCell><b>Nr VIN</b></TableCell>
+              <TableCell><b>Marka</b></TableCell>
+              <TableCell><b>Opis</b></TableCell>
+              <TableCell><b>Status</b></TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {repairs.map((row, index) => (
+              <Fragment key={row.carVin}>
+                <TableRow
+                  component="th"
+                  scope="row"
+                  onClick={() => handleCollapse(index)}
+                  style={{
+                    cursor: "pointer",
+                    "&:last-child td, &:last-child th": { border: 0 },
+                  }}
+                >
+                  <TableCell>{row.carVin}</TableCell>
+                  <TableCell>{row.carBrand}</TableCell>
+
+                  <TableCell>{row.selfText}</TableCell>
+                  <TableCell>
+                    {row.isDone ? "Ukończony" : "W trakcie"}
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  {row.tasks.map((task, i) => (
+                    <TableCell key={`${row.clientId}-${row.carVin}-${i}`}>
+                      <Collapse in={openRowIndex === index}>
+                        {task.task}
+                        {task.price}
+                      </Collapse>
+                    </TableCell>
+                  ))}
+                </TableRow>
+              </Fragment>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer> */}
     </>
   );
 };

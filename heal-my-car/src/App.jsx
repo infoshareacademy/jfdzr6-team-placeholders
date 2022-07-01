@@ -107,7 +107,10 @@ function App() {
           {/* Client Routing */}
           <Route element={<ProtectedRoute isAllowed={role === "user"} />}>
             <Route path="/" element={<Home />} />
-            <Route path="client-id" element={<ClientPanel />} />
+            <Route
+              path="client-id"
+              element={<ClientPanel userId={userData.id} />}
+            />
           </Route>
           <Route path="*" element={<WrongPath />} />
         </Routes>
