@@ -40,7 +40,7 @@ const Footer = () => {
             borderRadius: "30px",
             width: "38%",
             height: "100px",
-            backgroundColor: "#9011E4",
+            backgroundColor: "#2e3a51",
             zIndex: "1",
             position: "absolute",
             top: "-50px",
@@ -70,7 +70,7 @@ const Footer = () => {
             flexDirection: "row",
             width: "100%",
             height: "300px",
-            backgroundColor: "#222121",
+            backgroundColor: "#252e42",
             color: "white",
             paddingTop: "50px",
           }}

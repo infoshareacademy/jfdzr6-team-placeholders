@@ -12,7 +12,15 @@ import { SendRepairDone } from "./SendRepairDone";
 export const MapRepairsInProgress = ({ clients, getClients }) => {
   return (
     <>
-      <div style={{ height: "64px" }}></div>
+      <div
+        style={{
+          height: "64px",
+          width: "200%",
+          color: "#fff",
+        }}
+      >
+        Naprawy w toku
+      </div>
       {clients
         .filter(({ clientRepairs }) => {
           return clientRepairs.some(({ isDone }) => !isDone);
@@ -22,10 +30,14 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
             <>
               <Accordion key={index}>
                 <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
+                  expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />}
                   aria-controls="panel1a-content"
                   id="panel1a-header"
-                  sx={{ width: "22vw" }}
+                  sx={{
+                    width: "22vw",
+                    backgroundColor: "#2f3b52",
+                    color: "#fff",
+                  }}
                 >
                   <ListItemButton>
                     <Typography

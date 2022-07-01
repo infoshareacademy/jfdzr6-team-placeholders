@@ -221,8 +221,15 @@ export function Login() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-                color="secondary"
+                sx={{
+                  mt: 3,
+                  mb: 2,
+                  backgroundColor: "#242c3f",
+                  "&:hover": {
+                    backgroundColor: "#9c27b0",
+                    color: "#fff",
+                  },
+                }}
               >
                 ZALOGUJ
               </Button>
