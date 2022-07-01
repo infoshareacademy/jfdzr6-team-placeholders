@@ -3,25 +3,18 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-// import FormControlLabel from "@mui/material/FormControlLabel";
-// import Checkbox from "@mui/material/Checkbox";
-// import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../src/firebase";
 import { firebaseErrors } from "../src/utils/firebaseErrors";
-// import { GoogleAuthProvider } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 import Header from "../components/LandingPage/Header";
 import { setDoc, doc } from "firebase/firestore";
 import { Link } from "react-router-dom";
-// import GoogleIcon from '@mui/icons-material/Google';
-// import GoogleButton from "react-google-button";
 
 function Copyright(props) {
   return (
@@ -87,7 +80,6 @@ export default function SignUp() {
         alert(firebaseErrors[e.code]);
       });
   };
-
   // const handleSubmit = (e) => {
   //   e.preventDefault();
   //   const data = new FormData(e.currentTarget);

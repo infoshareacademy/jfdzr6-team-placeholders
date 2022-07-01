@@ -12,6 +12,7 @@ import { SendRepairDone } from "./SendRepairDone";
 export const MapRepairsInProgress = ({ clients, getClients }) => {
   return (
     <>
+      <div style={{ height: "64px" }}></div>
       {clients
         .filter(({ clientRepairs }) => {
           return clientRepairs.some(({ isDone }) => !isDone);
@@ -24,6 +25,7 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1a-content"
                   id="panel1a-header"
+                  sx={{ width: "22vw" }}
                 >
                   <ListItemButton>
                     <Typography
@@ -43,16 +45,12 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
                     {`email: ${client.email}`}
                   </Typography>
                   <div>
-                    <Typography
-                      component={"div"}
-                      variant="body1"
-                      sx={{ margin: "20px" }}
-                    >
+                    <Typography component={"div"} variant="body1">
                       {client.clientRepairs
                         .filter(({ isDone }) => !isDone)
                         .map((repair, index) => {
                           return (
-                            <AccordionSummary sx={{ width: "60vw" }}>
+                            <AccordionSummary>
                               <DirectionsCarFilledIcon
                                 sx={{ color: "#d90000" }}
                               />
@@ -60,7 +58,7 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
                                 component={"div"}
                                 display="block"
                                 sx={{
-                                  width: "60vw",
+                                  width: "18vw",
                                   paddingLeft: "10px",
                                 }}
                               >

@@ -5,27 +5,12 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../src/firebase";
 import { useState } from "react";
 
-const Header = () => {
-
+const AdminHeader = () => {
   const isLoggedIn = !!auth.currentUser;
   console.log(isLoggedIn);
   const LoggedButtons = () => {
     return (
       <>
-        <div
-          className="landing-buttons-style"
-          style={{ marginLeft: "5px", marginRight: "5px" }}
-        >
-          <Link className="link" to="/">
-            <Button
-              variant="text"
-              color="inherit"
-              sx={{ fontSize: "25px", fontFamily: "Lato " }}
-            >
-              O nas
-            </Button>
-          </Link>
-        </div>
         <div
           className="landing-buttons-style"
           style={{ marginLeft: "5px", marginRight: "5px" }}
@@ -37,20 +22,6 @@ const Header = () => {
               sx={{ fontSize: "25px", fontFamily: "Lato " }}
             >
               Menu
-            </Button>
-          </Link>
-        </div>
-        <div
-          className="landing-buttons-style"
-          style={{ marginLeft: "5px", marginRight: "5px" }}
-        >
-          <Link className="link" to="/repair-form/repair-form1">
-            <Button
-              variant="text"
-              color="inherit"
-              sx={{ fontSize: "25px", fontFamily: "Lato " }}
-            >
-              Zleć naprawę
             </Button>
           </Link>
         </div>
@@ -140,4 +111,4 @@ const Header = () => {
     </>
   );
 };
-export default Header;
+export default AdminHeader;
