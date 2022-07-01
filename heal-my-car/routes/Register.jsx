@@ -126,6 +126,7 @@ export default function SignUp() {
                     autoFocus
                     value={name}
                     onChange={(event) => setFirstname(event.target.value)}
+                    color="secondary"
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -137,6 +138,7 @@ export default function SignUp() {
                     autoComplete="family-name"
                     value={surname}
                     onChange={(event) => setSurname(event.target.value)}
+                    color="secondary"
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -149,6 +151,7 @@ export default function SignUp() {
                     autoComplete="email"
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
+                    color="secondary"
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -161,6 +164,7 @@ export default function SignUp() {
                     autoComplete="new-password"
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
+                    color="secondary"
                   />
                 </Grid>
                 {/* <Grid item xs={12}>
@@ -177,6 +181,7 @@ export default function SignUp() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                color="secondary"
               >
                 Zarejestruj się
               </Button>
@@ -187,7 +192,7 @@ export default function SignUp() {
                 </Link>
               </Grid> */}
                 <Grid item>
-                  <Link to="/login" variant="body2" className="linkBlue">
+                  <Link to="/login" variant="body2" className="linkBlue" >
                     Masz już konto? Zaloguj się
                   </Link>
                 </Grid>
