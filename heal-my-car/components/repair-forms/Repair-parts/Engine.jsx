@@ -2,13 +2,20 @@ import * as React from "react";
 import Checkbox from "@mui/material/Checkbox";
 import { FormGroup, FormControlLabel } from "@mui/material";
 import Paper from "@mui/material/Paper";
+import Icon from "@mui/material/Icon";
+import DirectionsCarFilledIcon from '@mui/icons-material/DirectionsCarFilled';
 
 export const Engine = (props) => {
   return (
     <div className="engine">
-      <Paper elevation={2} style={{ padding: "35px", marginRight: "35px" }}>
+      <Paper elevation={0} style={{ padding: "35px", marginRight: "35px", height: "600px" }}>
         <FormGroup>
-          <h3>Silnik</h3>
+        <div style={{ display: "flex" }}>
+            <Icon style={{ marginRight: "15px" }} color="secondary">
+              <DirectionsCarFilledIcon />
+            </Icon>
+            <h3>Silnik</h3>
+          </div>
           <FormControlLabel
             control={
               <Checkbox
