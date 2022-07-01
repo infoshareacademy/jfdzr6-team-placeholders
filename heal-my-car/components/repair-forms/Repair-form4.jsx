@@ -13,7 +13,7 @@ import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 
-export const Form4 = ({ userData }) => {
+export const Form4 = ({ userData, refreshData }) => {
   const { setFormData, formData } = useOutletContext();
   const navigate = useNavigate();
   const steps = ["Dane pojazdu", "Naprawy", "Informacje", "Zatwierdzanie"];
@@ -29,12 +29,18 @@ export const Form4 = ({ userData }) => {
 
     return addDoc(repairsCollection, formData)
       .then((data) => {
+        console.log(data.id);
+        console.log("111", userData.clientRepairs);
+
         const repairRef = doc(db, "repairs", data.id);
-        const clientRef = doc(db, "clients", "7oq1Pf2OqLMjN9uOhgSaecSa6Tv1"); //Tutaj przekazujemy ID zalogowanego użytkownika (stan) // userData.id
-        updateDoc(clientRef, {
+        const clientRef = doc(db, "clients", userData.id); //Tutaj przekazujemy ID zalogowanego użytkownika (stan) // userData.id
+
+        return updateDoc(clientRef, {
           clientRepairs: [...userData.clientRepairs, repairRef],
         });
-        console.log(data);
+      })
+      .then(() => {
+        refreshData(userData.id);
       })
       .catch((err) => console.log(err));
   }
@@ -84,8 +90,12 @@ export const Form4 = ({ userData }) => {
           style={{ display: "flex", flexDirection: "column", fontSize: "25px" }}
         >
           <br />
-          <p style={{textAlign:"center"}}>Marka pojazdu: {formData.carBrand}</p>
-          <p style={{ marginBottom: "35px", textAlign:"center" }}>VIN pojazdu: {formData.carVin}</p>
+          <p style={{ textAlign: "center" }}>
+            Marka pojazdu: {formData.carBrand}
+          </p>
+          <p style={{ marginBottom: "35px", textAlign: "center" }}>
+            VIN pojazdu: {formData.carVin}
+          </p>
           <ul style={{ marginBottom: "35px" }}>
             {formData.tasks.map((task) => (
               <li key={task.task} style={{ listStyleType: "decimal" }}>
