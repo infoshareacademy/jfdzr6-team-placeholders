@@ -23,42 +23,29 @@ function App() {
   const [role, setRole] = useState(null);
   const [userData, setUserData] = useState({ clientRepairs: [] });
 
+  const getClientData = (id) => {
+    const userData = doc(db, "clients", id);
+
+    getDoc(userData).then((docData) => {
+      const data = docData.data();
+      if (!data) {
+        return;
+      }
+      setUserData({ id: docData.id, ...data });
+
+      data.isAdmin ? setRole("admin") : setRole("user");
+    });
+  };
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       console.log("auth status changed", user);
       if (user) {
-        const userData = doc(db, "clients", user.uid);
-
-        getDoc(userData).then((docData) => {
-          const data = docData.data();
-          if (!data) {
-            return;
-          }
-          setUserData({ id: docData.id, ...data });
-
-          data.isAdmin ? setRole("admin") : setRole("user");
-        });
+        getClientData(user.uid);
       } else {
         setRole("guest");
       }
     });
-    // useEffect(() => {
-    //   onAuthStateChanged(auth, (user) => {
-    //     if (user) {
-    //       const userRef = doc(db, "users", user.uid);
-    //       onSnapshot(userRef, (userSnapshot) => {
-    //         const data = userSnapshot.data();
-    //         if (!data) {
-    //           return;
-    //         }
-    //         setUser(user);
-    //         setUserData({ id: userSnapshot.id, ...data });
-    //         data.isAdmin ? setRole("admin") : setRole("user");
-    //       });
-    //     } else {
-    //       setRole("guest");
-    //     }
-    //   });
   }, []);
 
   if (!role) {
@@ -95,15 +82,51 @@ function App() {
             <Route path="newtasks" element={<NewTasks />} />
           </Route>
 
-          <Route path="repair-form" element={<Wrapper />}>
+          <Route
+            element={
+              <ProtectedRoute isAllowed={role === "user" || role === "guest"} />
+            }
+          >
+            <Route
+              path="repair-form"
+              element={role === "user" ? <Wrapper /> : <Login />}
+            >
+              <Route
+                path="repair-form1"
+                element={role === "user" ? <Form1 /> : <Login />}
+              />
+              <Route
+                path="repair-form2"
+                element={role === "user" ? <Form2 /> : <Login />}
+              />
+              <Route
+                path="repair-form3"
+                element={role === "user" ? <Form3 /> : <Login />}
+              />
+              <Route
+                path="repair-form4"
+                element={
+                  role === "user" ? (
+                    <Form4 userData={userData} refreshData={getClientData} />
+                  ) : (
+                    <Login />
+                  )
+                }
+              />
+            </Route>
+          </Route>
+
+          {/* <Route path="repair-form" element={<Wrapper />}>
             <Route path="repair-form1" element={<Form1 />} />
             <Route path="repair-form2" element={<Form2 />} />
             <Route path="repair-form3" element={<Form3 />} />
             <Route
               path="repair-form4"
-              element={<Form4 userData={userData} />}
+              element={
+                <Form4 userData={userData} refreshData={getClientData} />
+              }
             />
-          </Route>
+          </Route> */}
           {/* Client Routing */}
           <Route element={<ProtectedRoute isAllowed={role === "user"} />}>
             <Route path="/" element={<Home />} />

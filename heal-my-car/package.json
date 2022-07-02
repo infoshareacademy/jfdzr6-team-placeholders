@@ -1,6 +1,6 @@
 {
   "name": "heal-my-car",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "scripts": {
     "start": "vite",

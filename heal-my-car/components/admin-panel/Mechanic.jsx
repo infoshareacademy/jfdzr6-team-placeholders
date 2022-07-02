@@ -5,7 +5,7 @@ function Mechanic() {
     <div style={{ positon: "relative" }}>
       <img
         style={{ position: "absolute", bottom: "0", right: "0", zIndex: "-1" }}
-        src="../../utils/mechanic.png"
+        src="/mechanic.png"
       ></img>
     </div>
   );

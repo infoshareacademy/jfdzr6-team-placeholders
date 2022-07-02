@@ -6,7 +6,6 @@ import { auth } from "../../src/firebase";
 import { useState } from "react";
 
 const Header = () => {
-
   const isLoggedIn = !!auth.currentUser;
   console.log(isLoggedIn);
   const LoggedButtons = () => {
@@ -126,7 +125,7 @@ const Header = () => {
       >
         <div className="landing-logo">
           <Link to="/" className="link">
-            <img src="../utils/logoGrad.png" height="75px" />
+            <img src="logoGrad.png" height="75px" />
           </Link>
         </div>
 
