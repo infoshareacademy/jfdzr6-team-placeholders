@@ -16,19 +16,20 @@ const EditTasks = ({ index, task, updateTaskPrice, repair }) => {
             marginTop: "27px",
             padding: "0px",
           }}
-          onDoubleClick={() =>
+          onClick={() =>
             setEnabledEdits((current) => [...current, index])
           }
         >
           {task.price == null ? 0 : task.price}
-          {" zł"}
+          {" zł ✏️"}
         </p>
       ) : (
         <input
           style={{
             display: "inline",
             fontFamily: "Calibri",
-            minHeight: "20px",
+            minHeight: "24px",
+            marginLeft: "5px",
           }}
           onBlur={(e) => {
             if (e.target.value.trim() !== "") {
