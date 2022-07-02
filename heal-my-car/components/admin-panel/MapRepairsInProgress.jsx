@@ -28,7 +28,13 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
         .map((client, index) => {
           return (
             <>
-              <Accordion key={index}>
+              <Accordion
+                key={index}
+                sx={{
+                  display: "flex",
+                  padding: "20px",
+                }}
+              >
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />}
                   aria-controls="panel1a-content"

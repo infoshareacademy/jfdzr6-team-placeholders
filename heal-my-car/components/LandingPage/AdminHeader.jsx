@@ -13,9 +13,12 @@ const AdminHeader = () => {
       <>
         <div
           className="landing-buttons-style"
-          style={{ marginLeft: "5px", marginRight: "5px" }}
+          style={{
+            marginLeft: "5px",
+            marginRight: "5px",
+          }}
         >
-          <Link className="link" to="/admin-panel">
+          <Link className="link" to="/newtasks">
             <Button
               variant="text"
               color="inherit"
@@ -94,6 +97,8 @@ const AdminHeader = () => {
           alignItems: "center",
           zIndex: "1",
           borderBottom: "1px white solid",
+          position: "sticky",
+          top: "0",
         }}
       >
         <div className="landing-logo">
