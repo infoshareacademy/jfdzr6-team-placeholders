@@ -10,25 +10,29 @@ export default function AdminPanel(role) {
   const Logout = () => {};
   return (
     <>
-      <AdminHeader />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          backgroundColor: "#ffffff",
-        }}
-      >
-        <AdminSideMenu />
-        <Divider
-          orientation="vertical"
-          variant="middle"
-          flexItem
-          style={{ margin: "0 20px 0 20px" }}
+      <div style={{ position: "absolute" }}>
+        <AdminHeader
+          sx={{ position: "relative", top: "0", zIndex: "100", left: "0" }}
         />
-        <div className="content">
-          <RepairsInProgress />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            backgroundColor: "#ffffff",
+          }}
+        >
+          <AdminSideMenu />
+          <Divider
+            orientation="vertical"
+            variant="middle"
+            flexItem
+            style={{ margin: "0 20px 0 20px" }}
+          />
+          <div className="content">
+            <RepairsInProgress />
+          </div>
+          <Mechanic />
         </div>
-        <Mechanic />
       </div>
       <Outlet />
     </>

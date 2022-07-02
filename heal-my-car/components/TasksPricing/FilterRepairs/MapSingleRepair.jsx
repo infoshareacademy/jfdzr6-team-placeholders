@@ -10,7 +10,7 @@ const MapSingleRepair = ({ task, index, updateTaskPrice, repair }) => {
     <>
       <ListItemButton sx={{ pl: 10, maxHeight: "48px" }}>
         <ListItemIcon>
-          <BuildIcon sx={{ color: "#c43098" }} />
+          <BuildIcon sx={{ color: "#1976d2" }} />
         </ListItemIcon>
         <ListItemText primary={task.task} />
         <EditTasks

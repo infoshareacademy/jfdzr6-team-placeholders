@@ -111,7 +111,15 @@ export function AdminSideMenu() {
   };
 
   return (
-    <Box sx={{ display: "flex", height: "calc(100vh - 75px)" }}>
+    <Box
+      sx={{
+        display: "flex",
+        height: "calc(100vh - 75px)",
+        position: "sticky",
+        top: "77px",
+        left: "0",
+      }}
+    >
       <CssBaseline />
       <Drawer
         variant="permanent"

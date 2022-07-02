@@ -53,7 +53,7 @@ const MapRepairs = ({
       >
         <ListItemButton>
           <ListItemIcon>
-            <DirectionsCarFilledIcon sx={{ color: "#c43098" }} />
+            <DirectionsCarFilledIcon sx={{ color: "#1976d2" }} />
           </ListItemIcon>
           <ListItemText
             primary={`Pojazd: ${repair.carBrand} | VIN: ${repair.carVin}`}
@@ -61,14 +61,14 @@ const MapRepairs = ({
         </ListItemButton>
         <ListItemButton>
           <ListItemIcon>
-            <AccountCircle sx={{ color: "#c43098" }} />
+            <AccountCircle sx={{ color: "#1976d2" }} />
           </ListItemIcon>
           <ListItemText primary={`Klient: `} />
           <GetClientName clients={clients} repair={repair} />
         </ListItemButton>
         <ListItemButton onClick={handleClick}>
           <ListItemIcon>
-            <CarRepairIcon sx={{ color: "#c43098" }} />
+            <CarRepairIcon sx={{ color: "#1976d2" }} />
           </ListItemIcon>
           <ListItemText primary="Zlecone usługi:" />
           {open ? <ExpandLess /> : <ExpandMore />}

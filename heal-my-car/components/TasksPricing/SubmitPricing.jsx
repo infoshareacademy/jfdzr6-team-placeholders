@@ -27,7 +27,7 @@ const SubmitPricing = ({ getRepairs, repair }) => {
       variant="contained"
       size="small"
     >
-      Wycena
+      Wyceń
     </Button>
   );
 };
