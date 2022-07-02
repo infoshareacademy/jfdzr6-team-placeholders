@@ -100,10 +100,7 @@ export const Form4 = ({ userData, refreshData }) => {
           </p>
           <ul
             style={{
-              background: "#b35797",
               padding: "20px",
-              border: "2px solid #ba58e6",
-              borderRadius: "8px",
               marginBottom: "35px"
             }}
           >
@@ -113,7 +110,6 @@ export const Form4 = ({ userData, refreshData }) => {
                 style={{
                   width: "550px",
                   listStyleType: "decimal",
-                  background: "#b475a1",
                   padding: "5px",
                   marginLeft: "35px",
                 }}
