@@ -111,20 +111,28 @@ export function AdminSideMenu() {
   return (
     <Box sx={{ display: "flex", height: "calc(100vh - 75px)" }}>
       <CssBaseline />
-      <Drawer variant="permanent" open={open}>
+      <Drawer
+        variant="permanent"
+        open={open}
+        PaperProps={{
+          sx: {
+            backgroundColor: "#2f3b52",
+          },
+        }}
+      >
         <DrawerHeader>
           {!open ? (
             <IconButton
               sx={{ marginRight: "20px" }}
               onClick={open == false ? handleDrawerOpen : handleDrawerClose}
             >
-              <ArrowForwardIcon />
+              <ArrowForwardIcon sx={{ color: "#fff" }} />
             </IconButton>
           ) : (
             <IconButton
               onClick={open == false ? handleDrawerOpen : handleDrawerClose}
             >
-              <ArrowBackIcon />
+              <ArrowBackIcon sx={{ color: "#fff" }} />
             </IconButton>
           )}
         </DrawerHeader>
@@ -150,6 +158,7 @@ export function AdminSideMenu() {
                 <ListItemText
                   primary={"Wycena zleceń"}
                   sx={{ opacity: open ? 1 : 0 }}
+                  className="adminPanelMenu"
                 />
               </ListItemButton>
             </Link>
@@ -175,6 +184,7 @@ export function AdminSideMenu() {
                 <ListItemText
                   primary={"Naprawy w toku"}
                   sx={{ opacity: open ? 1 : 0 }}
+                  className="adminPanelMenu"
                 />
               </ListItemButton>
             </Link>
@@ -200,6 +210,7 @@ export function AdminSideMenu() {
                 <ListItemText
                   primary={"Naprawy wykonane"}
                   sx={{ opacity: open ? 1 : 0 }}
+                  className="adminPanelMenu"
                 />
               </ListItemButton>
             </Link>
@@ -227,6 +238,7 @@ export function AdminSideMenu() {
                 <ListItemText
                   primary={"Wyloguj"}
                   sx={{ opacity: open ? 1 : 0 }}
+                  className="adminPanelMenu"
                 />
               </ListItemButton>
             </Link>

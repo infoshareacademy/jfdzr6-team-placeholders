@@ -15,9 +15,10 @@ export default function AdminPanel(role) {
         style={{
           display: "flex",
           flexDirection: "row",
+          backgroundColor: "#252e42",
         }}
       >
-        <AdminSideMenu />
+        <AdminSideMenu  />
         <Divider
           orientation="vertical"
           variant="middle"
