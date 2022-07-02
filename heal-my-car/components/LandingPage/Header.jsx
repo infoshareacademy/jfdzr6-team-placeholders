@@ -20,7 +20,13 @@ const Header = () => {
             <Button
               variant="text"
               color="inherit"
-              sx={{ fontSize: "25px", fontFamily: "Lato " }}
+              sx={{
+                fontSize: "25px",
+                fontFamily: "Lato ",
+                "&:hover": {
+                  color: "#9c27b0",
+                },
+              }}
             >
               O nas
             </Button>
@@ -34,7 +40,13 @@ const Header = () => {
             <Button
               variant="text"
               color="inherit"
-              sx={{ fontSize: "25px", fontFamily: "Lato " }}
+              sx={{
+                fontSize: "25px",
+                fontFamily: "Lato ",
+                "&:hover": {
+                  color: "#9c27b0",
+                },
+              }}
             >
               Menu
             </Button>
@@ -48,7 +60,13 @@ const Header = () => {
             <Button
               variant="text"
               color="inherit"
-              sx={{ fontSize: "25px", fontFamily: "Lato " }}
+              sx={{
+                fontSize: "25px",
+                fontFamily: "Lato ",
+                "&:hover": {
+                  color: "#9c27b0",
+                },
+              }}
             >
               Zleć naprawę
             </Button>
@@ -62,7 +80,13 @@ const Header = () => {
             <Button
               variant="text"
               color="inherit"
-              sx={{ fontSize: "25px", fontFamily: "Lato " }}
+              sx={{
+                fontSize: "25px",
+                fontFamily: "Lato ",
+                "&:hover": {
+                  color: "#9c27b0",
+                },
+              }}
               onClick={() => signOut(auth)}
             >
               Wyloguj
@@ -83,7 +107,13 @@ const Header = () => {
             <Button
               variant="text"
               color="inherit"
-              sx={{ fontSize: "25px", fontFamily: "Lato " }}
+              sx={{
+                fontSize: "25px",
+                fontFamily: "Lato ",
+                "&:hover": {
+                  color: "#9c27b0",
+                },
+              }}
             >
               Zaloguj
             </Button>
@@ -97,7 +127,13 @@ const Header = () => {
             <Button
               variant="text"
               color="inherit"
-              sx={{ fontSize: "25px", fontFamily: "Lato " }}
+              sx={{
+                fontSize: "25px",
+                fontFamily: "Lato ",
+                "&:hover": {
+                  color: "#9c27b0",
+                },
+              }}
             >
               Zarejestruj
             </Button>
