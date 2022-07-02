@@ -93,26 +93,26 @@ export const Repairstatus = (props) => {
           id="panel1a-header"
           sx={{ bgcolor: "primary.main", color: "info.contrastText" }}
         >
-          <Typography>Status zlecenia dla:</Typography>
+          <Typography sx={{color: "#ECF0F1"}}><b>Rozwiń moje aktualne zlecenia</b></Typography>
         </AccordionSummary>
 
         <AccordionDetails>
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 750 }} aria-label="simple table">
               <TableHead
-                sx={{ bgcolor: "primary.main", color: "info.contrastText" }}
+                sx={{ bgcolor: "primary.main" }}
               >
                 <TableRow>
-                  <TableCell>
+                  <TableCell sx={{color: "#fff"}}>
                     <b>Nr VIN</b>
                   </TableCell>
-                  <TableCell>
+                  <TableCell sx={{color: "#fff"}}>
                     <b>Marka</b>
                   </TableCell>
-                  <TableCell>
-                    <b>Opis</b>
+                  <TableCell sx={{color: "#fff"}}>
+                    <b>Dodatkowy opis</b>
                   </TableCell>
-                  <TableCell>
+                  <TableCell sx={{color: "#fff"}}>
                     <b>Status</b>
                   </TableCell>
                 </TableRow>
@@ -140,16 +140,16 @@ export const Repairstatus = (props) => {
                     <TableRow>
                       <TableCell key={`${row.clientId}-${row.carVin}`}>
                         <Collapse in={openRowIndex === index}>
-                          <ul style={{listStyleType:"none"}}>
+                          <ul style={{ listStyleType: "none" }}>
                             {row.tasks.map((task) => (
                               <>
                                 <li>
-                                  <b>Usługa:</b> {task.task}, cena: {task.price}
+                                  <b>Usługa:</b> {task.task}, <b>cena:</b> {task.price} 💰
                                 </li>
                               </>
                             ))}
-                            
                           </ul>
+                          
                         </Collapse>
                       </TableCell>
                     </TableRow>
@@ -157,6 +157,7 @@ export const Repairstatus = (props) => {
                 ))}
               </TableBody>
             </Table>
+            
           </TableContainer>
         </AccordionDetails>
       </Accordion>
