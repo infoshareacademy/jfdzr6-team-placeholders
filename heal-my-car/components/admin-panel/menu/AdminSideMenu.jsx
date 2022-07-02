@@ -26,6 +26,8 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { Button, Stack } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { auth } from "../../../src/firebase";
+import { signOut } from "firebase/auth";
 
 const drawerWidth = 240;
 
@@ -149,7 +151,7 @@ export function AdminSideMenu() {
               >
                 <CurrencyExchangeIcon
                   sx={{
-                    color: "#9c27b0",
+                    color: "#fff",
                     minWidth: 0,
                     mr: open ? 3 : "auto",
                     justifyContent: "center",
@@ -175,7 +177,7 @@ export function AdminSideMenu() {
               >
                 <CarRepairIcon
                   sx={{
-                    color: "#9c27b0",
+                    color: "#fff",
                     minWidth: 0,
                     mr: open ? 3 : "auto",
                     justifyContent: "center",
@@ -201,7 +203,7 @@ export function AdminSideMenu() {
               >
                 <ManageHistoryIcon
                   sx={{
-                    color: "#9c27b0",
+                    color: "#fff",
                     minWidth: 0,
                     mr: open ? 3 : "auto",
                     justifyContent: "center",
@@ -221,6 +223,7 @@ export function AdminSideMenu() {
           <ListItem disablePadding sx={{ display: "block" }} className="link">
             <Link to="/" className="adminMenuLink">
               <ListItemButton
+                onClick={() => signOut(auth)}
                 sx={{
                   minHeight: 62,
                   justifyContent: open ? "initial" : "center",
@@ -229,7 +232,7 @@ export function AdminSideMenu() {
               >
                 <LogoutIcon
                   sx={{
-                    color: "#9c27b0",
+                    color: "#fff",
                     minWidth: 0,
                     mr: open ? 3 : "auto",
                     justifyContent: "center",

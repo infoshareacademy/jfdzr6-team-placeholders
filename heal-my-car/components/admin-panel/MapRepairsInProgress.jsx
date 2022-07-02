@@ -52,7 +52,7 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
                     sx={{ paddingLeft: "15px", justifyContent: "start" }}
                   >
                     <AlternateEmailIcon
-                      sx={{ color: "#d90000", paddingRight: "10px" }}
+                      sx={{ color: "#fff", paddingRight: "10px" }}
                     />
                     {`email: ${client.email}`}
                   </Typography>
@@ -63,9 +63,7 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
                         .map((repair, index) => {
                           return (
                             <AccordionSummary>
-                              <DirectionsCarFilledIcon
-                                sx={{ color: "#d90000" }}
-                              />
+                              <DirectionsCarFilledIcon sx={{ color: "#fff" }} />
                               <Typography
                                 component={"div"}
                                 display="block"
