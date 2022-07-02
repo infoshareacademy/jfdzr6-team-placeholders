@@ -16,9 +16,7 @@ const EditTasks = ({ index, task, updateTaskPrice, repair }) => {
             marginTop: "27px",
             padding: "0px",
           }}
-          onClick={() =>
-            setEnabledEdits((current) => [...current, index])
-          }
+          onClick={() => setEnabledEdits((current) => [...current, index])}
         >
           {task.price == null ? 0 : task.price}
           {" zł ✏️"}
@@ -27,9 +25,13 @@ const EditTasks = ({ index, task, updateTaskPrice, repair }) => {
         <input
           style={{
             display: "inline",
-            fontFamily: "Calibri",
+            fontFamily: "Lato",
             minHeight: "24px",
             marginLeft: "5px",
+            backgroundColor: "#41506E",
+            color: "white",
+            fontSize: "16px",
+            direction: "rtl",
           }}
           onBlur={(e) => {
             if (e.target.value.trim() !== "") {
