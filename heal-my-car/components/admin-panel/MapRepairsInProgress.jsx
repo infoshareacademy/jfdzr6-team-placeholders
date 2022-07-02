@@ -28,7 +28,13 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
         .map((client, index) => {
           return (
             <>
-              <Accordion key={index}>
+              <Accordion
+                key={index}
+                sx={{
+                  display: "flex",
+                  padding: "20px",
+                }}
+              >
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />}
                   aria-controls="panel1a-content"
@@ -39,10 +45,21 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
                     color: "#fff",
                   }}
                 >
-                  <ListItemButton>
+                  <ListItemButton
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "start",
+                    }}
+                  >
                     <Typography
+                      display="flex"
                       sx={{ fontWeight: "bold" }}
                     >{`Klient: ${client.name} ${client.lastName}`}</Typography>
+                    <Typography display="flex">
+                      <AlternateEmailIcon sx={{ color: "#fff" }} />
+                      {`email: ${client.email}`}
+                    </Typography>
                   </ListItemButton>
                 </AccordionSummary>
                 <div className="clientsData">
@@ -82,13 +99,8 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
                                   {`${repair.carBrand}`}
                                   {<br />}
                                   {`VIN: ${repair.carVin}`}
-                                  <SendRepairDone
-                                    clients={clients}
-                                    repair={repair}
-                                    getClients={getClients}
-                                    id={repair.id}
-                                  />
                                 </div>
+
                                 {repair.tasks.map((task, index) => {
                                   return (
                                     <>
