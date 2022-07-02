@@ -59,23 +59,19 @@ export const Form2 = () => {
       <Header />
       <CssBaseline />
       <Container
-        maxWidth="auto"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "0",
-          marginTop: "35px",
-        }}
+        maxWidth="100%"
+        style={{ padding: "0", color: "primary", marginTop: "35px" }}
       >
         <div
           style={{
-            width: "100%",
-            border: "2px solid #ba58e6",
-            //borderRadius: "70px",
+            width: "auto",
+            borderTop: "2px solid #ba58e6",
+            borderBottom: "2px solid #ba58e6",
+            borderRadius: "70px",
             padding: "25px",
-            backgroundColor: "rgb(204, 0, 204, .3)",
+            backgroundColor: "#b35797",
+            marginLeft: "55px",
+            marginRight: "55px",
           }}
         >
           <Stepper activeStep={1} alternativeLabel>
@@ -86,46 +82,66 @@ export const Form2 = () => {
             ))}
           </Stepper>
         </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            marginTop: "60px",
-            width: "400px",
-            justifyContent: "space-evenly",
-          }}
-        >
-          <ConstructionIcon fontSize="large" />
-          <h2 style={{}}>Rodzaj Naprawy</h2>
-        </div>
-        <br />
-        <h4 style={{ textAlign: "center", marginBottom: "35px" }}>
-          Zaznacz obszary pojazdu, które wymagają sprawdzenia lub naprawy
-        </h4>
+
         <Box
           component="form"
           noValidate
           autoComplete="off"
           sx={{
             display: "flex",
-            flexDirection: "row",
+            flexDirection: "column",
             width: "auto",
             flexWrap: "wrap",
             justifyContent: "center",
           }}
         >
-          <Body handleFormUpdate={handleFormUpdate} />
-          <Chassis handleFormUpdate={handleFormUpdate} />
-          <Engine handleFormUpdate={handleFormUpdate} />
-          <Electronics handleFormUpdate={handleFormUpdate} />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              marginTop: "60px",
+              marginBottom: "25px"
+            }}
+          >
+            <ConstructionIcon
+              fontSize="large"
+              style={{ marginRight: "35px" }}
+            />
+            <h2 style={{ textAlign: "center" }}>Rodzaj Naprawy</h2>
+          </div>
+          <h4 style={{ textAlign: "center", marginBottom: "35px" }}>
+            Zaznacz obszary pojazdu, które wymagają sprawdzenia lub naprawy
+          </h4>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+            }}
+          >
+            <Body handleFormUpdate={handleFormUpdate} />
+            <Chassis handleFormUpdate={handleFormUpdate} />
+            <Engine handleFormUpdate={handleFormUpdate} />
+            <Electronics handleFormUpdate={handleFormUpdate} />
+          </div>
         </Box>
-        <div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
           <Button
             variant="contained"
             backButton
             color="secondary"
             onClick={() => navigate(-1)}
-            style={{ height: "35px", width: "23ch", margin: "15px" }}
+            sx={{
+              height: "35px",
+              width: "23ch",
+              margin: "15px",
+              backgroundColor: "#41506e",
+              "&:hover": {
+                backgroundColor: "#9c27b0",
+                color: "#fff",
+              },
+            }}
             startIcon={<ArrowBackIosIcon />}
           >
             Wstecz
@@ -134,7 +150,16 @@ export const Form2 = () => {
             variant="contained"
             type="submit"
             onClick={handleSubmit}
-            style={{ height: "35px", width: "23ch", margin: "15px" }}
+            sx={{
+              height: "35px",
+              width: "23ch",
+              margin: "15px",
+              backgroundColor: "#41506e",
+              "&:hover": {
+                backgroundColor: "#9c27b0",
+                color: "#fff",
+              },
+            }}
             color="secondary"
             endIcon={<ArrowForwardIosIcon />}
           >
