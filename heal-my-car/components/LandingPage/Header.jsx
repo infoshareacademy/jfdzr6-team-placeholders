@@ -125,7 +125,7 @@ const Header = () => {
       >
         <div className="landing-logo">
           <Link to="/" className="link">
-            <img src="logoGrad.png" height="75px" />
+            <img src="/logoGrad.png" height="75px" />
           </Link>
         </div>
 
