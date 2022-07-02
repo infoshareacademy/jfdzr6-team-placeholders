@@ -176,6 +176,7 @@ const Content = () => {
           }}
         >
           <div
+            id="whyus"
             className="content-hero2-column1-whyus"
             style={{
               width: "40%",
