@@ -11,7 +11,6 @@ export default function AdminPanel(role) {
   return (
     <>
       <AdminHeader />
-
       <div
         style={{
           display: "flex",

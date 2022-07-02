@@ -17,7 +17,7 @@ const Content = () => {
           alignItems: "center",
           width: "100%",
           height: "90vh",
-          backgroundImage: "url(../../utils/car-fix.jpg)",
+          backgroundImage: "url(/car-fix.jpg)",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "left",
           backgroundSize: "cover",
@@ -161,7 +161,7 @@ const Content = () => {
             userSelect: "none",
           }}
         >
-          <img style={imgStyle} src="../utils/flow.jpg" />
+          <img style={imgStyle} src="/flow.jpg" />
         </div>
       </div>
       <div
@@ -183,6 +183,7 @@ const Content = () => {
           }}
         >
           <div
+            id="whyus"
             className="content-hero2-column1-whyus"
             style={{
               width: "40%",
@@ -210,7 +211,7 @@ const Content = () => {
               <ul style={{ listStyleType: "none", width: "auto" }}>
                 <li style={{ marginBottom: "20px" }}>
                   <img
-                    src="../utils/icons/mechanic.png"
+                    src="/icons/mechanic.png"
                     style={{
                       height: "50px",
                       width: "auto",
@@ -222,7 +223,7 @@ const Content = () => {
                 </li>
                 <li style={{ marginBottom: "20px", marginLeft: "150px" }}>
                   <img
-                    src="../utils/icons/trust.png"
+                    src="/icons/trust.png"
                     style={{
                       height: "50px",
                       width: "auto",
@@ -234,7 +235,7 @@ const Content = () => {
                 </li>
                 <li style={{ marginBottom: "20px", marginLeft: "0px" }}>
                   <img
-                    src="../utils/icons/best-price.png"
+                    src="/icons/best-price.png"
                     style={{
                       height: "50px",
                       width: "auto",
@@ -246,7 +247,7 @@ const Content = () => {
                 </li>
                 <li style={{ marginBottom: "20px", marginLeft: "150px" }}>
                   <img
-                    src="../utils/icons/clock.png"
+                    src="/icons/clock.png"
                     style={{
                       height: "50px",
                       width: "auto",
@@ -258,7 +259,7 @@ const Content = () => {
                 </li>
                 <li style={{ marginBottom: "20px", marginLeft: "0px" }}>
                   <img
-                    src="../utils/icons/diagnostic.png"
+                    src="/icons/diagnostic.png"
                     style={{
                       height: "50px",
                       width: "auto",
@@ -282,7 +283,7 @@ const Content = () => {
         >
           <img
             style={{ width: "auto", height: "100%", marginRight: "10%" }}
-            src="../utils/mechanic2.png"
+            src="/mechanic2.png"
           />
         </div>
       </div>

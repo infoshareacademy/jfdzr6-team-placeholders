@@ -15,7 +15,7 @@ const AdminHeader = () => {
           className="landing-buttons-style"
           style={{ marginLeft: "5px", marginRight: "5px" }}
         >
-          <Link className="link" to="/client-id">
+          <Link className="link" to="/admin-panel">
             <Button
               variant="text"
               color="inherit"
@@ -98,7 +98,7 @@ const AdminHeader = () => {
       >
         <div className="landing-logo">
           <Link to="/" className="link">
-            <img src="../utils/logoGrad.png" height="75px" />
+            <img src="/logoGrad.png" height="75px" />
           </Link>
         </div>
 

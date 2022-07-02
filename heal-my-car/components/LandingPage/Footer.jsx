@@ -150,7 +150,7 @@ const Footer = () => {
               >
                 <li>
                   <img
-                    src="../utils/bosch.png"
+                    src="/bosch.png"
                     style={{
                       height: "40px",
                       width: "auto",
@@ -160,7 +160,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <img
-                    src="../utils/lambo.png"
+                    src="/lambo.png"
                     style={{
                       width: "auto",
                       height: "130px",
