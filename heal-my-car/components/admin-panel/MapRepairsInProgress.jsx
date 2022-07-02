@@ -25,6 +25,9 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
         .filter(({ clientRepairs }) => {
           return clientRepairs.some(({ isDone }) => !isDone);
         })
+        .filter(({ clientRepairs }) => {
+          return clientRepairs.some(({ totalCost }) => totalCost != null);
+        })
         .map((client, index) => {
           return (
             <>
@@ -66,6 +69,7 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
                     <Typography component={"div"} variant="body1">
                       {client.clientRepairs
                         .filter(({ isDone }) => !isDone)
+                        .filter(({ totalCost }) => totalCost != null)
                         .map((repair, index) => {
                           return (
                             <AccordionSummary>

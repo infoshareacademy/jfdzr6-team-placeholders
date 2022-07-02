@@ -11,6 +11,7 @@ export const RepairsInProgress = () => {
     const pendingClientsQuery = query(
       clientsCollection,
       where("clientRepairs", "!=", [])
+      // where("totalCost", "=", null)
     );
 
     const clientsQuerySnapshot = await getDocs(pendingClientsQuery);
