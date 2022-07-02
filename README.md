@@ -4,8 +4,7 @@ Heal my car is a web application which makes it easier to take care of your car.
 ## Key Features
 * Book a service for your car,
 * Estimate the cost of the service,
-* Check the status of the service,
-* Make an appointment for a consultation.
+* Check the status of the service.
 
 ## How To Use
 

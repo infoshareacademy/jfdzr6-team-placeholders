@@ -66,11 +66,11 @@ const Content = () => {
               fontSize: "clamp(1.8rem, 0.6vw, 2.8rem)",
               borderRadius: "15px",
               fontFamily: "lato",
-              backgroundColor: "#242c3f",
               border: "1px white solid",
+              backgroundColor: "#41506e",
               "&:hover": {
-                backgroundColor: "#1f306e",
-                color: "#fff",
+                backgroundColor: "#41506e",
+                color: "#9c27b0",
               },
             }}
           >
