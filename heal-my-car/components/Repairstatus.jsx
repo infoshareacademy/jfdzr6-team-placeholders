@@ -94,7 +94,7 @@ export const Repairstatus = (props) => {
           sx={{ bgcolor: "primary.main", color: "info.contrastText" }}
         >
           <Typography>
-            <h4>Status zlecenia dla:</h4>
+            Status zlecenia dla:
           </Typography>
         </AccordionSummary>
 
@@ -143,10 +143,10 @@ export const Repairstatus = (props) => {
                       {row.tasks.map((task, i) => (
                         <TableCell key={`${row.clientId}-${row.carVin}-${i}`}>
                           <Collapse in={openRowIndex === index}>
-                            
+                            <ul>
                               <li>{task.task}</li>
                               <li>{task.price}</li>
-                            
+                            </ul>
                           </Collapse>
                         </TableCell>
                       ))}
