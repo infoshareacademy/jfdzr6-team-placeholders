@@ -101,12 +101,23 @@ export default function PasswordReset() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{
+                  mt: 3,
+                  mb: 2,
+                  backgroundColor: "#242c3f",
+                  "&:hover": {
+                    backgroundColor: "#9c27b0",
+                    color: "#fff",
+                  },
+                }}
                 color="secondary"
               >
                 PRZYPOMNIJ HASŁO
               </Button>
-              <Grid container>
+              <Grid
+                container
+                sx={{ display: "flex", justifyContent: "center" }}
+              >
                 <Grid item>
                   <Link to="/register" variant="body2" className="linkBlue">
                     {"Nie masz konta? Zarejestruj się"}

@@ -34,7 +34,7 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                   sx={{
-                    width: "22vw",
+                    width: "40vw",
                     backgroundColor: "#2f3b52",
                     color: "#fff",
                   }}
