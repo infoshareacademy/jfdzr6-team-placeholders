@@ -93,9 +93,7 @@ export const Repairstatus = (props) => {
           id="panel1a-header"
           sx={{ bgcolor: "primary.main", color: "info.contrastText" }}
         >
-          <Typography>
-            Status zlecenia dla:
-          </Typography>
+          <Typography>Status zlecenia dla:</Typography>
         </AccordionSummary>
 
         <AccordionDetails>
@@ -140,16 +138,20 @@ export const Repairstatus = (props) => {
                       </TableCell>
                     </TableRow>
                     <TableRow>
-                      {row.tasks.map((task, i) => (
-                        <TableCell key={`${row.clientId}-${row.carVin}-${i}`}>
-                          <Collapse in={openRowIndex === index}>
-                            <ul>
-                              <li>{task.task}</li>
-                              <li>{task.price}</li>
-                            </ul>
-                          </Collapse>
-                        </TableCell>
-                      ))}
+                      <TableCell key={`${row.clientId}-${row.carVin}`}>
+                        <Collapse in={openRowIndex === index}>
+                          <ul style={{listStyleType:"none"}}>
+                            {row.tasks.map((task) => (
+                              <>
+                                <li>
+                                  <b>Usługa:</b> {task.task}, cena: {task.price}
+                                </li>
+                              </>
+                            ))}
+                            
+                          </ul>
+                        </Collapse>
+                      </TableCell>
                     </TableRow>
                   </Fragment>
                 ))}
