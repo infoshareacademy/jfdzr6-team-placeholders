@@ -90,9 +90,10 @@ const AdminHeader = () => {
           padding: "0px 0px",
           width: "100%",
           height: "75px",
-          backgroundColor: "#1e88e5",
+          backgroundColor: "#252e42",
           alignItems: "center",
           zIndex: "1",
+          borderBottom: "1px white solid",
         }}
       >
         <div className="landing-logo">

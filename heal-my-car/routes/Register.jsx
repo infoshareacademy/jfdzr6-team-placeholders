@@ -122,7 +122,7 @@ export default function SignUp() {
                     name="firstName"
                     required
                     fullWidth
-                    label="Twje imię"
+                    label="Twoje imię"
                     autoFocus
                     value={name}
                     onChange={(event) => setFirstname(event.target.value)}
@@ -180,7 +180,15 @@ export default function SignUp() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{
+                  mt: 3,
+                  mb: 2,
+                  backgroundColor: "#242c3f",
+                  "&:hover": {
+                    backgroundColor: "#9c27b0",
+                    color: "#fff",
+                  },
+                }}
                 color="secondary"
               >
                 Zarejestruj się
@@ -192,7 +200,7 @@ export default function SignUp() {
                 </Link>
               </Grid> */}
                 <Grid item>
-                  <Link to="/login" variant="body2" className="linkBlue" >
+                  <Link to="/login" variant="body2" className="linkBlue">
                     Masz już konto? Zaloguj się
                   </Link>
                 </Grid>

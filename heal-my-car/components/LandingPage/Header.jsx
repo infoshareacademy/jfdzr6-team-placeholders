@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../src/firebase";
 import { useState } from "react";
+import { HashLink } from "react-router-hash-link";
 
 const Header = () => {
   const isLoggedIn = !!auth.currentUser;
@@ -15,7 +16,7 @@ const Header = () => {
           className="landing-buttons-style"
           style={{ marginLeft: "5px", marginRight: "5px" }}
         >
-          <Link className="link" to="/">
+          <HashLink className="link" to="/#whyus">
             <Button
               variant="text"
               color="inherit"
@@ -23,7 +24,7 @@ const Header = () => {
             >
               O nas
             </Button>
-          </Link>
+          </HashLink>
         </div>
         <div
           className="landing-buttons-style"
@@ -118,14 +119,15 @@ const Header = () => {
           padding: "0px 0px",
           width: "100%",
           height: "75px",
-          backgroundColor: "#1e88e5",
+          backgroundColor: "#252e42",
           alignItems: "center",
           zIndex: "1",
+          borderBottom: "1px white solid",
         }}
       >
         <div className="landing-logo">
           <Link to="/" className="link">
-            <img src="logoGrad.png" height="75px" />
+            <img src="/logoGrad.png" height="75px" />
           </Link>
         </div>
 
