@@ -94,7 +94,7 @@ export const Repairstatus = (props) => {
           sx={{ bgcolor: "primary.main", color: "info.contrastText" }}
         >
           <Typography>
-            <h4>Status zlecenia dla:</h4>
+            Status zlecenia dla:
           </Typography>
         </AccordionSummary>
 
@@ -143,10 +143,10 @@ export const Repairstatus = (props) => {
                       {row.tasks.map((task, i) => (
                         <TableCell key={`${row.clientId}-${row.carVin}-${i}`}>
                           <Collapse in={openRowIndex === index}>
-                            
+                            <ul>
                               <li>{task.task}</li>
                               <li>{task.price}</li>
-                            
+                            </ul>
                           </Collapse>
                         </TableCell>
                       ))}
@@ -158,111 +158,6 @@ export const Repairstatus = (props) => {
           </TableContainer>
         </AccordionDetails>
       </Accordion>
-      {/* <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 750 }} aria-label="simple table">
-          <TableHead
-          sx={{ bgcolor: "primary.main", color: "info.contrastText" }}
-          >
-            <TableRow>
-              <TableCell><b>Nr VIN</b></TableCell>
-              <TableCell><b>Marka</b></TableCell>
-              <TableCell><b>Opis</b></TableCell>
-              <TableCell><b>Status</b></TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {repairs.map((row, index) => (
-              <Fragment key={row.carVin}>
-                <TableRow
-                  component="th"
-                  scope="row"
-                  onClick={() => handleCollapse(index)}
-                  style={{
-                    cursor: "pointer",
-                    "&:last-child td, &:last-child th": { border: 0 },
-                  }}
-                >
-                  <TableCell>{row.carVin}</TableCell>
-                  <TableCell>{row.carBrand}</TableCell>
-
-                  <TableCell>{row.selfText}</TableCell>
-                  <TableCell>
-                    {row.isDone ? "Ukończony" : "W trakcie"}
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  {row.tasks.map((task, i) => (
-                    <TableCell key={`${row.clientId}-${row.carVin}-${i}`}>
-                      <Collapse in={openRowIndex === index}>
-                        {task.task}
-                        {task.price}
-                      </Collapse>
-                    </TableCell>
-                  ))}
-                </TableRow>
-              </Fragment>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer> */}
     </>
   );
 };
-
-// return (
-//   <TableContainer component={Paper}>
-//     <Table sx={{ width: 1 }} aria-label="simple table">
-//       <TableHead>
-//         <TableRow
-//           style={{
-//             backgroundColor: "#BDC3C7",
-//           }}
-//         >
-//           <TableCell>
-//             <b>VIN</b>
-//           </TableCell>
-//           <TableCell>
-//             <b>Brand</b>
-//           </TableCell>
-//           <TableCell>
-//             <b>Status</b>
-//           </TableCell>
-//           <TableCell>
-//             <b>Data dodania</b>
-//           </TableCell>
-//         </TableRow>
-//       </TableHead>
-//       <TableBody>
-//         {repairs.map((row, index) => (
-//           <Fragment key={row.carVin}>
-//             <TableRow
-//               onClick={() => handleCollapse(index)}
-//               style={{
-//                 backgroundColor: openRowIndex === index ? "#7F8C8D" : "#BDC3C7",
-//                 cursor: "pointer",
-//               }}
-//               sx={{ "&:last-child td, &:last-child th": { border: 50 } }}
-//             >
-//               <TableCell>{row.carVin}</TableCell>
-//               <TableCell>{row.carBrand}</TableCell>
-//               <TableCell>{row.isDone ? "Done" : "Pending"}</TableCell>
-//               <TableCell>{ }</TableCell>
-//             </TableRow>
-//             <TableRow>
-//               {row.tasks.map((task, i) => (
-//                 <TableCell key={`${row.clientId}-${row.carVin}-${i}`}>
-//                   <Collapse in={openRowIndex === index}>
-//                     <i>
-//                       {task.task}
-//                       {task.price}
-//                     </i>
-//                   </Collapse>
-//                 </TableCell>
-//               ))}
-//             </TableRow>
-//           </Fragment>
-//         ))}
-//       </TableBody>
-//     </Table>
-//   </TableContainer>
-// );
