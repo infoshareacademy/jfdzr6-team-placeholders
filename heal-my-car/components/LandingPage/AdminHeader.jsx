@@ -15,7 +15,7 @@ const AdminHeader = () => {
           className="landing-buttons-style"
           style={{ marginLeft: "5px", marginRight: "5px" }}
         >
-          <Link className="link" to="/admin-panel">
+          <Link className="link" to="/newtasks">
             <Button
               variant="text"
               color="inherit"

@@ -167,7 +167,7 @@ export function AdminSideMenu() {
           </ListItem>
           <Divider />
           <ListItem disablePadding sx={{ display: "block" }} className="link">
-            <Link to="/admin-panel" className="adminMenuLink">
+            <Link to="/inprogress" className="adminMenuLink">
               <ListItemButton
                 sx={{
                   minHeight: 64,

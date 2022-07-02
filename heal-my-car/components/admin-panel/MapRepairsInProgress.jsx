@@ -21,111 +21,109 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
       >
         Naprawy w toku
       </div>
-      {clients
-        .filter(({ clientRepairs }) => {
-          return clientRepairs.some(({ isDone }) => !isDone);
-        })
-        .map((client, index) => {
-          return (
-            <>
-              <Accordion
-                key={index}
-                sx={{
-                  display: "flex",
-                  padding: "20px",
-                }}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+        }}
+      >
+        {clients
+          .filter(({ clientRepairs }) => {
+            return clientRepairs.some(({ isDone }) => !isDone);
+          })
+          .map((client, index) => {
+            return (
+              <>
+                <Accordion
+                  key={index}
                   sx={{
-                    width: "40vw",
-                    backgroundColor: "#2f3b52",
-                    color: "#fff",
+                    padding: "20px",
                   }}
                 >
-                  <ListItemButton
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
                     sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "start",
+                      width: "40vw",
+                      backgroundColor: "#2f3b52",
+                      color: "#fff",
                     }}
                   >
-                    <Typography
-                      display="flex"
-                      sx={{ fontWeight: "bold" }}
-                    >{`Klient: ${client.name} ${client.lastName}`}</Typography>
-                    <Typography display="flex">
-                      <AlternateEmailIcon sx={{ color: "#fff" }} />
-                      {`email: ${client.email}`}
-                    </Typography>
-                  </ListItemButton>
-                </AccordionSummary>
-                <div className="clientsData">
-                  <Typography
-                    component={"div"}
-                    display="flex"
-                    sx={{ paddingLeft: "15px", justifyContent: "start" }}
-                  >
-                    <AlternateEmailIcon
-                      sx={{ color: "#fff", paddingRight: "10px" }}
-                    />
-                    {`email: ${client.email}`}
-                  </Typography>
-                  <div>
-                    <Typography component={"div"} variant="body1">
-                      {client.clientRepairs
-                        .filter(({ isDone }) => !isDone)
-                        .map((repair, index) => {
-                          return (
-                            <AccordionSummary>
-                              <DirectionsCarFilledIcon sx={{ color: "#fff" }} />
-                              <Typography
-                                component={"div"}
-                                display="block"
-                                sx={{
-                                  width: "18vw",
-                                  paddingLeft: "10px",
-                                }}
-                              >
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    justifyContent: "space-between",
-                                    alignItems: "center",
+                    <ListItemButton
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "start",
+                      }}
+                    >
+                      <Typography
+                        display="flex"
+                        sx={{ fontWeight: "bold" }}
+                      >{`Klient: ${client.name} ${client.lastName}`}</Typography>
+                      <Typography display="flex">
+                        <AlternateEmailIcon sx={{ color: "#fff" }} />
+                        {`email: ${client.email}`}
+                      </Typography>
+                    </ListItemButton>
+                  </AccordionSummary>
+                  <div className="clientsData">
+                    <div>
+                      <Typography component={"div"} variant="body1">
+                        {client.clientRepairs
+                          .filter(({ isDone }) => !isDone)
+                          .map((repair, index) => {
+                            return (
+                              <AccordionSummary>
+                                <DirectionsCarFilledIcon
+                                  sx={{ color: "#fff" }}
+                                />
+                                <Typography
+                                  component={"div"}
+                                  display="block"
+                                  sx={{
+                                    width: "18vw",
+                                    paddingLeft: "10px",
                                   }}
                                 >
-                                  {`${repair.carBrand}`}
-                                  {<br />}
-                                  {`VIN: ${repair.carVin}`}
-                                </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      justifyContent: "space-between",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    {`${repair.carBrand}`}
+                                    {<br />}
+                                    {`VIN: ${repair.carVin}`}
+                                  </div>
 
-                                {repair.tasks.map((task, index) => {
-                                  return (
-                                    <>
-                                      <p
-                                        style={{
-                                          display: "flex",
-                                          justifyContent: "space-between",
-                                          alignItems: "center",
-                                          fontWeight: "normal",
-                                        }}
-                                      >{`${index + 1}. ${task.task}`}</p>
-                                    </>
-                                  );
-                                })}
-                              </Typography>
-                            </AccordionSummary>
-                          );
-                        })}
-                    </Typography>
+                                  {repair.tasks.map((task, index) => {
+                                    return (
+                                      <>
+                                        <p
+                                          style={{
+                                            display: "flex",
+                                            justifyContent: "space-between",
+                                            alignItems: "center",
+                                            fontWeight: "normal",
+                                          }}
+                                        >{`${index + 1}. ${task.task}`}</p>
+                                      </>
+                                    );
+                                  })}
+                                </Typography>
+                              </AccordionSummary>
+                            );
+                          })}
+                      </Typography>
+                    </div>
                   </div>
-                </div>
-              </Accordion>
-            </>
-          );
-        })}
+                </Accordion>
+              </>
+            );
+          })}
+      </div>
     </>
   );
 };
