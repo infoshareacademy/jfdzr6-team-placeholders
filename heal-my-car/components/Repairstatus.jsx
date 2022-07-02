@@ -1,19 +1,33 @@
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
 import { useState, useEffect, Fragment } from "react";
 import { db } from "../src/firebase";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { Collapse } from "@mui/material";
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Typography,
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@mui/material";
 
+import Paper from "@mui/material/Paper";
 
-
-
-export const Repairstatus = () => {
+export const Repairstatus = (props) => {
   const [repairs, setRepairs] = useState([]);
   const [openRowIndex, setOpenRowIndex] = useState(null);
 
@@ -26,17 +40,40 @@ export const Repairstatus = () => {
   //   setRepairs(repairs);
   // }
 
-  const getRepairs = () => {
-    const repairsCollection = collection(db, "repairs");
-    const pendingRepairsQuery = query(
-      repairsCollection,
-      where("isDone", "==", false)
-    );
+  const getRepairs = async () => {
+    const clientDocRef = doc(db, "clients", props.userId);
 
-    getDocs(pendingRepairsQuery).then((QuerySnapshot) => {
-      setRepairs(QuerySnapshot.docs.map((doc) => doc.data()));
+    const clientData = await getDoc(clientDocRef);
+
+    const promises = clientData.data().clientRepairs.map((repair) => {
+      return getDoc(repair);
     });
+
+    const repairsDocs = await Promise.all(promises);
+
+    const repairs = repairsDocs.map((repair) => {
+      return { ...repair.data(), id: repair.id };
+    });
+
+    // .filter((repair) => {
+    //   return !repair.isDone;
+    // });
+
+    setRepairs(repairs);
+
+    // setRepairs(repairs.map((repair) => {
+    //   return { ...repair.data(), id: repair.id };
+    // }));
   };
+
+  // const pendingRepairsQuery = query(
+  //   repairsCollection,
+  //   where("isDone", "==", false)
+  // );
+
+  // getDocs(pendingRepairsQuery).then((QuerySnapshot) => {
+  //   setRepairs(QuerySnapshot.docs.map((doc) => doc.data()));
+  // });
 
   const handleCollapse = (index) => {
     if (openRowIndex === index) {
@@ -48,60 +85,79 @@ export const Repairstatus = () => {
   };
 
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ width: 1 }} aria-label="simple table">
-        <TableHead>
-          <TableRow
-            style={{
-              backgroundColor: "#BDC3C7",
-            }}
-          >
-            <TableCell>
-              <b>VIN</b>
-            </TableCell>
-            <TableCell>
-              <b>Brand</b>
-            </TableCell>
-            <TableCell>
-              <b>Status</b>
-            </TableCell>
-            <TableCell>
-              <b>Data dodania</b>
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {repairs.map((row, index) => (
-            <Fragment key={row.carVin}>
-              <TableRow
-                onClick={() => handleCollapse(index)}
-                style={{
-                  backgroundColor: openRowIndex === index ? "#7F8C8D" : "#BDC3C7",
-                  cursor: "pointer",
-                }}
-                sx={{ "&:last-child td, &:last-child th": { border: 50 } }}
+    <>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+          sx={{ bgcolor: "primary.main", color: "info.contrastText" }}
+        >
+          <Typography>
+            Status zlecenia dla:
+          </Typography>
+        </AccordionSummary>
+
+        <AccordionDetails>
+          <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 750 }} aria-label="simple table">
+              <TableHead
+                sx={{ bgcolor: "primary.main", color: "info.contrastText" }}
               >
-                <TableCell>{row.carVin}</TableCell>
-                <TableCell>{row.carBrand}</TableCell>
-                <TableCell>{row.isDone ? "Done" : "Pending"}</TableCell>
-                <TableCell>{ }</TableCell>
-              </TableRow>
-              <TableRow>
-                {row.tasks.map((task, i) => (
-                  <TableCell key={`${row.clientId}-${row.carVin}-${i}`}>
-                    <Collapse in={openRowIndex === index}>
-                      <i>
-                        {task.task}
-                        {task.price}
-                      </i>
-                    </Collapse>
+                <TableRow>
+                  <TableCell>
+                    <b>Nr VIN</b>
                   </TableCell>
+                  <TableCell>
+                    <b>Marka</b>
+                  </TableCell>
+                  <TableCell>
+                    <b>Opis</b>
+                  </TableCell>
+                  <TableCell>
+                    <b>Status</b>
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {repairs.map((row, index) => (
+                  <Fragment key={row.carVin}>
+                    <TableRow
+                      component="th"
+                      scope="row"
+                      onClick={() => handleCollapse(index)}
+                      style={{
+                        cursor: "pointer",
+                        "&:last-child td, &:last-child th": { border: 0 },
+                      }}
+                    >
+                      <TableCell>{row.carVin}</TableCell>
+                      <TableCell>{row.carBrand}</TableCell>
+
+                      <TableCell>{row.selfText}</TableCell>
+                      <TableCell>
+                        {row.isDone ? "Ukończony" : "W trakcie"}
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      {row.tasks.map((task, i) => (
+                        <TableCell key={`${row.clientId}-${row.carVin}-${i}`}>
+                          <Collapse in={openRowIndex === index}>
+                            <ul>
+                              <li>{task.task}</li>
+                              <li>{task.price}</li>
+                            </ul>
+                          </Collapse>
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  </Fragment>
                 ))}
-              </TableRow>
-            </Fragment>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </AccordionDetails>
+      </Accordion>
+    </>
   );
 };
