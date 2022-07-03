@@ -40,13 +40,21 @@ const TasksPricing = () => {
     <>
       <div
         style={{
-          height: "1000px",
-          width: "70vw",
+          dispaly: "flex",
+          width: "80%",
+          justifyContent: "center",
+          gap: "55px",
+          margin: "0 auto",
+          backgroundColor:'transparent'
         }}
-      ><h2 style={{textAlign:'center', marginTop: '5px', fontFamily:"lato"}}>Wycena zleceń</h2>
+      >
+        <h2
+          style={{ textAlign: "center", marginTop: "5px", fontFamily: "lato" }}
+        >
+          Wycena zleceń
+        </h2>
         <List
           sx={{
-            bgcolor: "background.paper",
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-evenly",

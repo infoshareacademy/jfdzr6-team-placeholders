@@ -9,9 +9,8 @@ export default function ClientPanel(props) {
   return (
     <>
       <Header />
-      <ShowOffer />
+      <ShowOffer userId={props.userId} />
       <Repairstatus userId={props.userId} />
-
       <Outlet />
     </>
   );
