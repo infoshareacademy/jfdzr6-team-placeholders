@@ -50,21 +50,20 @@ const MapRepairs = ({
         className="clientsWrapper"
         style={{
           height: "auto",
-          marginBottom: "100px",
           position: "relative",
-          // maxHeight: "215px",
+          marginBottom: '40px'
         }}
       >
         <div
           className="clientsData"
           style={{
-            marginTop: "20px",
-            paddingBottom: "10px",
+            padding: "15px",
             width: "550px",
             display: "flex",
             flexDirection: "row",
             flexBasis: "50%",
             posistion: "fixed",
+            borderRadius: "15px",
           }}
         >
           <div

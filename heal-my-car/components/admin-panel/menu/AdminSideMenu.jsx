@@ -153,7 +153,7 @@ export function AdminSideMenu() {
               <ListItemButton
                 sx={{
                   minHeight: 62,
-                  backgroundColor:"#1976d2",
+                  backgroundColor: "#1976d2",
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
@@ -180,7 +180,7 @@ export function AdminSideMenu() {
               <ListItemButton
                 sx={{
                   minHeight: 64,
-                  backgroundColor:"#1976d2",
+                  backgroundColor: "#1976d2",
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
@@ -206,7 +206,7 @@ export function AdminSideMenu() {
             <Link to="/repairsdone" className="adminMenuLink">
               <ListItemButton
                 sx={{
-                  backgroundColor:"#1976d2",
+                  backgroundColor: "#1976d2",
                   minHeight: 62,
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
@@ -229,7 +229,7 @@ export function AdminSideMenu() {
             </Link>
           </ListItem>
         </List>
-        <Divider sx={{ marginBottom: "34vw" }} />
+        <Divider sx={{ marginBottom: "350%" }} />
         <List>
           <ListItem disablePadding sx={{ display: "block" }} className="link">
             <Link to="/" className="adminMenuLink">
@@ -237,7 +237,7 @@ export function AdminSideMenu() {
                 onClick={() => signOut(auth)}
                 sx={{
                   minHeight: 62,
-                  backgroundColor:"#1976d2",
+                  backgroundColor: "#1976d2",
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
@@ -245,7 +245,7 @@ export function AdminSideMenu() {
                 <LogoutIcon
                   sx={{
                     color: "#fff",
-                    backgroundColor: '#cc218875f',
+                    backgroundColor: "#cc218875f",
                     minWidth: 0,
                     mr: open ? 3 : "auto",
                     justifyContent: "center",

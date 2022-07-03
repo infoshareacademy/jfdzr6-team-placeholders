@@ -131,7 +131,7 @@ function App() {
           <Route element={<ProtectedRoute isAllowed={role === "user"} />}>
             <Route path="/" element={<Home />} />
             <Route
-              path="client-id"
+              path="client-panel"
               element={<ClientPanel userId={userData.id} />}
             />
           </Route>
