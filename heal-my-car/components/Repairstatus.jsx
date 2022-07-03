@@ -86,12 +86,23 @@ export const Repairstatus = (props) => {
 
   return (
     <>
-      <Accordion>
+      <Accordion
+        style={{
+          width: "100vw",
+          backgroundColor: "#41506e",
+        }}
+      >
         <AccordionSummary
+          style={{
+            backgroundColor: "#b35797",
+            width: "auto",
+            borderTop: "2px solid #ba58e6",
+            borderBottom: "2px solid #ba58e6",
+          }}
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
-          sx={{ bgcolor: "primary.main", color: "info.contrastText" }}
+          sx={{ color: "info.contrastText" }}
         >
           <Typography sx={{ color: "#ECF0F1" }}>
             <b>Rozwiń moje aktualne zlecenia</b>
@@ -101,7 +112,16 @@ export const Repairstatus = (props) => {
         <AccordionDetails>
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: "50vw" }} aria-label="simple table">
-              <TableHead sx={{ bgcolor: "primary.main" }}>
+              <TableHead
+                style={{
+                  backgroundColor: "#b35797",
+                  borderTop: "1.5px solid #ba58e6",
+                  borderBottom: "1.5px solid #ba58e6",
+                  borderLeft: "1.5px solid #ba58e6",
+                  borderRight: "1.5px solid #ba58e6",
+                  borderRadius: "5px",
+                }}
+              >
                 <TableRow>
                   <TableCell sx={{ color: "#fff" }}>
                     <b>Nr VIN</b>
@@ -123,16 +143,30 @@ export const Repairstatus = (props) => {
                       scope="row"
                       onClick={() => handleCollapse(index)}
                       style={{
+                        backgroundColor:
+                          openRowIndex === index ? "#41506e" : "#252e42",
+                        borderTop: "1.5px solid #ba58e6",
+                        borderBottom: "1.5px solid #ba58e6",
+                        borderLeft: "1.5px solid #ba58e6",
+                        borderRight: "1.5px solid #ba58e6",
                         cursor: "pointer",
                         "&:last-child td, &:last-child th": { border: 0 },
                       }}
                     >
-                      <TableCell>{row.carVin}</TableCell>
-                      <TableCell>{row.carBrand}</TableCell>
-
-                      <TableCell></TableCell>
                       <TableCell>
-                        {row.isDone ? "Ukończony" : "W trakcie"}
+                        <b style={{ color: "#fff" }}>{row.carVin}</b>
+                      </TableCell>
+                      <TableCell>
+                        <b style={{ color: "#fff" }}>{row.carBrand}</b>
+                      </TableCell>
+
+                      <TableCell>
+                        <br />
+                      </TableCell>
+                      <TableCell>
+                        <b style={{ color: "#fff" }}>
+                          {row.isDone ? "Ukończony" : "W trakcie"}
+                        </b>
                       </TableCell>
                     </TableRow>
                     <TableRow>
@@ -148,18 +182,26 @@ export const Repairstatus = (props) => {
                               {row.tasks.map((task) => (
                                 <>
                                   <li>
-                                    <b>Usługa:</b> {task.task}, <b>cena:</b>{" "}
-                                    {task.price} 💰
+                                    <b>Usługa:</b> {task.task}, <b>cena:</b>
+                                    {"  "}
+                                    {task.price}
+                                    {",00"}
+                                    {"zł"}💰
                                   </li>
 
                                   <br />
-                                  
                                 </>
                               ))}
                             </ul>
-                            <div style={{display: "flex",
-                              justifyContent: "flex-end"}}>
-                            <div >Opis dodatkowy: {row.selfText}</div>
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "flex-end",
+                              }}
+                            >
+                              <div>
+                                <b>Opis dodatkowy:</b> {row.selfText}
+                              </div>
                             </div>
                           </div>
                         </Collapse>

@@ -30,9 +30,10 @@ const ShowOffer = () => {
         component="nav"
         aria-labelledby="nested-list-subheader"
         subheader={
-          <ListSubheader component="div" id="nested-list-subheader">
-            Propozycja wyceny
-          </ListSubheader>
+          <ListSubheader
+            component="div"
+            id="nested-list-subheader"
+          ></ListSubheader>
         }
       >
         {repairs
