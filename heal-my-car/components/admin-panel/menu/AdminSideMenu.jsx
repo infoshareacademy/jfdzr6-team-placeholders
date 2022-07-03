@@ -229,7 +229,7 @@ export function AdminSideMenu() {
             </Link>
           </ListItem>
         </List>
-        <Divider sx={{ marginBottom: "350%" }} />
+        <Divider sx={{ marginBottom: "200%" }} />
         <List>
           <ListItem disablePadding sx={{ display: "block" }} className="link">
             <Link to="/" className="adminMenuLink">

@@ -16,7 +16,7 @@ export default function AdminPanel(role) {
           display: "flex",
           flexDirection: "row",
           backgroundColor: "#ffffff",
-          height: "1000px",
+          height: "100%",
           width: "70vw",
         }}
       >
