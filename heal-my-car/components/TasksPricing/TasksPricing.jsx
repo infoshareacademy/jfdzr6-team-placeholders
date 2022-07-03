@@ -79,8 +79,8 @@ const TasksPricing = () => {
                 />
               );
             })}
-          <div style={{ width: "550px" }}></div>
-          <div style={{ width: "550px" }}></div>
+          <div style={{ width: "550px", backgroundColor: "transparent" }}></div>
+          <div style={{ width: "550px", backgroundColor: "transparent" }}></div>
         </List>
       </div>
     </>
