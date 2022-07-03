@@ -8,7 +8,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { Collapse } from "@mui/material";
+import { Collapse, Container } from "@mui/material";
 import {
   Accordion,
   AccordionSummary,
@@ -88,12 +88,13 @@ export const Repairstatus = (props) => {
   };
 
   return (
-    <>
+    <Container>
       <Accordion
+        expanded={true}
         style={{
           width: "auto",
           backgroundColor: "#41506e",
-          borderRadius: "35px",
+          borderRadius: "15px",
           borderBottom: "15px solid #41506e",
         }}
       >
@@ -103,8 +104,9 @@ export const Repairstatus = (props) => {
             width: "auto",
             borderTop: "2px solid #ba58e6",
             borderBottom: "2px solid #ba58e6",
+            borderRadius: "15px",
           }}
-          expandIcon={<ExpandMoreIcon />}
+          // expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
           sx={{ color: "info.contrastText" }}
@@ -280,6 +282,6 @@ export const Repairstatus = (props) => {
           </TableContainer>
         </AccordionDetails>
       </Accordion>
-    </>
+    </Container>
   );
 };

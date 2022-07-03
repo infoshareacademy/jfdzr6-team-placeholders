@@ -20,7 +20,7 @@ export const Form4 = ({ userData, refreshData }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await addTask();
-    navigate("/");
+    navigate("/client-panel");
   };
   console.log("FORMDATA", formData);
 
