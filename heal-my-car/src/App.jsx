@@ -65,7 +65,7 @@ function App() {
               ) : role === "user" ? (
                 <Home />
               ) : (
-                <AdminPanel />
+                <NewTasks />
               )
             }
           />
@@ -77,9 +77,9 @@ function App() {
 
           {/* Admin Routing */}
           <Route element={<ProtectedRoute isAllowed={role === "admin"} />}>
-            <Route path="admin-panel" element={<AdminPanel />} />
             <Route path="repairsdone" element={<DoneTasks />} />
             <Route path="newtasks" element={<NewTasks />} />
+            <Route path="inprogress" element={<AdminPanel />} />
           </Route>
 
           <Route

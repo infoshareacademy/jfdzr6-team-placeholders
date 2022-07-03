@@ -50,23 +50,19 @@ export const Form4 = ({ userData, refreshData }) => {
       <Header />
       <CssBaseline />
       <Container
-        maxWidth="auto"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "0",
-          marginTop: "35px",
-        }}
+        maxWidth="100%"
+        style={{ padding: "0", color: "primary", marginTop: "35px" }}
       >
         <div
           style={{
-            width: "100%",
-            border: "2px solid #ba58e6",
-            //borderRadius: "70px",
+            width: "auto",
+            borderTop: "2px solid #ba58e6",
+            borderBottom: "2px solid #ba58e6",
+            borderRadius: "70px",
             padding: "25px",
-            backgroundColor: "rgb(204, 0, 204, .3)",
+            backgroundColor: "#b35797",
+            marginLeft: "55px",
+            marginRight: "55px",
           }}
         >
           <Stepper activeStep={3} alternativeLabel>
@@ -87,7 +83,13 @@ export const Form4 = ({ userData, refreshData }) => {
           Podsumowanie zlecenia naprawy
         </h2>
         <div
-          style={{ display: "flex", flexDirection: "column", fontSize: "25px" }}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            fontSize: "25px",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
         >
           <br />
           <p style={{ textAlign: "center" }}>
@@ -96,9 +98,22 @@ export const Form4 = ({ userData, refreshData }) => {
           <p style={{ marginBottom: "35px", textAlign: "center" }}>
             VIN pojazdu: {formData.carVin}
           </p>
-          <ul style={{ marginBottom: "35px" }}>
+          <ul
+            style={{
+              padding: "20px",
+              marginBottom: "35px"
+            }}
+          >
             {formData.tasks.map((task) => (
-              <li key={task.task} style={{ listStyleType: "decimal" }}>
+              <li
+                key={task.task}
+                style={{
+                  width: "550px",
+                  listStyleType: "decimal",
+                  padding: "5px",
+                  marginLeft: "35px",
+                }}
+              >
                 {task.task}
               </li>
             ))}
@@ -125,7 +140,16 @@ export const Form4 = ({ userData, refreshData }) => {
               variant="contained"
               color="secondary"
               onClick={() => navigate(-1)}
-              style={{ height: "35px", width: "23ch", margin: "15px" }}
+              sx={{
+                height: "35px",
+                width: "23ch",
+                margin: "15px",
+                backgroundColor: "#41506e",
+                "&:hover": {
+                  backgroundColor: "#9c27b0",
+                  color: "#fff",
+                },
+              }}
               startIcon={<ArrowBackIosIcon />}
             >
               Wstecz
@@ -134,7 +158,16 @@ export const Form4 = ({ userData, refreshData }) => {
               variant="contained"
               type="submit"
               color="secondary"
-              style={{ height: "35px", width: "23ch", margin: "15px" }}
+              sx={{
+                height: "35px",
+                width: "23ch",
+                margin: "15px",
+                backgroundColor: "#41506e",
+                "&:hover": {
+                  backgroundColor: "#9c27b0",
+                  color: "#fff",
+                },
+              }}
               endIcon={<SendIcon />}
             >
               Wyślij

@@ -39,11 +39,14 @@ export const Form1 = () => {
       >
         <div
           style={{
-            width: "100%",
-            border: "2px solid #ba58e6",
-            //borderRadius: "70px",
+            width: "auto",
+            borderTop: "2px solid #ba58e6",
+            borderBottom: "2px solid #ba58e6",
+            borderRadius: "70px",
             padding: "25px",
-            backgroundColor: "rgb(204, 0, 204, .3)",
+            backgroundColor: "#b35797",
+            marginLeft: "55px",
+            marginRight: "55px",            
           }}
         >
           <Stepper activeStep={0} alternativeLabel>
@@ -78,7 +81,11 @@ export const Form1 = () => {
             type="text"
             name="carBrand"
             color="secondary"
-            style={{ width: "300px", textAlign: "center", marginBottom: "26px" }}
+            style={{
+              width: "300px",
+              textAlign: "center",
+              marginBottom: "26px",
+            }}
             sx={{ color: "black" }}
           />
           <TextField
@@ -97,7 +104,16 @@ export const Form1 = () => {
               backButton
               color="secondary"
               onClick={() => navigate(-1)}
-              style={{ height: "35px", width: "23ch", margin: "15px" }}
+              sx={{
+                height: "35px",
+                width: "23ch",
+                margin: "15px",
+                backgroundColor: "#41506e",
+                "&:hover": {
+                  backgroundColor: "#9c27b0",
+                  color: "#fff",
+                },
+              }}
               startIcon={<ArrowBackIosIcon />}
             >
               Wstecz
@@ -106,7 +122,16 @@ export const Form1 = () => {
               variant="contained"
               type="submit"
               color="secondary"
-              style={{ height: "35px", width: "23ch", margin: "15px" }}
+              sx={{
+                height: "35px",
+                width: "23ch",
+                margin: "15px",
+                backgroundColor: "#41506e",
+                "&:hover": {
+                  backgroundColor: "#9c27b0",
+                  color: "#fff",
+                },
+              }}
               endIcon={<ArrowForwardIosIcon />}
             >
               Dalej

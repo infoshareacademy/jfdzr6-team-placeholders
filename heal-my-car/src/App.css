@@ -4,18 +4,20 @@
 }
 .linkBlue{
     text-decoration: none;
-    color: #1d89e4
+    color: #1d89e4;
 }
 .linkBlue:hover{
     text-decoration: underline;
     color: #1d89e4
 }
 .clientsData{
-    background-color: #001e3c;
-    border-radius: 10px;
-    color: white
+    background-color: #2f3b52;
+    color: white;
 }
 .adminMenuLink{
     text-decoration: none;
     color: black
+}
+.adminPanelMenu{
+    color: #fff;
 }

@@ -15,6 +15,7 @@ export default function AdminPanel(role) {
         style={{
           display: "flex",
           flexDirection: "row",
+          backgroundColor: "#ffffff",
         }}
       >
         <AdminSideMenu />

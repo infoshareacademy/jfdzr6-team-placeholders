@@ -39,6 +39,7 @@ const Content = () => {
               fontSize: "60px",
               userSelect: "none",
               wordWrap: "break-word",
+              color: "#fff",
             }}
           >
             Skorzystaj z naszych usług już dziś!
@@ -49,9 +50,10 @@ const Content = () => {
               userSelect: "none",
               wordWrap: "break-word",
               marginTop: "20px",
+              color: "#fff",
             }}
           >
-            miliony zadowolonych klientów w całej Polsce
+            tysiące zadowolonych klientów w całej Polsce
           </p>
         </div>
         <Link to="/repair-form/repair-form1" className="link">
@@ -64,8 +66,13 @@ const Content = () => {
               fontSize: "clamp(1.8rem, 0.6vw, 2.8rem)",
               borderRadius: "15px",
               fontFamily: "lato",
+              border: "1px white solid",
+              backgroundColor: "#41506e",
+              "&:hover": {
+                backgroundColor: "#41506e",
+                color: "#9c27b0",
+              },
             }}
-            color="secondary"
           >
             Zleć naprawę
           </Button>
@@ -93,7 +100,7 @@ const Content = () => {
             position: "absolute",
             width: "100px",
             height: "100px",
-            borderTop: "10px #9011E4 solid",
+            borderTop: "10px #ad5be4 solid",
             borderLeft: "10px #9011E4 solid",
             top: "-50px",
             left: "20%",
@@ -105,7 +112,7 @@ const Content = () => {
             position: "absolute",
             width: "100px",
             height: "100px",
-            borderTop: "10px #9011E4 solid",
+            borderTop: "10px #ad5be4 solid",
             borderRight: "10px #9011E4 solid",
             top: "-50px",
             right: "20%",
@@ -117,8 +124,8 @@ const Content = () => {
             position: "absolute",
             width: "100px",
             height: "100px",
-            borderBottom: "10px #000000 solid",
-            borderRight: "10px #000000 solid",
+            borderBottom: "10px #ad5be4 solid",
+            borderRight: "10px #9011E4 solid",
             bottom: "-50px",
             right: "20%",
           }}
@@ -129,8 +136,8 @@ const Content = () => {
             position: "absolute",
             width: "100px",
             height: "100px",
-            borderBottom: "10px black solid",
-            borderLeft: "10px black solid",
+            borderBottom: "10px #ad5be4 solid",
+            borderLeft: "10px #9011E4 solid",
             bottom: "-50px",
             left: "20%",
           }}
@@ -170,12 +177,13 @@ const Content = () => {
           className="content-hero2-column1"
           style={{
             width: "73%",
-            background: "rgb(203,101,197)",
+            background: "rgb(124,39,255)",
             background:
-              "linear-gradient(90deg, rgba(203,101,197,0.2497373949579832) 0%, #cc23c2e6 0%, #1e88e5 100%)",
+              "linear-gradient(90deg, rgba(124,39,255,1) 0%, rgba(9,9,121,1) 61%, rgba(31,48,110,1) 100%)",
           }}
         >
           <div
+            id="whyus"
             className="content-hero2-column1-whyus"
             style={{
               width: "40%",
@@ -269,7 +277,7 @@ const Content = () => {
           className="content-hero2-column2"
           style={{
             flexGrow: "1",
-            backgroundColor: "#1e88e5",
+            backgroundColor: "#1F306E",
             textAlign: "right",
           }}
         >

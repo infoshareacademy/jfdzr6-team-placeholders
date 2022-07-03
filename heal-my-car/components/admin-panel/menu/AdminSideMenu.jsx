@@ -26,6 +26,8 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { Button, Stack } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { auth } from "../../../src/firebase";
+import { signOut } from "firebase/auth";
 
 const drawerWidth = 240;
 
@@ -109,22 +111,38 @@ export function AdminSideMenu() {
   };
 
   return (
-    <Box sx={{ display: "flex", height: "calc(100vh - 75px)" }}>
+    <Box
+      sx={{
+        display: "flex",
+        height: "calc(100vh - 75px)",
+        position: "sticky",
+        top: "77px",
+        left: "0",
+      }}
+    >
       <CssBaseline />
-      <Drawer variant="permanent" open={open}>
+      <Drawer
+        variant="permanent"
+        open={open}
+        PaperProps={{
+          sx: {
+            backgroundColor: "#2f3b52",
+          },
+        }}
+      >
         <DrawerHeader>
           {!open ? (
             <IconButton
               sx={{ marginRight: "20px" }}
               onClick={open == false ? handleDrawerOpen : handleDrawerClose}
             >
-              <ArrowForwardIcon />
+              <ArrowForwardIcon sx={{ color: "#fff" }} />
             </IconButton>
           ) : (
             <IconButton
               onClick={open == false ? handleDrawerOpen : handleDrawerClose}
             >
-              <ArrowBackIcon />
+              <ArrowBackIcon sx={{ color: "#fff" }} />
             </IconButton>
           )}
         </DrawerHeader>
@@ -135,13 +153,14 @@ export function AdminSideMenu() {
               <ListItemButton
                 sx={{
                   minHeight: 62,
+                  backgroundColor:"#1976d2",
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
               >
                 <CurrencyExchangeIcon
                   sx={{
-                    color: "#9c27b0",
+                    color: "#fff",
                     minWidth: 0,
                     mr: open ? 3 : "auto",
                     justifyContent: "center",
@@ -150,23 +169,25 @@ export function AdminSideMenu() {
                 <ListItemText
                   primary={"Wycena zleceń"}
                   sx={{ opacity: open ? 1 : 0 }}
+                  className="adminPanelMenu"
                 />
               </ListItemButton>
             </Link>
           </ListItem>
           <Divider />
           <ListItem disablePadding sx={{ display: "block" }} className="link">
-            <Link to="/admin-panel" className="adminMenuLink">
+            <Link to="/inprogress" className="adminMenuLink">
               <ListItemButton
                 sx={{
                   minHeight: 64,
+                  backgroundColor:"#1976d2",
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
               >
                 <CarRepairIcon
                   sx={{
-                    color: "#9c27b0",
+                    color: "#fff",
                     minWidth: 0,
                     mr: open ? 3 : "auto",
                     justifyContent: "center",
@@ -175,6 +196,7 @@ export function AdminSideMenu() {
                 <ListItemText
                   primary={"Naprawy w toku"}
                   sx={{ opacity: open ? 1 : 0 }}
+                  className="adminPanelMenu"
                 />
               </ListItemButton>
             </Link>
@@ -184,6 +206,7 @@ export function AdminSideMenu() {
             <Link to="/repairsdone" className="adminMenuLink">
               <ListItemButton
                 sx={{
+                  backgroundColor:"#1976d2",
                   minHeight: 62,
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
@@ -191,7 +214,7 @@ export function AdminSideMenu() {
               >
                 <ManageHistoryIcon
                   sx={{
-                    color: "#9c27b0",
+                    color: "#fff",
                     minWidth: 0,
                     mr: open ? 3 : "auto",
                     justifyContent: "center",
@@ -200,25 +223,29 @@ export function AdminSideMenu() {
                 <ListItemText
                   primary={"Naprawy wykonane"}
                   sx={{ opacity: open ? 1 : 0 }}
+                  className="adminPanelMenu"
                 />
               </ListItemButton>
             </Link>
           </ListItem>
         </List>
-        <Divider sx={{ marginBottom: "550px" }} />
+        <Divider sx={{ marginBottom: "34vw" }} />
         <List>
           <ListItem disablePadding sx={{ display: "block" }} className="link">
             <Link to="/" className="adminMenuLink">
               <ListItemButton
+                onClick={() => signOut(auth)}
                 sx={{
                   minHeight: 62,
+                  backgroundColor:"#1976d2",
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
               >
                 <LogoutIcon
                   sx={{
-                    color: "#9c27b0",
+                    color: "#fff",
+                    backgroundColor: '#cc218875f',
                     minWidth: 0,
                     mr: open ? 3 : "auto",
                     justifyContent: "center",
@@ -226,7 +253,10 @@ export function AdminSideMenu() {
                 />
                 <ListItemText
                   primary={"Wyloguj"}
-                  sx={{ opacity: open ? 1 : 0 }}
+                  sx={{
+                    opacity: open ? 1 : 0,
+                  }}
+                  className="adminPanelMenu"
                 />
               </ListItemButton>
             </Link>

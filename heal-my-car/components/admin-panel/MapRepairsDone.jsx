@@ -46,12 +46,13 @@ export const MapRepairsDone = ({ clients }) => {
                             />
                             <Typography
                               component={"div"}
-                              display="block"
-                              sx={{
-                                width: "60vw",
-                                fontWeight: "bold",
-                                paddingLeft: "10px",
-                              }}
+                              display="flex"
+                              sx={{ flexDirection: "column", flexWrap: "wrap" }}
+                              // sx={{
+                              //   width: "60vw",
+                              //   fontWeight: "bold",
+                              //   paddingLeft: "10px",
+                              // }}
                             >
                               {`${repair.carBrand}`}
                               {<br />}
