@@ -10,11 +10,11 @@ Heal my car is a web application which makes it easier to take care of your car.
 
 ## Tech stack
 
-- [JavaScript](https://www.javascript.com/)
-- [Node.js](https://nodejs.org/)
-- [React.js](https://reactjs.org/)
-- [Vite.js](https://vitejs.dev/)
-- [Firebase](https://firebase.google.com/)
+- <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png' height='20' alt='JavaScript' aria-label='https://www.javascript.com/' /> [JavaScript](https://www.javascript.com/) 
+- <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1200px-Node.js_logo.svg.png' height='20' alt='NodeJS' aria-label='https://nodejs.org/en/' /> [Node.js](https://nodejs.org/) 
+- <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png' height='20' alt='ReactJS' aria-label='https://pl.reactjs.org/' /> [React.js](https://reactjs.org/) 
+- <img src='https://vitejs.dev/logo.svg' height='20' alt='ViteJS' aria-label='https://vitejs.dev/' /> [Vite.js](https://vitejs.dev/) 
+- <img src='https://sp-ao.shortpixel.ai/client/q_glossy,ret_img,w_502,h_518/https://keytotech.com/wp-content/uploads/2019/05/firebase.png' height='20' alt='Firebase' aria-label='https://firebase.google.com/' /> [Firebase](https://firebase.google.com/) 
 
 
 ## How To Use
