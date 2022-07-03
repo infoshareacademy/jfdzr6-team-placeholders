@@ -47,9 +47,20 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
             <>
               <div
                 className="clientsData"
-                style={{ marginTop: "20px", paddingBottom: "10px" }}
+                style={{
+                  marginTop: "20px",
+                  paddingBottom: "10px",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
               >
-                <ListItemButton>
+                <ListItemButton
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                  }}
+                >
                   <ListItemIcon>
                     <DirectionsCarFilledIcon sx={{ color: "#1976d2" }} />
                   </ListItemIcon>
