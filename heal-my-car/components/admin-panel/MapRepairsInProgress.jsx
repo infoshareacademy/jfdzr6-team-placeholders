@@ -31,91 +31,108 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
     <>
       <div
         style={{
-          height: "64px",
-          width: "200%",
-          color: "#fff",
+          dispaly: "flex",
+          width: "80%",
+          justifyContent: "center",
+          gap: "55px",
+          margin: "0 auto",
+          backgroundColor: "transparent",
         }}
-      ></div>
-      {clients
-        .filter(({ clientRepairs }) => {
-          return clientRepairs.some(({ isDone }) => !isDone);
-        })
-        .filter(({ clientRepairs }) => {
-          return clientRepairs.some(({ totalCost }) => totalCost != null);
-        })
-        .map((client, index, id) => {
-          return (
-            <>
-              <div
-                className="clientsWrapper"
-                style={{
-                  height: "auto",
-                  marginBottom: "100px",
-                  alignContent: "center",
-
-                  // maxHeight: "215px",
-                }}
-              >
+      >
+        <h2
+          style={{ textAlign: "center", marginTop: "5px", fontFamily: "lato" }}
+        >
+          Naprawy w toku
+        </h2>
+        <div
+          style={{
+            height: "64px",
+            width: "200%",
+            color: "#fff",
+          }}
+        ></div>
+        {clients
+          .filter(({ clientRepairs }) => {
+            return clientRepairs.some(({ isDone }) => !isDone);
+          })
+          .filter(({ clientRepairs }) => {
+            return clientRepairs.some(({ totalCost }) => totalCost != null);
+          })
+          .map((client, index, id) => {
+            return (
+              <>
                 <div
-                  className="clientsData"
+                  className="clientsWrapper"
                   style={{
-                    marginTop: "20px",
-                    paddingBottom: "10px",
-                    display: "flex",
-                    flexDirection: "column",
-                    flexBasis: "50%",
+                    height: "auto",
+                    marginBottom: "100px",
                     alignContent: "center",
+
+                    // maxHeight: "215px",
                   }}
                 >
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <AccountCircle sx={{ color: "#1976d2" }} />
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={`Klient: ${client.name} ${client.lastName}`}
-                    />
-                  </ListItemButton>
-                  <ListItemButton
-                    sx={{
+                  <div
+                    className="clientsData"
+                    style={{
+                      marginTop: "20px",
+                      paddingBottom: "10px",
                       display: "flex",
                       flexDirection: "column",
-                      alignItems: "flex-start",
-                      paddingLeft: "10px",
+                      flexBasis: "50%",
+                      alignContent: "center",
+                      width: "550px",
+                      borderRadius: "15px",
                     }}
                   >
-                    {client.clientRepairs
-                      .filter(({ isDone }) => !isDone)
-                      .filter(({ totalCost }) => totalCost != null)
-                      .map((repair, index) => {
-                        return (
-                          <>
-                            <div style={{ display: "flex" }}>
-                              <ListItemIcon>
-                                <DirectionsCarFilledIcon
-                                  sx={{ color: "#1976d2" }}
+                    <ListItemButton>
+                      <ListItemIcon>
+                        <AccountCircle sx={{ color: "#1976d2" }} />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={`Klient: ${client.name} ${client.lastName}`}
+                      />
+                    </ListItemButton>
+                    <ListItemButton
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        paddingLeft: "10px",
+                      }}
+                    >
+                      {client.clientRepairs
+                        .filter(({ isDone }) => !isDone)
+                        .filter(({ totalCost }) => totalCost != null)
+                        .map((repair, index) => {
+                          return (
+                            <>
+                              <div style={{ display: "flex" }}>
+                                <ListItemIcon>
+                                  <DirectionsCarFilledIcon
+                                    sx={{ color: "#1976d2" }}
+                                  />
+                                </ListItemIcon>
+                                <ListItemText
+                                  primary={`Pojazd: ${repair.carBrand} | VIN: ${repair.carVin}`}
                                 />
-                              </ListItemIcon>
-                              <ListItemText
-                                primary={`Pojazd: ${repair.carBrand} | VIN: ${repair.carVin}`}
+                              </div>
+                              <CollapseList
+                                key={index}
+                                repair={repair}
+                                index={index}
+                                id={id}
+                                getClients={getClients}
                               />
-                            </div>
-                            <CollapseList
-                              key={index}
-                              repair={repair}
-                              index={index}
-                              id={id}
-                              getClients={getClients}
-                            />
-                            <SendRepairDone
-                              getClients={getClients}
-                              id={repair.id}
-                            />
-                          </>
-                        );
-                      })}
-                  </ListItemButton>
+                              <SendRepairDone
+                                getClients={getClients}
+                                id={repair.id}
+                              />
+                            </>
+                          );
+                        })}
+                    </ListItemButton>
 
-                  {/* <ListItemButton onClick={handleClick}>
+                    {/* <ListItemButton onClick={handleClick}>
                   <ListItemIcon>
                     <CarRepairIcon sx={{ color: "#1976d2" }} />
                   </ListItemIcon>
@@ -128,11 +145,13 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
                     <OpenTaskList key={index} clients={clients} index={index} />
                   </List>
                 </Collapse> */}
+                  </div>
                 </div>
-              </div>
-            </>
-          );
-        })}
+              </>
+            );
+          })}
+      </div>
+
       <Mechanic />
     </>
   );
