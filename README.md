@@ -4,9 +4,18 @@
 Heal my car is a web application which makes it easier to take care of your car.
 
 ## Key Features
-* Book a service for your car,
-* Estimate the cost of the service,
-* Check the status of the service.
+* 🕛 Book a service for your car,
+* 💰 Estimate the cost of the service,
+* ✅ Check the status of the service.
+
+## Tech stack
+
+- [JavaScript](https://www.javascript.com/)
+- [Node.js](https://nodejs.org/)
+- [React.js](https://reactjs.org/)
+- [Vite.js](https://vitejs.dev/)
+- [Firebase](https://firebase.google.com/)
+
 
 ## How To Use
 
@@ -25,13 +34,6 @@ $ npm install
 # Run the app
 $ npm start
 ```
-
-## Tech stack
-
-- [JavaScript](https://www.javascript.com/)
-- [Node.js](https://nodejs.org/)
-- [React.js](https://reactjs.org/)
-- [Vite.js](https://vitejs.dev/)
-- [Firebase](https://firebase.google.com/)
-
 ---
+
+
