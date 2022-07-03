@@ -5,10 +5,10 @@ import * as React from "react";
 import ListSubheader from "@mui/material/ListSubheader";
 import List from "@mui/material/List";
 import MapOffers from "./FilterOffer/MapOffers.jsx";
-const ShowOffer = () => {
+const ShowOffer = ({ userId }) => {
   const [repairs, setRepairs] = useState([]);
 
-  const clientId = 1; //tutaj przypisać wartość JWT z informacją o id clienta
+  const clientId = userId;
 
   const getRepairs = () => {
     const tasksCollection = collection(db, "repairs");
