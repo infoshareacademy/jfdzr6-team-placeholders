@@ -11,6 +11,7 @@ export default function ClientPanel(props) {
       <Header />
       <ShowOffer />
       <Repairstatus userId={props.userId} />
+
       <Outlet />
     </>
   );

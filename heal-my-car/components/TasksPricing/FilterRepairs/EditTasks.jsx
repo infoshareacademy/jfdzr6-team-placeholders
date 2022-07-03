@@ -32,6 +32,7 @@ const EditTasks = ({ index, task, updateTaskPrice, repair }) => {
             color: "white",
             fontSize: "16px",
             direction: "rtl",
+            maxWidth: "100px",
           }}
           onBlur={(e) => {
             if (e.target.value.trim() !== "") {

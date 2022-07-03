@@ -11,13 +11,11 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Collapse from "@mui/material/Collapse";
 import CarRepairIcon from "@mui/icons-material/CarRepair";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import DirectionsCarFilledIcon from "@mui/icons-material/DirectionsCarFilled";
 import GetClientName from "./GetClientName";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import { MapRepairsInProgress } from "../../admin-panel/MapRepairsInProgress";
 
 const MapRepairs = ({
   getRepairs,
@@ -49,59 +47,88 @@ const MapRepairs = ({
   return (
     <>
       <div
-        className="clientsData"
-        style={{ marginTop: "20px", paddingBottom: "10px" }}
+        className="clientsWrapper"
+        style={{
+          height: "auto",
+          marginBottom: "100px",
+          position: "relative",
+          // maxHeight: "215px",
+        }}
       >
-        <ListItemButton>
-          <ListItemIcon>
-            <DirectionsCarFilledIcon sx={{ color: "#1976d2" }} />
-          </ListItemIcon>
-          <ListItemText
-            primary={`Pojazd: ${repair.carBrand} | VIN: ${repair.carVin}`}
-          />
-        </ListItemButton>
-        <ListItemButton>
-          <ListItemIcon>
-            <AccountCircle sx={{ color: "#1976d2" }} />
-          </ListItemIcon>
-          <ListItemText primary={`Klient: `} />
-          <GetClientName clients={clients} repair={repair} />
-        </ListItemButton>
-        <ListItemButton onClick={handleClick}>
-          <ListItemIcon>
-            <CarRepairIcon sx={{ color: "#1976d2" }} />
-          </ListItemIcon>
-          <ListItemText primary="Zlecone usługi:" />
-          {open ? <ExpandLess /> : <ExpandMore />}
-        </ListItemButton>
+        <div
+          className="clientsData"
+          style={{
+            marginTop: "20px",
+            paddingBottom: "10px",
+            width: "550px",
+            display: "flex",
+            flexDirection: "row",
+            flexBasis: "50%",
+            posistion: "fixed",
+          }}
+        >
+          <div
+            className="clientsBox"
+            style={{
+              width: "550px",
+              marginBottom: "0px",
+            }}
+          >
+            <div className="clientsParent">
+              <ListItemButton>
+                <ListItemIcon>
+                  <DirectionsCarFilledIcon sx={{ color: "#1976d2" }} />
+                </ListItemIcon>
+                <ListItemText
+                  primary={`Pojazd: ${repair.carBrand} | VIN: ${repair.carVin}`}
+                />
+              </ListItemButton>
+              <ListItemButton>
+                <ListItemIcon>
+                  <AccountCircle sx={{ color: "#1976d2" }} />
+                </ListItemIcon>
+                <ListItemText primary={`Klient: `} />
+                <GetClientName clients={clients} repair={repair} />
+              </ListItemButton>
+            </div>
+            <div className="clientsChild" sx={{}}>
+              <ListItemButton onClick={handleClick}>
+                <ListItemIcon>
+                  <CarRepairIcon sx={{ color: "#1976d2" }} />
+                </ListItemIcon>
+                <ListItemText primary="Zlecone usługi:" />
+                {open ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>
 
-        <Collapse in={open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            {repair.tasks.map((task, index) => (
-              <MapSingleRepair
-                key={index}
-                repair={repair}
-                task={task}
-                index={index}
-                enabledEdits={enabledEdits}
-                setEnabledEdits={setEnabledEdits}
-                updateTaskPrice={updateTaskPrice}
-              />
-            ))}
-          </List>
-        </Collapse>
-
-        <SubmitPricing getRepairs={getRepairs} repair={repair} />
-        <RejectPricing getRepairs={getRepairs} repair={repair} />
+              <Collapse in={open} timeout="auto" unmountOnExit>
+                <List
+                  sx={{
+                    zIndex: "2",
+                  }}
+                  component="div"
+                  disablePadding
+                  height="content-height"
+                >
+                  {repair.tasks.map((task, index) => (
+                    <MapSingleRepair
+                      key={index}
+                      repair={repair}
+                      task={task}
+                      index={index}
+                      enabledEdits={enabledEdits}
+                      setEnabledEdits={setEnabledEdits}
+                      updateTaskPrice={updateTaskPrice}
+                    />
+                  ))}
+                </List>
+              </Collapse>
+            </div>
+            <SubmitPricing getRepairs={getRepairs} repair={repair} />
+            <RejectPricing getRepairs={getRepairs} repair={repair} />
+          </div>
+        </div>
       </div>
     </>
   );
 };
 export default MapRepairs;
-
-//  <ListItemButton>
-//    <ListItemIcon>
-//      <AccountCircle sx={{ color: "#1976d2" }} />
-//    </ListItemIcon>
-//    <ListItemText primary={`Klient: ${client.name} ${client.lastName}`} />
-//  </ListItemButton>;
