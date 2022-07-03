@@ -1,4 +1,6 @@
 # Heal my car
+<a title="HealMyCar" href='https://healmycar.netlify.app/'><img src='https://healmycar.netlify.app/logoGrad.png' height='60' alt='Heal My Car' aria-label='https://healmycar.netlify.app/' /></a>
+<br></br>
 Heal my car is a web application which makes it easier to take care of your car.
 
 ## Key Features
