@@ -25,6 +25,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CarRepairIcon from "@mui/icons-material/CarRepair";
 import BuildCircleIcon from "@mui/icons-material/BuildCircle";
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
+import ConstructionIcon from '@mui/icons-material/Construction';
+import SyncIcon from '@mui/icons-material/Sync';
 
 import Paper from "@mui/material/Paper";
 
@@ -109,6 +111,17 @@ export const Repairstatus = (props) => {
         >
           <Typography sx={{ color: "#ECF0F1" }}>
             <b>Rozwiń moje aktualne zlecenia</b>
+            <ConstructionIcon
+                      sx={{
+                        marginLeft: open ? 1 : "auto",
+                        marginInlineStart: open ? 1 : "auto",
+                        marginBottom: open ? -0.5 : "auto",
+                        color: "#fff",
+                        minWidth: 10,
+                        mr: open ? 5 : "auto",
+                        justifyContent: "center",
+                      }}
+                    />
           </Typography>
         </AccordionSummary>
 
@@ -202,13 +215,27 @@ export const Repairstatus = (props) => {
                       </TableCell>
                       <TableCell>
                         <b style={{ color: "#fff" }}>
-                          {row.isDone ? "Ukończony" : "W trakcie"}
+                          {row.isDone ? "Ukończony!" : "W trakcie..."}
                         </b>
+                        <SyncIcon
+                      sx={{
+                        marginLeft: open ? 1 : "auto",
+                        marginInlineStart: open ? 1 : "auto",
+                        marginBottom: open ? -0.5 : "auto",
+                        color: "#fff",
+                        minWidth: 10,
+                        mr: open ? 5 : "auto",
+                        justifyContent: "center",
+                      }}
+                    />
                       </TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell key={`${row.clientId}-${row.carVin}`}>
-                        <Collapse in={openRowIndex === index}>
+                      <TableCell 
+                      key={`${row.clientId}-${row.carVin}`}>
+                        <Collapse
+                        
+                        in={openRowIndex === index}>
                           <div
                             style={{
                               display: "flex",
