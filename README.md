@@ -11,7 +11,6 @@
 [![JavaScript](https://img.shields.io/badge/--F7DF1E?logo=javascript&logoColor=000)](https://www.javascript.com/)
 [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
 
-
 # Heal my car
 <a title="HealMyCar" href='https://healmycar.netlify.app/'><img src='https://healmycar.netlify.app/logoGrad.png' height='60' alt='Heal My Car' aria-label='https://healmycar.netlify.app/' /></a>
 <br></br>
