@@ -38,7 +38,6 @@ export default function AdminPanel(role) {
         >
           <RepairsInProgress />
         </div>
-        <div style={{ width: "550px" }}></div>
 
         <Mechanic />
       </div>

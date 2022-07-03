@@ -3,12 +3,9 @@ import { collection, doc, query, updateDoc } from "firebase/firestore";
 import React from "react";
 import { db } from "../../src/Firebase";
 
-export const SendRepairDone = ({ clients, repair, getClients, id }) => {
-  console.log("clients", clients);
+export const SendRepairDone = ({ getClients, id }) => {
   const repairRef = doc(db, `repairs`, id);
   const handleAccept = () => {
-    console.log("id", id);
-
     updateDoc(repairRef, {
       isDone: true,
     }).then(() => {
@@ -30,3 +27,11 @@ export const SendRepairDone = ({ clients, repair, getClients, id }) => {
     </Button>
   );
 };
+{
+  /* <SendRepairDone
+  clients={clients}
+  repair={repair}
+  getClients={getClients}
+  id={repair.id}
+/>; */
+}

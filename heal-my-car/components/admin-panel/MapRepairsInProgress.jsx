@@ -19,6 +19,7 @@ import { useState } from "react";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import { CollapseList } from "./CollapseList";
+import Mechanic from "./Mechanic";
 
 export const MapRepairsInProgress = ({ clients, getClients }) => {
   const [open, setOpen] = useState(false);
@@ -50,7 +51,8 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
                 style={{
                   height: "auto",
                   marginBottom: "100px",
-                  position: "relative",
+                  alignContent: "center",
+
                   // maxHeight: "215px",
                 }}
               >
@@ -59,11 +61,10 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
                   style={{
                     marginTop: "20px",
                     paddingBottom: "10px",
-
                     display: "flex",
                     flexDirection: "column",
                     flexBasis: "50%",
-                    posistion: "fixed",
+                    alignContent: "center",
                   }}
                 >
                   <ListItemButton>
@@ -103,6 +104,11 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
                               repair={repair}
                               index={index}
                               id={id}
+                              getClients={getClients}
+                            />
+                            <SendRepairDone
+                              getClients={getClients}
+                              id={repair.id}
                             />
                           </>
                         );
@@ -127,6 +133,7 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
             </>
           );
         })}
+      <Mechanic />
     </>
   );
 };
