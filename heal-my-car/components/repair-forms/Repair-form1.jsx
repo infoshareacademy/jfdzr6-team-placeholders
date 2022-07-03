@@ -26,7 +26,7 @@ export const Form1 = () => {
     const { carBrand, carVin } = e.target;
 
     if(!carBrand.value || !carVin.value) {
-      setError('Pola fomularza nie mogą być puste.')
+      setError('Pola formularza nie mogą być puste.')
       return;
     }
     setError(null)
