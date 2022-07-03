@@ -44,13 +44,7 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
         >
           Naprawy w toku
         </h2>
-        <div
-          style={{
-            height: "64px",
-            width: "200%",
-            color: "#fff",
-          }}
-        ></div>
+
         {clients
           .filter(({ clientRepairs }) => {
             return clientRepairs.some(
