@@ -88,8 +88,10 @@ export const Repairstatus = (props) => {
     <>
       <Accordion
         style={{
-          width: "100vw",
+          width: "auto",
           backgroundColor: "#41506e",
+          borderRadius: "35px",
+          borderBottom: "15px solid #41506e",
         }}
       >
         <AccordionSummary
@@ -111,7 +113,7 @@ export const Repairstatus = (props) => {
 
         <AccordionDetails>
           <TableContainer component={Paper}>
-            <Table sx={{ minWidth: "50vw" }} aria-label="simple table">
+            <Table sx={{ minWidth: "400" }} aria-label="simple table">
               <TableHead
                 style={{
                   backgroundColor: "#b35797",
@@ -149,6 +151,7 @@ export const Repairstatus = (props) => {
                         borderBottom: "1.5px solid #ba58e6",
                         borderLeft: "1.5px solid #ba58e6",
                         borderRight: "1.5px solid #ba58e6",
+                        width: "atuo",
                         cursor: "pointer",
                         "&:last-child td, &:last-child th": { border: 0 },
                       }}
@@ -175,30 +178,35 @@ export const Repairstatus = (props) => {
                           <div
                             style={{
                               display: "flex",
-                              justifyContent: "space-evenly",
+                              justifyContent: "space-around",
                             }}
                           >
                             <ul style={{ listStyleType: "none" }}>
                               {row.tasks.map((task) => (
                                 <>
-                                  <li>
-                                    <b>Usługa:</b> {task.task}, <b>cena:</b>
+                                  <li
+                                  style={{display: "flex", justifyContent: "flex-start"}}
+                                  >
+                                    <b>Usługa:</b> {task.task} 
+                                  </li>
+
+                                  
+                                  <ul>
+                                    <li
+                                    style={{ listStyleType: "none" }}
+                                    >
+                                    <b>Cena:</b>
                                     {"  "}
                                     {task.price}
                                     {",00"}
                                     {"zł"}💰
-                                  </li>
-
-                                  <br />
+                                    </li>
+                                    <br />
+                                  </ul>
                                 </>
                               ))}
                             </ul>
-                            <div
-                              style={{
-                                display: "flex",
-                                justifyContent: "flex-end",
-                              }}
-                            >
+                            <div>
                               <div>
                                 <b>Opis dodatkowy:</b> {row.selfText}
                               </div>
