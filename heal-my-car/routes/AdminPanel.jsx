@@ -16,6 +16,8 @@ export default function AdminPanel(role) {
           display: "flex",
           flexDirection: "row",
           backgroundColor: "#ffffff",
+          height: "1000px",
+          width: "70vw",
         }}
       >
         <AdminSideMenu />
@@ -25,9 +27,18 @@ export default function AdminPanel(role) {
           flexItem
           style={{ margin: "0 20px 0 20px" }}
         />
-        <div className="content">
+        <div
+          className="content"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            flex: "1 1 auto",
+            alignContent: "flex-start",
+          }}
+        >
           <RepairsInProgress />
         </div>
+
         <Mechanic />
       </div>
       <Outlet />
