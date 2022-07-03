@@ -14,9 +14,6 @@ import {
   AccordionSummary,
   AccordionDetails,
   Typography,
-} from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import {
   Table,
   TableBody,
   TableCell,
@@ -24,6 +21,10 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import CarRepairIcon from "@mui/icons-material/CarRepair";
+import BuildCircleIcon from "@mui/icons-material/BuildCircle";
+import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 
 import Paper from "@mui/material/Paper";
 
@@ -127,13 +128,46 @@ export const Repairstatus = (props) => {
                 <TableRow>
                   <TableCell sx={{ color: "#fff" }}>
                     <b>Nr VIN</b>
+                    <BuildCircleIcon
+                      sx={{
+                        marginLeft: open ? 1 : "auto",
+                        marginInlineStart: open ? 1 : "auto",
+                        marginBottom: open ? -0.5 : "auto",
+                        color: "#fff",
+                        minWidth: 10,
+                        mr: open ? 5 : "auto",
+                        justifyContent: "center",
+                      }}
+                    />
                   </TableCell>
                   <TableCell sx={{ color: "#fff" }}>
                     <b>Marka</b>
+                    <DirectionsCarIcon
+                      sx={{
+                        marginLeft: open ? 1 : "auto",
+                        marginInlineStart: open ? 1 : "auto",
+                        marginBottom: open ? -0.5 : "auto",
+                        color: "#fff",
+                        minWidth: 5,
+                        mr: open ? 5 : "auto",
+                        justifyContent: "center",
+                      }}
+                    />
                   </TableCell>
                   <TableCell sx={{ color: "#fff" }}></TableCell>
                   <TableCell sx={{ color: "#fff" }}>
                     <b>Status</b>
+                    <CarRepairIcon
+                      sx={{
+                        marginLeft: open ? 1 : "auto",
+                        marginInlineStart: open ? 1 : "auto",
+                        marginBottom: open ? -0.5 : "auto",
+                        color: "#fff",
+                        minWidth: 10,
+                        mr: open ? 5 : "auto",
+                        justifyContent: "center",
+                      }}
+                    />
                   </TableCell>
                 </TableRow>
               </TableHead>
@@ -185,21 +219,21 @@ export const Repairstatus = (props) => {
                               {row.tasks.map((task) => (
                                 <>
                                   <li
-                                  style={{display: "flex", justifyContent: "flex-start"}}
+                                    style={{
+                                      display: "flex",
+                                      justifyContent: "flex-start",
+                                    }}
                                   >
-                                    <b>Usługa:</b> {task.task} 
+                                    <b>Usługa:</b> {task.task}
                                   </li>
 
-                                  
                                   <ul>
-                                    <li
-                                    style={{ listStyleType: "none" }}
-                                    >
-                                    <b>Cena:</b>
-                                    {"  "}
-                                    {task.price}
-                                    {",00"}
-                                    {"zł"}💰
+                                    <li style={{ listStyleType: "none" }}>
+                                      <b>Cena:</b>
+                                      {"  "}
+                                      {task.price}
+                                      {",00"}
+                                      {"zł"}💰
                                     </li>
                                     <br />
                                   </ul>
