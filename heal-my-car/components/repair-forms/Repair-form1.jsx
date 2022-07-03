@@ -12,15 +12,24 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
+import { useState } from "react";
 
 export const Form1 = () => {
   const { setFormData, formData } = useOutletContext();
   const navigate = useNavigate();
   const steps = ["Dane pojazdu", "Naprawy", "Informacje", "Zatwierdzanie"];
+  const [error, setError] = useState(null)
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const { carBrand, carVin } = e.target;
+
+    if(!carBrand.value || !carVin.value) {
+      setError('Pola fomularza nie mogą być puste.')
+      return;
+    }
+    setError(null)
 
     setFormData({
       ...formData,
@@ -96,9 +105,10 @@ export const Form1 = () => {
             type="text"
             name="carVin"
             color="secondary"
-            style={{ width: "300px", marginBottom: "55px" }}
+            style={{ width: "300px", marginBottom: "35px" }}
           />
           <div>
+            {error && <p style={{color: "red", textAlign:"center", marginBottom: "15px"}}>{error}</p>}
             <Button
               variant="contained"
               backButton
@@ -133,7 +143,7 @@ export const Form1 = () => {
                 },
               }}
               endIcon={<ArrowForwardIosIcon />}
-            >
+              >
               Dalej
             </Button>
           </div>
