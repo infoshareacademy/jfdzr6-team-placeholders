@@ -38,33 +38,43 @@ const TasksPricing = () => {
 
   return (
     <>
-      <div style={{ height: "36px" }}></div>
-      <List
-        sx={{ maxWidth: "100%", bgcolor: "background.paper" }}
-        component="nav"
-        aria-labelledby="nested-list-subheader"
-        // subheader={
-        //   <ListSubheader component="div" id="nested-list-subheader">
-        //     <h2 style={{ color: "#000000" }}>Oczekujące zlecenia</h2>
-        //   </ListSubheader>
-        // }
-      >
-        {repairs
-          .filter((obj) => {
-            return obj.totalCost === null && !obj.isRejected;
-          })
+      <div
+        style={{
+          height: "1000px",
+          width: "70vw",
+        }}
+      ><h2 style={{textAlign:'center', marginTop: '5px', fontFamily:"lato"}}>Wycena zleceń</h2>
+        <List
+          sx={{
+            bgcolor: "background.paper",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+            flexWrap: "wrap",
+            flex: "1 1 auto",
+            alignContent: "flex-start",
+          }}
+          aria-labelledby="nested-list-subheader"
+        >
+          {repairs
+            .filter((obj) => {
+              return obj.totalCost === null && !obj.isRejected;
+            })
 
-          .map((repair) => {
-            return (
-              <MapRepairs
-                getRepairs={getRepairs}
-                key={repair.id}
-                repair={repair}
-                updateTaskPrice={updateTaskPrice}
-              />
-            );
-          })}
-      </List>
+            .map((repair) => {
+              return (
+                <MapRepairs
+                  getRepairs={getRepairs}
+                  key={repair.id}
+                  repair={repair}
+                  updateTaskPrice={updateTaskPrice}
+                />
+              );
+            })}
+          <div style={{ width: "550px" }}></div>
+          <div style={{ width: "550px" }}></div>
+        </List>
+      </div>
     </>
   );
 };
