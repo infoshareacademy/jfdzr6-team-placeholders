@@ -59,7 +59,7 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
                   style={{
                     marginTop: "20px",
                     paddingBottom: "10px",
-                    width: "550px",
+
                     display: "flex",
                     flexDirection: "column",
                     flexBasis: "50%",

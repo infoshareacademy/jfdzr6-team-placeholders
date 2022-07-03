@@ -19,7 +19,10 @@ export const OpenTaskList = ({ repair, index, id }) => {
           <>
             <List
               sx={{
-                zIndex: "2",
+                justifyContent: "center",
+                width: "80%",
+                gap: "55px",
+                margin: "0 auto",
               }}
               component="div"
               disablePadding
@@ -31,7 +34,6 @@ export const OpenTaskList = ({ repair, index, id }) => {
                 </ListItemIcon>
                 <ListItemText primary={`${task.task}`} />
               </ListItemButton>
-              
             </List>
           </>
         );

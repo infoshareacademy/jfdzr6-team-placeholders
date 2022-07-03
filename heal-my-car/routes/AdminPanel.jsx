@@ -31,9 +31,7 @@ export default function AdminPanel(role) {
           className="content"
           style={{
             display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-evenly",
-            flexWrap: "wrap",
+            flexDirection: "column",
             flex: "1 1 auto",
             alignContent: "flex-start",
           }}
@@ -41,7 +39,7 @@ export default function AdminPanel(role) {
           <RepairsInProgress />
         </div>
         <div style={{ width: "550px" }}></div>
-       
+
         <Mechanic />
       </div>
       <Outlet />
