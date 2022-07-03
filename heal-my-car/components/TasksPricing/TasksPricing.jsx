@@ -43,7 +43,12 @@ const TasksPricing = () => {
           height: "1000px",
           width: "70vw",
         }}
-      ><h2 style={{textAlign:'center', marginTop: '5px', fontFamily:"lato"}}>Wycena zleceń</h2>
+      >
+        <h2
+          style={{ textAlign: "center", marginTop: "5px", fontFamily: "lato" }}
+        >
+          Wycena zleceń
+        </h2>
         <List
           sx={{
             bgcolor: "background.paper",
@@ -71,8 +76,8 @@ const TasksPricing = () => {
                 />
               );
             })}
-          <div style={{ width: "550px" }}></div>
-          <div style={{ width: "550px" }}></div>
+          <div style={{ width: "550px", backgroundColor: "transparent" }}></div>
+          <div style={{ width: "550px", backgroundColor: "transparent" }}></div>
         </List>
       </div>
     </>

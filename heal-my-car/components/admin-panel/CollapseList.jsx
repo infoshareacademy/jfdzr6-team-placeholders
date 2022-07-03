@@ -19,7 +19,7 @@ export const CollapseList = ({ repair, index, id }) => {
   };
   return (
     <>
-      <ListItemButton onClick={handleClick}>
+      <ListItemButton sx={{ paddingLeft: "0" }} onClick={handleClick}>
         <ListItemIcon>
           <CarRepairIcon sx={{ color: "#1976d2" }} />
         </ListItemIcon>

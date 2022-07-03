@@ -46,53 +46,70 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
           return (
             <>
               <div
-                className="clientsData"
+                className="clientsWrapper"
                 style={{
-                  marginTop: "20px",
-                  paddingBottom: "10px",
-                  display: "flex",
-                  flexDirection: "column",
+                  height: "auto",
+                  marginBottom: "100px",
+                  position: "relative",
+                  // maxHeight: "215px",
                 }}
               >
-                <ListItemButton
-                  sx={{
+                <div
+                  className="clientsData"
+                  style={{
+                    marginTop: "20px",
+                    paddingBottom: "10px",
+                    width: "550px",
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "flex-start",
+                    flexBasis: "50%",
+                    posistion: "fixed",
                   }}
                 >
-                  <ListItemIcon>
-                    <DirectionsCarFilledIcon sx={{ color: "#1976d2" }} />
-                  </ListItemIcon>
-                  {client.clientRepairs
-                    .filter(({ isDone }) => !isDone)
-                    .filter(({ totalCost }) => totalCost != null)
-                    .map((repair, index) => {
-                      return (
-                        <>
-                          <ListItemText
-                            primary={`Pojazd: ${repair.carBrand} | VIN: ${repair.carVin}`}
-                          />
-                          <CollapseList
-                            key={index}
-                            repair={repair}
-                            index={index}
-                            id={id}
-                          />
-                        </>
-                      );
-                    })}
-                </ListItemButton>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <AccountCircle sx={{ color: "#1976d2" }} />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={`Klient: ${client.name} ${client.lastName}`}
-                  />
-                </ListItemButton>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <AccountCircle sx={{ color: "#1976d2" }} />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={`Klient: ${client.name} ${client.lastName}`}
+                    />
+                  </ListItemButton>
+                  <ListItemButton
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      paddingLeft: "10px",
+                    }}
+                  >
+                    {client.clientRepairs
+                      .filter(({ isDone }) => !isDone)
+                      .filter(({ totalCost }) => totalCost != null)
+                      .map((repair, index) => {
+                        return (
+                          <>
+                            <div style={{ display: "flex" }}>
+                              <ListItemIcon>
+                                <DirectionsCarFilledIcon
+                                  sx={{ color: "#1976d2" }}
+                                />
+                              </ListItemIcon>
+                              <ListItemText
+                                primary={`Pojazd: ${repair.carBrand} | VIN: ${repair.carVin}`}
+                              />
+                            </div>
+                            <CollapseList
+                              key={index}
+                              repair={repair}
+                              index={index}
+                              id={id}
+                            />
+                          </>
+                        );
+                      })}
+                  </ListItemButton>
 
-                {/* <ListItemButton onClick={handleClick}>
+                  {/* <ListItemButton onClick={handleClick}>
                   <ListItemIcon>
                     <CarRepairIcon sx={{ color: "#1976d2" }} />
                   </ListItemIcon>
@@ -105,6 +122,7 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
                     <OpenTaskList key={index} clients={clients} index={index} />
                   </List>
                 </Collapse> */}
+                </div>
               </div>
             </>
           );

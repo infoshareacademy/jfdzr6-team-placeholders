@@ -17,13 +17,21 @@ export const OpenTaskList = ({ repair, index, id }) => {
       {repair.tasks.map((task, index) => {
         return (
           <>
-            <List component="div" disablePadding>
+            <List
+              sx={{
+                zIndex: "2",
+              }}
+              component="div"
+              disablePadding
+              height="content-height"
+            >
               <ListItemButton sx={{ pl: 10, maxHeight: "48px" }}>
                 <ListItemIcon>
                   <BuildIcon sx={{ color: "#1976d2" }} />
                 </ListItemIcon>
                 <ListItemText primary={`${task.task}`} />
               </ListItemButton>
+              
             </List>
           </>
         );
