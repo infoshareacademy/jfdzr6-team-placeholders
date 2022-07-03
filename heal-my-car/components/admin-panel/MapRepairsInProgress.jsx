@@ -2,6 +2,8 @@ import {
   Accordion,
   AccordionSummary,
   ListItemButton,
+  ListItemIcon,
+  ListItemText,
   Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -31,7 +33,82 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
         .map((client, index) => {
           return (
             <>
-              <Accordion
+              <ListItemButton>
+                <ListItemIcon>
+                  <DirectionsCarFilledIcon sx={{ color: "#1976d2" }} />
+                </ListItemIcon>
+                {client.clientRepairs
+                  .filter(({ isDone }) => !isDone)
+                  .filter(({ totalCost }) => totalCost != null)
+                  .map((repair, index) => {
+                    return (
+                      <ListItemText
+                        primary={`Pojazd: ${repair.carBrand} | VIn: ${repair.carVin}`}
+                      />
+                    );
+                  })}
+              </ListItemButton>
+            </>
+          );
+        })}
+    </>
+  );
+};
+
+{
+  /* <div
+                className="clientsData"
+                style={{ marginTop: "20px", paddingBottom: "10px" }}
+              >
+                <ListItemButton>
+                  <ListItemIcon>
+                    <DirectionsCarFilledIcon sx={{ color: "#1976d2" }} />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={`Klient: ${client.name} ${client.lastName}`}`}
+                  />
+                </ListItemButton>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <AccountCircle sx={{ color: "#1976d2" }} />
+                  </ListItemIcon>
+                  <ListItemText primary={`Klient: `} />
+                  <GetClientName clients={clients} repair={repair} />
+                </ListItemButton>
+                <ListItemButton onClick={handleClick}>
+                  <ListItemIcon>
+                    <CarRepairIcon sx={{ color: "#1976d2" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="Zlecone usługi:" />
+                  {open ? <ExpandLess /> : <ExpandMore />}
+                </ListItemButton>
+
+                <Collapse in={open} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    {repair.tasks.map((task, index) => (
+                      <MapSingleRepair
+                        key={index}
+                        repair={repair}
+                        task={task}
+                        index={index}
+                        enabledEdits={enabledEdits}
+                        setEnabledEdits={setEnabledEdits}
+                        updateTaskPrice={updateTaskPrice}
+                      />
+                    ))}
+                  </List>
+                </Collapse>
+
+                <SendRepairDone
+                                    clients={clients}
+                                    repair={repair}
+                                    getClients={getClients}
+                                    id={repair.id}
+                                  />
+              </div> */
+}
+{
+  /* <Accordion
                 key={index}
                 sx={{
                   display: "flex",
@@ -126,4 +203,5 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
         })}
     </>
   );
-};
+}; */
+}
