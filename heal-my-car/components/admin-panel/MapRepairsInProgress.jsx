@@ -53,12 +53,15 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
         ></div>
         {clients
           .filter(({ clientRepairs }) => {
-            return clientRepairs.some(({ isDone }) => !isDone);
+            return clientRepairs.some(
+              ({ totalCost, isDone }) => !isDone && totalCost != null
+            );
           })
-          .filter(({ clientRepairs }) => {
-            return clientRepairs.some(({ totalCost }) => totalCost != null);
-          })
+          // .filter(({ clientRepairs }) => {
+          //   return clientRepairs.some(({ totalCost }) => totalCost != null);
+          // })
           .map((client, index, id) => {
+            console.log("client111", client);
             return (
               <>
                 <div
@@ -101,8 +104,11 @@ export const MapRepairsInProgress = ({ clients, getClients }) => {
                       }}
                     >
                       {client.clientRepairs
-                        .filter(({ isDone }) => !isDone)
-                        .filter(({ totalCost }) => totalCost != null)
+                        .filter(
+                          ({ totalCost, isDone }) =>
+                            !isDone && totalCost != null
+                        )
+
                         .map((repair, index) => {
                           return (
                             <>
