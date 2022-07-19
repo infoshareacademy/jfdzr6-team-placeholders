@@ -68,6 +68,7 @@ const Content = () => {
               fontFamily: "lato",
               border: "1px white solid",
               backgroundColor: "#41506e",
+              lineHeight: 1,
               "&:hover": {
                 backgroundColor: "#41506e",
                 color: "#9c27b0",
