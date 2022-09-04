@@ -18,10 +18,15 @@ Heal my car is a web application which makes it easier to take care of your car.
 
 [Heal My Car](https://healmycar.netlify.app/)
 
+## Admin panel access: 
+* 👷 admin@admin.ad
+* 🤐 adminstrongpass
+
 ## Key Features
 * 🕛 Book a service for your car,
 * 💰 Estimate the cost of the service,
 * ✅ Check the status of the service.
+
 
 ## Tech stack
 
